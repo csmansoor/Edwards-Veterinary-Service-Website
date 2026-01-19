@@ -1,0 +1,8 @@
+{
+  "name": "Edwards Veterinary Services SPA",
+  "description": "A comprehensive, modern React application for a veterinary clinic featuring appointment booking, service details, and client resources.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
