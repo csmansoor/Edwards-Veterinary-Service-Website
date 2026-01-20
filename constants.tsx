@@ -2,12 +2,19 @@ import React from 'react';
 import { Service, TeamMember, Testimonial, BlogPost } from './types';
 
 // Importing local images from the ./images folder
+// @ts-ignore
 import drpaul from './images/paul.jpg';
+// @ts-ignore
 import kella from './images/kella.jpg';
+// @ts-ignore
 import josie from './images/josie.jpg';
+// @ts-ignore
 import aziz from './images/aziz.jpg';
+// @ts-ignore
 import shahid from './images/shahid.jpg';
+// @ts-ignore
 import wendy from './images/wendy.jpg';
+// @ts-ignore
 import keyla from './images/keyla.jpg';
 
 
