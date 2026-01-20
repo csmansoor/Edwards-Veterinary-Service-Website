@@ -46,7 +46,7 @@ const Home: React.FC = () => {
           <div className="lg:w-1/2">
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9ef1?auto=format&fit=crop&q=80&w=800" 
+                src="https://dashboard.animaltrust.org.uk/uploads/Owen_Story_5327ca244c.png" 
                 alt="Happy dogs outdoors" 
                 className="rounded-3xl shadow-2xl relative z-10 w-full h-[500px] object-cover"
               />
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
           <p className="text-gray-600 mb-12 max-w-2xl mx-auto italic">527 Broadway St, Tillsonburg (Across from the movie theatre)</p>
           <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
             <img 
-              src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=1200" 
+              src="https://edwardsvet.ca/wp-content/uploads/2025/05/Edwards-Veterinary-Services-Building-Exterior.jpg" 
               alt="The modern interior of our veterinary clinic" 
               className="w-full h-[500px] object-cover"
             />

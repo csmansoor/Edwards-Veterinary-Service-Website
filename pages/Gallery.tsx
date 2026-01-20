@@ -1,56 +1,26 @@
+import React from 'react';
 
-import React, { useState } from 'react';
-
-// Array of images for the gallery with verified working Unsplash IDs
+// Array of images for the gallery
 const IMAGES = [
   { 
     id: 1, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800' 
+    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/492504955_1301931515272250_775604131793366319_n-1.jpg' 
   },
   { 
     id: 2, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800' 
+    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/493881546_1301931308605604_4811192717619557355_n-1.jpg' 
   },
   { 
     id: 3, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800' 
+    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/493931542_1301931531938915_2570619481159989854_n-1.jpg' 
   },
   { 
     id: 4, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1543466835-00a7907e9ef1?auto=format&fit=crop&q=80&w=800' 
+    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/494118762_1301931525272249_7740344777626305592_n-1.jpg' 
   },
-  { 
-    id: 5, 
-    category: 'Grooming', 
-    url: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800' 
-  },
-  { 
-    id: 6, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&q=80&w=800' 
-  },
-  { 
-    id: 7, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=800' 
-  },
-  { 
-    id: 8, 
-    category: 'Care', 
-    url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800' 
-  }
 ];
 
 const Gallery: React.FC = () => {
-  const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Care', 'Operation', 'Grooming'];
-
-  const filteredImages = filter === 'All' ? IMAGES : IMAGES.filter(img => img.category === filter);
-
   return (
     <div className="bg-white pb-20">
       {/* Page Title Section */}
@@ -60,26 +30,9 @@ const Gallery: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 mt-12">
-        {/* Filter Selection Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full font-bold transition-all border-2 ${
-                filter === cat 
-                ? 'bg-brand text-white border-brand shadow-lg' 
-                : 'bg-white text-gray-500 border-gray-100 hover:border-brand hover:text-brand'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Masonry-style Grid for Images */}
+        {/* Image Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredImages.map(img => (
+          {IMAGES.map(img => (
             <div key={img.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="aspect-square overflow-hidden">
                 <img 
@@ -88,8 +41,6 @@ const Gallery: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
               </div>
-              
-              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-brand/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
           ))}
@@ -110,6 +61,81 @@ const Gallery: React.FC = () => {
           <div className="flex justify-center space-x-2">
             {[1, 2, 3].map(i => <div key={i} className="h-1 w-8 bg-brand/20 rounded-full"></div>)}
           </div>
+        </div>
+      </div>
+
+      {/* PHOTO SUBMISSION FORM */}
+      <div className="container mx-auto px-4 mt-24 mb-20 max-w-3xl">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Submit Your Pet's Photo</h2>
+            <p className="text-gray-500">Share your favorite moments with our clinic community!</p>
+          </div>
+
+          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            {/* Name Fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Name *</label>
+                <input type="text" placeholder="First" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition" required />
+              </div>
+              <div className="flex flex-col justify-end">
+                <input type="text" placeholder="Last" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition" required />
+              </div>
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">Email *</label>
+              <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition" required />
+            </div>
+
+            {/* Pet's Name */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">Pet's Name</label>
+              <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition" />
+            </div>
+
+            {/* Description */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">Tell us what is happening in this photo!</label>
+              <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition resize-none"></textarea>
+            </div>
+
+            {/* File Upload Section */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">File Upload *</label>
+              <div 
+                className="relative group border-2 border-dashed border-gray-300 rounded-2xl p-10 text-center hover:border-brand hover:bg-brand/5 transition-all cursor-pointer"
+                onDragOver={(e) => e.preventDefault()}
+              >
+                <input 
+                  type="file" 
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" 
+                  accept="image/*"
+                  required
+                />
+                <div className="space-y-3">
+                  <div className="mx-auto h-12 w-12 text-gray-400 group-hover:text-brand transition">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 font-medium text-lg">Drag & Drop Files</p>
+                  <p className="text-sm text-gray-400">or</p>
+                  <span className="inline-block bg-white px-6 py-2 rounded-full border border-gray-200 text-sm font-bold text-brand shadow-sm group-hover:bg-brand group-hover:text-white transition">Choose Files to Upload</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button 
+              type="submit" 
+              className="w-full bg-brand text-white py-4 rounded-xl font-bold text-lg hover:bg-brand-dark shadow-lg hover:shadow-brand/30 transition-all transform active:scale-[0.98]"
+            >
+              Submit Photo
+            </button>
+          </form>
         </div>
       </div>
     </div>

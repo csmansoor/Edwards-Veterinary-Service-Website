@@ -26,7 +26,7 @@ const Blog: React.FC = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mt-2 mb-4 group-hover:text-brand transition">{post.title}</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">{post.excerpt}</p>
                 <button className="text-brand font-bold flex items-center group-hover:translate-x-2 transition">
-                  Read Article
+                  
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </button>
               </div>

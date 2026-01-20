@@ -1,14 +1,29 @@
-
 import React from 'react';
 import { DOCTORS, CARE_TEAM } from '../constants';
 
 const Team: React.FC = () => {
   return (
     <div className="bg-white pb-20">
-      <section className="bg-brand py-20 text-white text-center">
-        <h1 className="text-4xl font-bold mb-4">Meet Our Team</h1>
-        <p className="text-xl text-brand-light">The dedicated professionals caring for your pets.</p>
-      </section>
+      {/* Header Section with Background Image */}
+      
+   <section 
+  className="relative py-40 text-center bg-cover bg-no-repeat bg-center"
+  style={{ 
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(32, 28, 28, 0.88)), url('https://edwardsvet.ca/wp-content/uploads/2025/12/team-43.png')` 
+  }}
+>
+  <div className="relative z-10 container mx-auto px-4">
+    {/* Use text-white because the bottom of your gradient is dark (0.88 opacity) */}
+    <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+      Meet Our Team
+    </h1>
+    
+    {/* Use a slightly transparent white for the subtext to create hierarchy */}
+    <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto font-medium drop-shadow-md">
+      The dedicated professionals caring for your pets with compassion and expertise.
+    </p>
+  </div>
+</section>
 
       {/* Doctors Section */}
       <div className="container mx-auto px-4 mt-20 max-w-6xl">
@@ -33,7 +48,8 @@ const Team: React.FC = () => {
                   <p className="text-gray-500 font-bold uppercase text-xs tracking-widest mt-1">{member.role}</p>
                 </div>
                 <div className="h-px w-full bg-gray-200 mb-6"></div>
-                <p className="text-gray-600 leading-relaxed italic">
+                {/* Added whitespace-pre-line so your bio line breaks show up */}
+                <p className="text-gray-600 leading-relaxed italic whitespace-pre-line">
                   {member.bio}
                 </p>
               </div>
@@ -64,7 +80,7 @@ const Team: React.FC = () => {
                   <h4 className="text-xl font-bold text-brand group-hover:text-brand-dark transition">{member.name}</h4>
                   <p className="text-gray-400 text-xs font-bold uppercase tracking-tighter mt-1">{member.role}</p>
                 </div>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">
                   {member.bio}
                 </p>
               </div>
