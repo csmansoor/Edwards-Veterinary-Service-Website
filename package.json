@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://csmansoor.github.io/Edwards-Veterinary-Service-Website/",
+  "homepage": "https://csmansoor.github.io/edwards-veterinary-service-website",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
