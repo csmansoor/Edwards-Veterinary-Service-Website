@@ -102,6 +102,7 @@ const Header = () => {
         <div className="lg:hidden bg-white border-t border-gray-100 h-screen overflow-y-auto">
           <nav className="flex flex-col p-4 space-y-4">
             <Link to="/" onClick={toggleMenu} className="text-lg font-medium border-b pb-2">Home</Link>
+
             <div className="space-y-2">
               <p className="font-bold text-gray-400 uppercase text-xs">About</p>
               <Link to="/about" onClick={toggleMenu} className="block pl-4">Our Story</Link>
@@ -114,7 +115,13 @@ const Header = () => {
               <Link to="/services/pet-wellness-care" onClick={toggleMenu} className="block pl-4">Wellness Care</Link>
               <Link to="/services/pet-surgery" onClick={toggleMenu} className="block pl-4">Surgery</Link>
             </div>
-            <Link to="/resources" onClick={toggleMenu} className="text-lg font-medium border-b pb-2">Resources</Link>
+            <div className="space-y-2">
+              <p className="font-bold text-gray-400 uppercase text-xs">Resources</p>
+              <Link to="/forms" onClick={toggleMenu} className="block pl-4">Online Forms</Link>
+              <Link to="/faqs" onClick={toggleMenu} className="block pl-4">FAQs</Link>
+              <Link to="/payments" onClick={toggleMenu} className="block pl-4">Payment Options</Link>
+              <Link to="/blog" onClick={toggleMenu} className="block pl-4">Pet Health Blog</Link>
+            </div>
             <Link to="/store" onClick={toggleMenu} className="text-lg font-medium border-b pb-2">Online Store</Link>
             <Link to="/contact" onClick={toggleMenu} className="text-lg font-medium border-b pb-2">Contact</Link>
             <Link to="/appointment" onClick={toggleMenu} className="bg-brand text-white text-center py-3 rounded-lg font-bold">Book Appointment</Link>
