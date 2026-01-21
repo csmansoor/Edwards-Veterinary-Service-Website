@@ -18,6 +18,7 @@ import Careers from './pages/Careers';
 import FAQs from './pages/FAQs';
 import Blog from './pages/Blog';
 
+
 const App: React.FC = () => {
   return (
     <Router>
