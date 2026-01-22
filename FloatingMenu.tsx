@@ -28,7 +28,7 @@ const FloatingMenu = () => {
       {/* 1. Book Appointment */}
       <a 
         href="#/appointment" 
-        className="flex-1 bg-[#2a7f62] hover:bg-[#1e5c47] flex items-center justify-center uppercase tracking-tighter md:tracking-wider text-center px-1 transition-colors"
+        className="flex-1 bg-blue-600 hover:bg-[#1e5c47] flex items-center justify-center uppercase tracking-tighter md:tracking-wider text-center px-1 transition-colors"
       >
         Book Appointment
       </a>
