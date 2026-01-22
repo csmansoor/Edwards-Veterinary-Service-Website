@@ -1,4 +1,4 @@
-
+import ContactForm from '../ContactForm';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -206,7 +206,14 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow">{children}</main>
+      
+      <main className="flex-grow">
+        {children}
+      </main>
+
+      {/* ADD THE CONTACT FORM HERE */}
+      <ContactForm />
+
       <Footer />
     </div>
   );

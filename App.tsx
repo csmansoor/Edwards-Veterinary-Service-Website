@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import FloatingMenu from './FloatingMenu';
 import { Layout } from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -22,6 +23,7 @@ import Blog from './pages/Blog';
 const App: React.FC = () => {
   return (
     <Router>
+      <FloatingMenu />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
