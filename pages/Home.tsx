@@ -80,31 +80,46 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Services</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Specialized care for every tail, claw, and feather.</p>
+{/* Services CTA Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-black text-[#2a7f62] uppercase tracking-tight mb-4">
+              Our Services
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+              Specialized care for every tail, claw, and feather.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.slice(0, 3).map((service) => (
-              <div key={service.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition">
-                <div className="h-56 overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-4 text-brand">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <Link to={`/services/${service.slug}`} className="text-brand font-bold">View Details →</Link>
-                </div>
-              </div>
-            ))}
+
+          <div className="bg-gray-50 rounded-[3rem] p-12 md:p-20 border border-gray-100 shadow-sm max-w-4xl mx-auto transform hover:shadow-md transition-all">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 leading-tight">
+              Explore our full range of <br className="hidden md:block" /> 
+              veterinary care and medical services
+            </h3>
+            
+            <Link 
+              to="/services" 
+              className="inline-block bg-[#2a7f62] text-white px-12 py-6 rounded-full font-black text-2xl hover:bg-black transition-all shadow-xl uppercase tracking-widest transform hover:scale-105 active:scale-95"
+            >
+              View All Services
+            </Link>
+
+            <div className="mt-12 flex justify-center gap-6 text-4xl opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+              <span>🏥</span>
+              <span>✂️</span>
+              <span>🦷</span>
+              <span>🦜</span>
+              <span>🚐</span>
+            </div>
           </div>
         </div>
       </section>
-    </div>
-  );
-};
+
+      {/* Put your next sections (Doctors, Testimonials, etc.) here */}
+
+    </div> // This closes the main return div
+  ); // This closes the return statement
+}; // This closes the Home component function
 
 export default Home;
