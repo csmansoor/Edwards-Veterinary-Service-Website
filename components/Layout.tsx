@@ -1,6 +1,6 @@
-import ContactForm from '../ContactForm';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ContactForm from '../ContactForm';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +13,43 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
+      {/* 1. GREEN CONTACT BAR (Both links now styled as buttons) */}
+      <div className="bg-[#2a7f62] text-white py-2 px-4">
+        <div className="container mx-auto flex justify-center md:justify-end gap-4 text-sm font-bold items-center">
+          
+          {/* CONTACT US BUTTON */}
+          <a 
+            href="tel:5196882123" 
+            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-full transition-all border border-white/30 shadow-sm"
+          >
+            <span>📞</span>
+            <span>Contact Us</span>
+          </a>
+
+          {/* EMAIL US BUTTON */}
+          <a 
+            href="mailto:frontdesk.edwardsvs@gmail.com" 
+            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-full transition-all border border-white/30 shadow-sm"
+          >
+            <span>✉️</span>
+            <span>Email Us</span>
+          </a>
+          
+        </div>
+      </div>
+
+      {/* 2. YELLOW BOOKING BAR */}
+      <div className="bg-[#f1c40f] py-2 border-b border-gray-100">
+        <div className="container mx-auto text-center">
+          <Link 
+            to="/appointment" 
+            className="text-black font-black uppercase text-xs tracking-widest hover:opacity-70 transition-opacity"
+          >
+            Book Appointment
+          </Link>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
@@ -211,7 +248,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         {children}
       </main>
 
-      {/* ADD THE CONTACT FORM HERE */}
       <ContactForm />
 
       <Footer />

@@ -21,7 +21,7 @@ const Store: React.FC = () => {
               Our care at Edwards Veterinary Services includes convenient online access to your pet’s medications and everyday essentials through our secure, easy-to-use pet pharmacy. From prescription medications and parasite prevention to specialized diets, food, toys, and wellness products, we make it simple for pet owners in Tillsonburg, ON to get everything their pets need in one trusted place.
             </p>
             <a 
-              href="https://www.myvetstore.ca/edwardsvet" 
+              href="https://www.myvetstore.ca/home" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block bg-brand text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-dark transition shadow-lg transform hover:scale-105"
@@ -146,7 +146,7 @@ const Store: React.FC = () => {
           </div>
 
           <a 
-            href="https://www.myvetstore.ca/edwardsvet" 
+            href="https://www.myvetstore.ca/home" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block bg-white text-brand px-10 py-5 rounded-full font-black text-xl hover:bg-gray-100 transition shadow-2xl"

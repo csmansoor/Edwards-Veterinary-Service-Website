@@ -7,7 +7,7 @@ const ContactForm = () => {
       <div 
         className="relative py-24 bg-cover bg-center text-center text-white overflow-hidden"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80')` 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.thevetgal.com/blog/wp-content/uploads/2024/12/iStock-2181733181-1.jpg')` 
         }}
       >
         <div className="max-w-4xl mx-auto px-4 relative z-10">

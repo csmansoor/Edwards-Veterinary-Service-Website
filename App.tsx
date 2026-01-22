@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import FloatingMenu from './FloatingMenu';
 import { Layout } from './components/Layout';
 import Home from './pages/Home';
@@ -19,10 +18,25 @@ import Careers from './pages/Careers';
 import FAQs from './pages/FAQs';
 import Blog from './pages/Blog';
 
+// Updated ScrollToTop with smooth animation
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' // This adds the slow, animated movement
+    });
+  }, [pathname]);
+
+  return null;
+};
 
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop /> 
       <FloatingMenu />
       <Layout>
         <Routes>
