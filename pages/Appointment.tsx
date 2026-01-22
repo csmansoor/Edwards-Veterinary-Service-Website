@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Appointment: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formType, setFormType] = useState<string>('');
   const [petSpecies, setPetSpecies] = useState<string>('');
   const location = useLocation();
+  const navigate = useNavigate(); // Navigation for the back button
 
   // --- DYNAMIC MEDICATION LOGIC ---
   const [medications, setMedications] = useState([{ name: '', dosage: '', freq: '', dur: '' }]);
@@ -25,6 +26,12 @@ const Appointment: React.FC = () => {
     setMedications(newMeds);
   };
 
+  // 1. SCROLL TO TOP ON PAGE LOAD
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // 2. DETECT FORM TYPE FROM URL
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const type = params.get('type');
@@ -34,7 +41,7 @@ const Appointment: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // Scroll to top for success message
   };
 
   if (submitted) {
@@ -52,7 +59,6 @@ const Appointment: React.FC = () => {
     );
   }
 
-  // REUSABLE MEDICATION TABLE COMPONENT
   const MedicationTable = () => (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
@@ -101,13 +107,26 @@ const Appointment: React.FC = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           
-          <div className="bg-[#2a7f62] p-8 text-white text-center">
-            <h1 className="text-3xl font-bold uppercase tracking-tight">
-              {formType === 'surgery' ? 'Surgery Consent Form' : 
-               formType === 'prescription' ? 'Prescription Refill Request' : 
-               'Client & Patient Information'}
-            </h1>
-            <p className="mt-2 opacity-90 italic">Please complete all mandatory fields marked with *</p>
+          {/* HEADER SECTION WITH BACK BUTTON */}
+          <div className="bg-[#2a7f62] p-8 text-white relative">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-xl transition-all text-xs font-bold md:left-8"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>BACK</span>
+            </button>
+
+            <div className="text-center">
+              <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
+                {formType === 'surgery' ? 'Surgery Consent Form' : 
+                 formType === 'prescription' ? 'Prescription Refill Request' : 
+                 'Client & Patient Information'}
+              </h1>
+              <p className="mt-2 opacity-90 italic text-sm">Please complete all mandatory fields marked with *</p>
+            </div>
           </div>
           
           <form onSubmit={handleSubmit} className="p-6 md:p-12 space-y-8">
@@ -175,7 +194,6 @@ const Appointment: React.FC = () => {
                   <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="e.g. 25 lbs" />
                 </div>
                 
-                {/* DYNAMIC MEDICATION TABLE */}
                 <MedicationTable />
 
                 <div className="space-y-2">
@@ -218,7 +236,6 @@ const Appointment: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700">Does your pet have current medical conditions? If yes, describe: *</label>
                   <textarea required className="w-full p-4 rounded-xl border border-gray-200 h-20"></textarea>
                   
-                  {/* DYNAMIC MEDICATION TABLE FOR SURGERY */}
                   <MedicationTable />
                 </div>
 
