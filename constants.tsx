@@ -1,6 +1,6 @@
 import React from 'react';
-import { Service, TeamMember, Testimonial, BlogPost } from './types';
-
+import { Service, TeamMember, BlogPost } from './types';
+import Testimonial from './pages/Testimonials';
 // Importing local images
 // @ts-ignore
 import drpaul from './images/paul.jpg';
@@ -23,9 +23,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-wellness-care',
     title: 'Pet Wellness Care',
     icon: '🏥',
-    description: 'The foundation of lifelong health focusing on annual exams and prevention.',
-    tagline: 'Comprehensive Care for Every Life Stage',
-    ctaText: 'Book Wellness Appointment',
+    description: 'From annual exams and parasite prevention to tailored vaccination schedules, we focus on early detection and long-term wellness.',
+    tagline: 'The foundation of lifelong health',
+    ctaText: 'Learn More About Pet Wellness Care',
     mainImage:'https://media.istockphoto.com/id/2222963156/photo/veterinarian-examining-a-cat-with-stethoscope-in-clinic.webp?a=1&b=1&s=612x612&w=0&k=20&c=vtigdKbJ2-RM--yl9xPEX7xwNrsfbuOJTTkv3qRxkOQ=',
     secondaryImage:'https://media.istockphoto.com/id/2160576555/photo/veterinarian-examining-happy-dog-during-routine-checkup.webp?a=1&b=1&s=612x612&w=0&k=20&c=q9QkYc_mRUU9N7hob__lXUhBJS4G4_b_EpANHtnAriE=',
     thirdImage:'https://plus.unsplash.com/premium_photo-1661962400362-e6aea4885bb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwd2VsbG5lc3MlMjBjYXJlJTIwY2xpbmljYWx8ZW58MHx8MHx8fDA%3D',
@@ -58,9 +58,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-soft-tissue-surgery',
     title: 'Pet Soft Tissue Surgery',
     icon: '✂️',
-    description: 'Expert surgical precision for internal health and mass removals.',
-    tagline: 'Advanced Surgical Excellence',
-    ctaText: 'Schedule a Consultation',
+    description: 'Our experienced veterinarians perform a range of soft tissue surgeries using modern techniques and careful monitoring from our comprehensive in-house suite.',
+    tagline: 'Safe, effective surgical care tailored to your pet’s needs',
+    ctaText: 'Schedule a Surgical Consultation',
     mainImage: 'https://images.unsplash.com/photo-1727830968495-ea2798aaee35?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBldCUyMHN1cmdlcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
     secondaryImage: 'https://images.unsplash.com/photo-1758206523735-079e56f2faf7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGV0JTIwc3VyZ2VyeSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
     thirdImage: 'https://media.istockphoto.com/id/92213089/photo/veterinary-dentistry.webp?a=1&b=1&s=612x612&w=0&k=20&c=ow7apjUJ61rBm8sDQxYR3wuFtMkhAzRdjyrTO2ocTYY=',
@@ -93,9 +93,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-dentistry',
     title: 'Pet Dentistry',
     icon: '🦷',
-    description: 'Professional cleanings and oral surgery for a healthier, pain-free life.',
-    tagline: 'Healthy Smiles, Longer Lives',
-    ctaText: 'Discover Dental Services',
+    description: 'We offer professional dental cleanings, digital dental X-rays, and oral surgery to address tooth pain, infection, and long-term dental health.',
+    tagline: 'Healthy teeth mean a healthier, happier pet',
+    ctaText: 'Discover Our Pet Dental Services',
     mainImage: 'https://plus.unsplash.com/premium_photo-1663040637726-fbfa797696a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBldCUyMGRlbnRpc3RvcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
     secondaryImage: 'https://images.unsplash.com/photo-1740410728872-cea63dd27621?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBldCUyMGRlbnRpc3RvcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1663040486740-60e41b8fd1e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBldCUyMGRlbnRpc3Rvcnl8ZW58MHx8MHx8fDA%3D',
@@ -128,9 +128,9 @@ export const SERVICES: Service[] = [
     slug: 'puppy-kitten-care',
     title: 'Puppy & Kitten Care',
     icon: '🐾',
-    description: 'Specialized care to give your newest family member the best start.',
-    tagline: 'Growing Up Healthy and Strong',
-    ctaText: 'Explore Pediatric Care',
+    description: 'We provide early-life care, including exams, vaccines, nutritional advice, and deworming to help your young pets grow strong and healthy.',
+    tagline: 'Get your new family member off to a great start',
+    ctaText: 'Explore Our Puppy & Kitten Programs',
     mainImage: 'https://images.unsplash.com/photo-1719464454959-9cf304ef4774?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHklMjBjYXJlJTIwY2xpbmljYWx8ZW58MHx8MHx8fDA%3D',
     secondaryImage: 'https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fHB1cHB5JTIwY2FyZSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1702598829265-5c375ee8e9e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHB1cHB5JTIwY2FyZSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
@@ -163,9 +163,9 @@ export const SERVICES: Service[] = [
     slug: 'exotic-pet-care',
     title: 'Exotic Pet Care',
     icon: '🦜',
-    description: 'Unique care for birds, reptiles, and small mammals.',
-    tagline: 'Expert Care for Every Species',
-    ctaText: 'Learn About Exotic Services',
+    description: 'We treat various exotic pets at our clinic, including birds, reptiles, and small mammals. Our team has experience handling their unique care needs.',
+    tagline: 'Trusted care for unique companions',
+    ctaText: 'Learn More About Exotic Pet Services',
     mainImage: 'https://media.istockphoto.com/id/1369649907/photo/a-veterinarian-is-checking-the-health-of-a-lovebird-forpus-bird-physical-examination.webp?a=1&b=1&s=612x612&w=0&k=20&c=At_w5P9ZgzjwDqxsJVZnGo_WBgr4-8anb_bPwV7z9yk=',
     secondaryImage: 'https://media.istockphoto.com/id/1451147165/photo/vetenerian-holding-a-bearded-dragon.webp?a=1&b=1&s=612x612&w=0&k=20&c=M7H1l_dKyAerurdjMsjLSMAtpw-tg8q6aOJ8xoL6XVE=',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1663050689215-e2f4f493811c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGV4b3RpYyUyMHBldCUyMGNhcmV8ZW58MHx8MHx8fDA%3D',
@@ -198,9 +198,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-grooming',
     title: 'Pet Grooming',
     icon: '🛁',
-    description: 'Medical baths and hygiene services in a stress-free environment.',
-    tagline: 'Look Good, Feel Better',
-    ctaText: 'Book a Spa Day',
+    description: 'Whether your pet needs a sedated groom, medical bath, or regular hygiene maintenance, we offer grooming services in a low-stress environment.',
+    tagline: 'Comfort-focused grooming for health and hygiene',
+    ctaText: 'Book a Grooming Appointment',
     mainImage: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1200',
     secondaryImage: 'https://images.unsplash.com/photo-1527526029430-319f10814151?q=80&w=1200',
     thirdImage: 'https://images.unsplash.com/photo-1591768575198-88dac53fbd0a?q=80&w=1200',
@@ -231,11 +231,11 @@ export const SERVICES: Service[] = [
   {
     id: 'lab',
     slug: 'in-house-lab',
-    title: 'In-House & Referral Lab',
+    title: 'Pet In-House & Referral Lab',
     icon: '🔬',
-    description: 'Rapid diagnostic results for bloodwork, urine, and fecal analysis.',
-    tagline: 'Fast Answers, Accurate Care',
-    ctaText: 'Learn About Diagnostics',
+    description: 'Our in-house lab provides quick results for bloodwork, urinalysis, and other essential tests. We also collaborate with referral labs for advanced diagnostics.',
+    tagline: 'Accurate diagnostics without the wait',
+    ctaText: 'Find Out More About Our Lab Services',
     mainImage: 'https://plus.unsplash.com/premium_photo-1676325102346-7f0f536d1f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVkaWNhbCUyMGxhYnxlbnwwfHwwfHx8MA%3D%3D',
     secondaryImage: 'https://images.unsplash.com/photo-1582719298866-977ee81c87d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3Dh',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1661374890961-0e69d1c30e14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3D',
@@ -268,9 +268,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-x-ray',
     title: 'Pet X-Ray',
     icon: '📸',
-    description: 'Advanced digital imaging for internal health and injury assessment.',
-    tagline: 'See the Whole Picture',
-    ctaText: 'View Imaging Services',
+    description: 'We use digital radiography to quickly and effectively assess injuries, internal conditions, and dental concerns.',
+    tagline: 'Clear answers with advanced imaging',
+    ctaText: 'Read About Our Imaging Services',
     mainImage: 'https://plus.unsplash.com/premium_photo-1663133428083-63c20842d53e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
     secondaryImage: 'https://plus.unsplash.com/premium_photo-1661963606290-34deef08c3c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1702599226134-941aac13ce56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
@@ -303,9 +303,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-nutritional-counselling',
     title: 'Pet Nutritional Counselling',
     icon: '🥣',
-    description: 'Customized diet plans to manage weight and chronic health issues.',
-    tagline: 'Fueling a Healthier Life',
-    ctaText: 'Start a Nutrition Plan',
+    description: 'From weight management to special dietary needs, we’ll help you develop a plan that supports your pet’s overall health.',
+    tagline: 'Tailored nutrition for pets at every life stage',
+    ctaText: 'Schedule a Nutrition Consultation',
     mainImage: 'https://media.istockphoto.com/id/2209000320/photo/veterinarian-examines-cats-eating-habits-and-food.webp?a=1&b=1&s=612x612&w=0&k=20&c=EonJeciCXahZaIjb_D79RFAaymK-tBVxgIW82zk4oX8=',
     secondaryImage: 'https://media.istockphoto.com/id/2207537408/photo/cat-nutrition-after-surgery.webp?a=1&b=1&s=612x612&w=0&k=20&c=eWLOCw5h6kGKGMDLNvq0762ntKCfqgHR9CjXVXMQ-jU=',
     thirdImage: 'https://media.istockphoto.com/id/2234704502/photo/veterinary-care-for-playful-kittens-enjoying-milk-in-a-clinic-setting.webp?a=1&b=1&s=612x612&w=0&k=20&c=Opzji6Fks5q_EjS-BuXx_ysIZrDViJ8CbAIkCATaE7E=',
@@ -338,9 +338,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-mobile-services',
     title: 'Pet Mobile Services',
     icon: '🚐',
-    description: 'Convenient veterinary care brought directly to your home.',
-    tagline: 'Care That Comes to You',
-    ctaText: 'View Mobile Options',
+    description: 'Available to current clients only, we feature a mobile veterinary unit to conveniently deliver our services right in the comfort of home.',
+    tagline: 'Bringing our care to your door',
+    ctaText: 'Get Details About Mobile Services',
     mainImage: 'https://media.istockphoto.com/id/1369495211/photo/dog-grooming-tutorial-vlog.webp?a=1&b=1&s=612x612&w=0&k=20&c=36BgABI3Oun9-1vtBR9REmdDEO-iFS39DcK8zynOcLc=',
     secondaryImage: 'https://apurrfectgroomer.com/wp-content/uploads/2018/02/27628677_1785241378212997_6085241599818113248_o.jpg',
     thirdImage:'https://jmfamily.com/wp-content/uploads/Aussie-Pet-Mobile-4.jpg',
@@ -373,9 +373,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-emergency-care',
     title: 'Pet Emergency Care',
     icon: '🚨',
-    description: 'Rapid response care for active clients during times of crisis.',
-    tagline: 'Reliable Care When It Counts',
-    ctaText: 'Emergency Information',
+    description: 'For current clients, we offer 24-hour emergency support and mobile veterinary services, bringing our care to your doorstep when your pet needs it most.',
+    tagline: 'Convenient and reliable care when it matters most',
+    ctaText: 'More About Emergency Care',
     mainImage: 'https://plus.unsplash.com/premium_photo-1677166331830-c5b00ec76c5b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHBldCUyMGVtZXJnZW5jeSUyMGNhcmV8ZW58MHx8MHx8fDA%3D',
     secondaryImage: 'https://plus.unsplash.com/premium_photo-1664300971660-f119896a8c50?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwZW1lcmdlbmN5JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
     thirdImage:'https://www.ovrs.com/blog/wp-content/uploads/2018/09/OVRS-ER-shutterstock_743948878.jpg',
@@ -408,9 +408,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-end-of-life-care',
     title: 'Pet End-of-Life Care',
     icon: '🌈',
-    description: 'Compassionate support and peaceful transitions for your beloved companion.',
-    tagline: 'Dignity, Peace, and Respect',
-    ctaText: 'Compassionate Support',
+    description: 'We provide in-clinic and at-home euthanasia, helping you say goodbye with dignity, love, and peace of mind.',
+    tagline: 'Compassionate support through difficult decisions',
+    ctaText: 'Learn More About End-of-Life Services',
     mainImage: 'https://jeffersonanimalhospitals.com/wp-content/uploads/2024/05/pain-management.jpg',
     secondaryImage: 'https://www.animalcarectr.com/services/_images/end_of_life.jpg',
     thirdImage: 'https://www.carecredit.com/sites/cc/image/end-of-life-pet-care.jpg',
@@ -421,7 +421,7 @@ export const SERVICES: Service[] = [
     section2Subheading: 'Our goal is to ensure your pet’s final moments are comfortable and calm.',
     yellowBanners: [
       { title: 'Quality of Life Reviews', description: 'Helping you assess when it is time to say goodbye.' },
-      { title: 'In-Home Options', description: 'A peaceful transition in the comfort of your home.' },
+      { title: 'In-Home Options', description: 'A peaceful transition in the comfort of home.' },
       { title: 'Private Room', description: 'Dedicated clinic space for families to have privacy.' },
       { title: 'Aftercare Support', description: 'Handling cremation and memorialization with care.' }
     ],
@@ -443,9 +443,9 @@ export const SERVICES: Service[] = [
     slug: 'pet-same-day-urgent-care',
     title: 'Pet Same-Day Urgent Care',
     icon: '⚡',
-    description: 'Same-day appointments for non-emergency but pressing health concerns.',
-    tagline: 'Expert Help, When You Need It',
-    ctaText: 'Check Availability',
+    description: 'For non-life-threatening cases that still require immediate treatment, we offer same-day urgent care to get your pets back on their paws.',
+    tagline: 'Expert help, available right away',
+    ctaText: 'Learn More About Urgent Care',
     mainImage: 'https://plus.unsplash.com/premium_photo-1663047756170-0bec0113645e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
     secondaryImage: 'https://plus.unsplash.com/premium_photo-1663050701598-4e75c3175eae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1663040617958-4cba2ab2e496?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
@@ -460,52 +460,18 @@ export const SERVICES: Service[] = [
       { title: 'On-Site Pharmacy', description: 'Get the medications your pet needs before you leave.' },
       { title: 'Flexible Care', description: 'Addressing new concerns as they arise.' }
     ],
+    // Assuming the following structure based on previous data provided
     section3Heading: 'Common Urgent Care Needs',
-    section3Subheading: 'We frequently treat the following on a same-day basis:',
-    section3List: ['Ear and skin infections', 'Upset stomach and vomiting', 'Minor cuts and bites', 'Eye redness or squinting', 'Sudden limping'],
-    section3Description: 'Help is just a phone call away.',
-    section4Heading: 'The Benefits of Urgent Care',
-    section4Description: 'Avoid the long waits and high costs of the emergency room for issues like:',
+    section3Subheading: 'We address various non-emergency concerns:',
+    section3List: ['Ear and skin infections', 'Minor lacerations', 'Sudden vomiting or diarrhea', 'Urinary tract issues', 'Eye discharge or redness'],
+    section3Description: 'Our same-day service ensures your pet gets professional help when they need it most.',
+    section4Heading: 'Why Choose Urgent Care?',
+    section4Description: 'When your regular vet is booked, our urgent care provides:',
     section4Bullets: [
-      'Managing painful skin or ear conditions early',
-      'Preventing minor issues from becoming emergencies',
-      'Convenient scheduling for modern families',
-      'Consistent care from the team you trust'
-    ]
-  },
-  {
-    id: 'orthopedic',
-    slug: 'pet-orthopedic-surgery',
-    title: 'Pet Orthopedic Surgery',
-    icon: '🦴',
-    description: 'Advanced joint and bone surgery to restore your pet’s mobility.',
-    tagline: 'Moving Forward Without Pain',
-    ctaText: 'Mobility Consultation',
-    mainImage: 'https://images.unsplash.com/photo-1762237798212-bcc000c00891?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGV0JTIwb3J0aG9wZWRpYyUyMHN1cmdlcnl8ZW58MHx8MHx8fDA%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1703809047424-ec4ea5fb6339?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBldCUyMG9ydGhvcGVkaWMlMjBzdXJnZXJ5fGVufDB8fDB8fHww',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1722653230538-00e41844384d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fHBldCUyMG9ydGhvcGVkaWMlMjBzdXJnZXJ5fGVufDB8fDB8fHww',
-    section1Heading: 'RESTORING MOTION AND COMFORT',
-    section1Subheading: 'Orthopedic Excellence in Tillsonburg, ON',
-    section1Description: 'Joint pain and bone injuries can steal your pet’s joy. We provide advanced orthopedic care to help your pet get back on their feet.',
-    section2Heading: 'Precision and Mobility',
-    section2Subheading: 'Advanced surgical solutions for complex joint and bone issues.',
-    yellowBanners: [
-      { title: 'ACL/TPLO Repair', description: 'Restoring stability to the knee after a ligament tear.' },
-      { title: 'Fracture Repair', description: 'Using plates or pins to help broken bones heal properly.' },
-      { title: 'Joint Management', description: 'Surgical and medical solutions for severe arthritis.' },
-      { title: 'Specialist Collaboration', description: 'Partnering with surgeons for the best outcomes.' }
-    ],
-    section3Heading: 'Orthopedic Capabilities',
-    section3Subheading: 'We offer specialized surgical interventions for:',
-    section3List: ['Cruciate ligament repairs', 'Patellar luxation correction', 'Advanced fracture management', 'Hip dysplasia support', 'Osteoarthritis treatment'],
-    section3Description: 'Our focus is on restoring high-quality function to your pet’s limbs.',
-    section4Heading: 'Comprehensive Recovery',
-    section4Description: 'Mobility surgery is only the first step. We provide:',
-    section4Bullets: [
-      'Tailored rehabilitation and exercise plans',
-      'Advanced multimodal pain management',
-      'Regular progress checks and imaging',
-      'Nutritional support for joint health'
+      'Peace of mind for uncomfortable symptoms',
+      'Faster relief for your pet',
+      'Prevention of minor issues becoming major emergencies',
+      'Convenient same-day scheduling'
     ]
   }
 ];
@@ -522,12 +488,63 @@ export const CARE_TEAM: TeamMember[] = [
   { id: 'c3', name: 'Kelly Britton (Reception)', role: 'Practice Management', bio: 'Focus on providing care and compassion.', image: kella },
   { id: 'c4', name: 'Wendy V.(Technician)', role: 'tech', bio: 'Wendy grew up in Tillsonburg with a love for animals.', image: wendy }
 ];
+export interface Testimonial {
+  id: string;
+  name: string;
+  text: string;
+}
 
 export const TESTIMONIALS: Testimonial[] = [
-  { id: 'r1', name: 'Mansoor', text: 'The team saved my cat Pablo.', rating: 5 },
-  { id: 'r2', name: 'John Doe', text: 'Best vet clinic.', rating: 5 },
-  { id: 'r3', name: 'Ammad', text: 'Experience was great!', rating: 5 },
-  { id: 'r4', name: 'Sonia', text: 'Worth bringing my pet here.', rating: 4 }
+  {
+    id: 'r1',
+    name: 'Scott A.',
+    text: 'Edwards Vet was great. They took us on as new clients while most veterinary clinics are not taking on new clients, and they looked after our kitty. Very happy to get our cats looked after!!'
+  },
+  {
+    id: 'r2',
+    name: 'Sheila P.',
+    text: 'We chose Edward’s Vet when we first moved to Tillsonburg a few months ago and couldn’t be happier. Our two girls (10+/14+) have been given excellent care by all of the staff, and I trust their expert advice. This clinic offers services that go above and beyond, and we appreciate everything they have done to give our girls the healthiest life they can have! I highly recommend that you consider checking out Edward’s Vet for your family pets!'
+  },
+  {
+    id: 'r3',
+    name: 'Belinda C.',
+    text: 'Excellent service, kind-hearted staff. I know my boy Blue is always in good hands at Edwards. Thank you for taking such good care of our baby boy Blue.'
+  },
+  {
+    id: 'r4',
+    name: 'Diane H.',
+    text: 'I have nothing but praise for Edwards. They treat you kindly and adore treating your pets. I had an emergency in the middle of the night, and I truly felt that they went above and beyond for my girl. If you want quality, compassionate care for your babies, I highly recommend them.'
+  },
+  {
+    id: 'r5',
+    name: 'Linda V.',
+    text: 'The staff at Edward’s is very friendly, and they take the time to make sure my puppy Gizmo is given the best experience at his vet visits. I find them professional and knowledgeable about what is best for your pet.'
+  },
+  {
+    id: 'r6',
+    name: 'Laurel B.',
+    text: 'Edwards’ staff are compassionate and understanding of their patients and their families. I am an authorized wildlife custodian, and for decades, Edwards has tended to the various injured wildlife and our unreleasable educational skunks.'
+  },
+  {
+    id: 'r7',
+    name: 'Patricia W.',
+    text: 'Always take such good care of my baby. They try to calm and reassure her, no matter what they are doing to her that day.'
+  },
+  {
+    id: 'r8',
+    name: 'Melina G.',
+    text: 'We are not regular clients, but we had a minor emergency with our dog and her ears. Regardless, the staff squeezed us in and were prompt, extremely friendly, and kind. They quickly diagnosed her issue and were able to provide a treatment plan. The charge was extremely reasonable, all things considered. Can’t thank them enough!! Highly recommend this clinic.'
+  },
+  {
+    id: 'r9',
+    name: 'Nicole N.',
+    text: 'I contacted Edwards Clinic as I was seeking a local vet that offered dental X-rays, knowing my pup needed some teeth extracted. I was able to get an initial exam booked quickly, and Dr. Haris assured me that the surgery would meet my requirements while staying close to my budget. They were also able to get my dog in quickly for the surgery, while I had been told a 1-3 months wait at other clinics. On surgery day, my pup went in early, and I was able to pick him up near the end of the day. He had seven teeth removed in total, and two teeth had hidden issues that only an X-ray could show. Dr. Haris took time to show me the X-rays and explain why the teeth were pulled, which I appreciated. The clinic provided care instructions and followed up the following day to ask how my dog was recovering.'
+  },
+  {
+    id: 'r10',
+    name: 'Laura S.',
+    text: 'I absolutely love this office, and the staff are incredible! They always make us feel welcome and go above and beyond with everything they do. Just knowing there are 24-hour emergency services available makes us feel better, especially now that our dogs are 10+. I don’t want someone looking at them/treating them who has never seen them before and does not know their history. I also love the smaller office feel as one of our dogs gets very stressed when we have to go to a bigger office with dogs, cats and people everywhere.'
+  }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [

@@ -87,7 +87,8 @@ const Home: React.FC = () => {
       <section className="relative h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover brightness-[0.5]">
-            <source src="/hero-video.mp4" type="video/mp4" />
+            {/* FIXED: Removed leading slash for GitHub Pages compatibility */}
+            <source src="hero-video.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
@@ -119,7 +120,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Comprehensive Service Checklist Section */}
+      {/* Services Checklist */}
       <section className="py-20 bg-gray-50 border-y border-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -175,7 +176,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* NEW: 3-Column Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -186,7 +187,6 @@ const Home: React.FC = () => {
           </div>
 
           <div className="relative max-w-7xl mx-auto">
-            {/* Arrows */}
             <button 
               onClick={() => setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length)}
               className="absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 z-20 text-[#2a7f62] hover:scale-110 transition-all hidden md:block"
@@ -230,7 +230,8 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/reviews" className="inline-block bg-[#f4b400] text-white px-10 py-4 rounded-md font-black text-lg transition-all shadow-lg uppercase tracking-widest hover:bg-black">
+            {/* FIXED: Changed path to /testimonials */}
+            <Link to="/testimonials" className="inline-block bg-[#f4b400] text-white px-10 py-4 rounded-md font-black text-lg transition-all shadow-lg uppercase tracking-widest hover:bg-black">
               Read More Client Reviews
             </Link>
           </div>

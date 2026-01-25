@@ -6,7 +6,6 @@ const BottomBubbleMenu = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Trigger the slide-in after 200px of scrolling
       if (window.scrollY > 200) {
         setIsVisible(true);
       } else {
@@ -20,40 +19,40 @@ const BottomBubbleMenu = () => {
 
   return (
     <div 
-      className={`fixed right-6 z-[9999] transition-all duration-700 ease-out transform ${
+      className={`fixed right-4 md:right-6 z-[9999] transition-all duration-700 ease-out transform ${
         isVisible 
           ? 'bottom-6 opacity-100 translate-y-0' 
           : '-bottom-20 opacity-0 translate-y-10'
       }`}
     >
-      {/* Main White Container Pill */}
-      <div className="bg-white p-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.15)] border border-gray-100 flex items-center gap-2">
+      {/* Container: flex-col for stacking on mobile, items-end to keep it right-aligned */}
+      <div className="flex flex-col items-end gap-3">
         
-        {/* Book Appointment - Teal */}
+        {/* Book Appointment - Teal (Top Bubble) */}
         <Link
           to="/appointment"
-          className="flex items-center gap-2 bg-[#1abc9c] hover:bg-[#16a085] text-white px-4 py-2 rounded-full transition-colors duration-200"
+          className="flex items-center gap-2 bg-[#1abc9c] hover:bg-[#16a085] text-white px-4 py-2.5 rounded-full shadow-lg transition-transform active:scale-95"
         >
           <span className="text-sm">📅</span>
-          <span className="text-sm font-bold tracking-tight whitespace-nowrap">Book Appointment</span>
+          <span className="text-xs md:text-sm font-bold tracking-tight">Book Appointment</span>
         </Link>
 
-        {/* New Clients - Blue */}
+        {/* New Clients - Blue (Middle Bubble) */}
         <Link
           to="/about"
-          className="flex items-center gap-2 bg-[#3498db] hover:bg-[#2980b9] text-white px-4 py-2 rounded-full transition-colors duration-200"
+          className="flex items-center gap-2 bg-[#3498db] hover:bg-[#2980b9] text-white px-4 py-2.5 rounded-full shadow-lg transition-transform active:scale-95"
         >
           <span className="text-sm">👤</span>
-          <span className="text-sm font-bold tracking-tight whitespace-nowrap">New Clients</span>
+          <span className="text-xs md:text-sm font-bold tracking-tight">New Clients</span>
         </Link>
 
-        {/* Call Now - Green */}
+        {/* Call Now - Green (Bottom Bubble) */}
         <a
           href="tel:5196882123"
-          className="flex items-center gap-2 bg-[#2ecc71] hover:bg-[#27ae60] text-white px-4 py-2 rounded-full transition-colors duration-200"
+          className="flex items-center gap-2 bg-[#2ecc71] hover:bg-[#27ae60] text-white px-4 py-2.5 rounded-full shadow-lg transition-transform active:scale-95"
         >
           <span className="text-sm">📞</span>
-          <span className="text-sm font-bold tracking-tight whitespace-nowrap">Call Now</span>
+          <span className="text-xs md:text-sm font-bold tracking-tight">Call Now</span>
         </a>
         
       </div>
