@@ -1,91 +1,135 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DOCTORS, CARE_TEAM } from '../constants';
 
-const Team: React.FC = () => {
-  return (
-    <div className="bg-white pb-20">
-      {/* Header Section with Background Image */}
-      
-   <section 
-  className="relative py-40 text-center bg-cover bg-no-repeat bg-center"
-  style={{ 
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(32, 28, 28, 0.88)), url('https://edwardsvet.ca/wp-content/uploads/2025/12/team-43.png')` 
-  }}
->
-  <div className="relative z-10 container mx-auto px-4">
-    {/* Use text-white because the bottom of your gradient is dark (0.88 opacity) */}
-    <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
-      Meet Our Team
-    </h1>
-    
-    {/* Use a slightly transparent white for the subtext to create hierarchy */}
-    <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto font-medium drop-shadow-md">
-      The dedicated professionals caring for your pets with compassion and expertise.
-    </p>
-  </div>
-</section>
+const TeamMemberCard = ({ member, isDoctor }: { member: any, isDoctor: boolean }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
-      {/* Doctors Section */}
-      <div className="container mx-auto px-4 mt-20 max-w-6xl">
-        <div className="flex items-center space-x-4 mb-12">
-          <div className="h-1 w-12 bg-brand rounded-full"></div>
-          <h2 className="text-3xl font-bold text-gray-900">Our Doctors</h2>
+  return (
+    <div 
+      className="flex-shrink-0 w-[300px] md:w-[350px] h-[500px] [perspective:1000px] cursor-pointer mx-4"
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsFlipped(!isFlipped);
+      }}
+    >
+      <div className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
+        
+        {/* FRONT SIDE */}
+        <div className="absolute inset-0 [backface-visibility:hidden] bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
+          <div className="h-3/4 w-full overflow-hidden">
+            <img 
+              src={member.image} 
+              alt={member.name} 
+              className="w-full h-full object-cover pointer-events-none"
+            />
+          </div>
+          <div className="h-1/4 p-6 flex flex-col justify-center items-center text-center bg-white">
+            <h3 className={`font-bold text-gray-900 ${isDoctor ? 'text-2xl' : 'text-xl'}`}>{member.name}</h3>
+            <p className="text-brand font-bold uppercase text-[10px] tracking-widest mt-1">{member.role}</p>
+            <span className="text-brand/60 text-[10px] mt-2 font-bold uppercase">Click for Bio</span>
+          </div>
+        </div>
+
+        {/* BACK SIDE */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-brand rounded-3xl p-8 flex flex-col justify-center items-center text-center text-white shadow-2xl">
+          <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+          <div className="w-12 h-1 bg-white/30 mb-4 rounded-full"></div>
+          <div className="overflow-y-auto max-h-[300px] pr-2">
+            <p className="text-sm leading-relaxed italic whitespace-pre-line">
+              {member.bio}
+            </p>
+          </div>
+          <button className="mt-6 text-[10px] font-bold uppercase tracking-widest border border-white/40 px-3 py-1 rounded-full">
+            Flip Back
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Team: React.FC = () => {
+  // Triple the arrays to ensure no gaps during the long slow slide
+  const dupDoctors = [...DOCTORS, ...DOCTORS, ...DOCTORS];
+  const dupCareTeam = [...CARE_TEAM, ...CARE_TEAM, ...CARE_TEAM];
+
+  return (
+    <div className="bg-gray-50 pb-20 overflow-hidden">
+      <style>{`
+        /* Left to Right */
+        @keyframes scrollLTR {
+          0% { transform: translateX(calc(-350px * ${DOCTORS.length})); }
+          100% { transform: translateX(0); }
+        }
+        /* Right to Left */
+        @keyframes scrollRTL {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-350px * ${CARE_TEAM.length} - (2rem * ${CARE_TEAM.length}))); }
+        }
+        .animate-ltr {
+          animation: scrollLTR 50s linear infinite;
+        }
+        .animate-rtl {
+          animation: scrollRTL 60s linear infinite;
+        }
+        .pause-on-hover:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      {/* Header Section */}
+      <section 
+        className="relative py-40 text-center bg-cover bg-no-repeat bg-center"
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('https://edwardsvet.ca/wp-content/uploads/2025/12/team-43.png')` 
+        }}
+      >
+        <div className="relative z-10 container mx-auto px-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">Meet Our Team</h1>
+          <p className="text-xl text-gray-100 max-w-2xl mx-auto font-medium">
+            Compassionate experts dedicated to your pet's health.
+          </p>
+        </div>
+      </section>
+
+      {/* Doctors Section: Left to Right */}
+      <div className="mt-20">
+        <div className="flex items-center justify-center space-x-4 mb-12">
+          <div className="h-px w-12 bg-brand"></div>
+          <h2 className="text-4xl font-bold text-gray-900 uppercase tracking-tighter">Our Doctors</h2>
+          <div className="h-px w-12 bg-brand"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {DOCTORS.map((member) => (
-            <div key={member.id} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:border-brand/30 transition shadow-sm hover:shadow-md flex flex-col items-center md:items-start md:flex-row gap-8">
-              <div className="w-32 h-32 flex-shrink-0">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
-                />
-              </div>
-              <div>
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-brand">{member.name}</h3>
-                  <p className="text-gray-500 font-bold uppercase text-xs tracking-widest mt-1">{member.role}</p>
-                </div>
-                <div className="h-px w-full bg-gray-200 mb-6"></div>
-                {/* Added whitespace-pre-line so your bio line breaks show up */}
-                <p className="text-gray-600 leading-relaxed italic whitespace-pre-line">
-                  {member.bio}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="relative flex overflow-hidden group">
+          {/* Gradient Edges for better visual flow */}
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          
+          <div className="flex animate-ltr pause-on-hover whitespace-nowrap">
+            {dupDoctors.map((member, idx) => (
+              <TeamMemberCard key={`doc-${idx}`} member={member} isDoctor={true} />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Care Team Section */}
-      <div className="container mx-auto px-4 mt-24 max-w-6xl">
-        <div className="flex items-center space-x-4 mb-12">
-          <div className="h-1 w-12 bg-brand rounded-full"></div>
-          <h2 className="text-3xl font-bold text-gray-900">Our Care Team</h2>
+      {/* Care Team Section: Right to Left */}
+      <div className="mt-32">
+        <div className="flex items-center justify-center space-x-4 mb-12">
+          <div className="h-px w-12 bg-brand"></div>
+          <h2 className="text-4xl font-bold text-gray-900 uppercase tracking-tighter">Our Care Team</h2>
+          <div className="h-px w-12 bg-brand"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {CARE_TEAM.map((member) => (
-            <div key={member.id} className="flex flex-col sm:flex-row bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition group gap-6 items-center">
-              <div className="w-24 h-24 flex-shrink-0">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover rounded-full border-2 border-brand/10"
-                />
-              </div>
-              <div className="flex-grow text-center sm:text-left">
-                <div className="mb-2">
-                  <h4 className="text-xl font-bold text-brand group-hover:text-brand-dark transition">{member.name}</h4>
-                  <p className="text-gray-400 text-xs font-bold uppercase tracking-tighter mt-1">{member.role}</p>
-                </div>
-                <p className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">
-                  {member.bio}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="relative flex overflow-hidden group">
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          
+          <div className="flex animate-rtl pause-on-hover whitespace-nowrap">
+            {dupCareTeam.map((member, idx) => (
+              <TeamMemberCard key={`care-${idx}`} member={member} isDoctor={false} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

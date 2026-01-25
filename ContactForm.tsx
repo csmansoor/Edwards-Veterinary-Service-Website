@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 const ContactForm = () => {
   return (
     <section className="bg-white">
+      {/* Banner Section */}
       <div 
         className="relative py-24 bg-cover bg-center text-center text-white overflow-hidden"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.thevetgal.com/blog/wp-content/uploads/2024/12/iStock-2181733181-1.jpg')` 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://c8.alamy.com/comp/2GEAX3N/an-aerial-view-of-the-tillsonburg-ontario-canada-city-center-2GEAX3N.jpg')` 
         }}
       >
         <div className="max-w-4xl mx-auto px-4 relative z-10">
@@ -34,75 +35,85 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 text-center pt-24 mb-16">
-        <h2 className="text-5xl font-black text-[#2a7f62] uppercase tracking-tight">
-          Have a Question?
-        </h2>
-        <p className="text-[#2a7f62] font-black text-2xl mt-2 italic">Contact Us</p>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-24">
-        <div className="space-y-12">
-          <div className="flex gap-6">
-            <div className="text-[#2a7f62] text-4xl">📱</div>
-            <div>
-              <h3 className="font-black text-[#2a7f62] uppercase text-xl mb-1">Contact Us</h3>
-              <p className="text-black text-lg font-bold">Phone: <span className="text-[#2a7f62]">(519) 688-2123</span></p>
-              <p className="text-black text-lg font-medium">Email: frontdesk.edwardsvs@gmail.com</p>
-            </div>
+      {/* Split Contact Section */}
+      <div className="max-w-6xl mx-auto px-4 py-24">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+          
+          {/* Left Side: Contact Form */}
+          <div className="lg:w-3/5 p-8 md:p-12">
+            <h2 className="text-3xl font-black text-gray-800 mb-2 uppercase">Get in touch</h2>
+            <p className="text-gray-500 mb-8 font-medium">We'll get back to you as soon as possible.</p>
+            
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" placeholder="First Name *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
+                <input type="text" placeholder="Last Name *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
+              </div>
+              <input type="email" placeholder="Email Address *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
+              <input type="tel" placeholder="Phone Number" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" />
+              <textarea rows={5} placeholder="How can we help you? *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required></textarea>
+              <button type="submit" className="bg-[#2a7f62] text-white font-black uppercase px-10 py-4 rounded-lg hover:bg-[#1e5c47] transition-all shadow-lg text-lg">
+                Send Message
+              </button>
+            </form>
           </div>
 
-          <div className="flex gap-6">
-            <div className="text-[#2a7f62] text-4xl">📍</div>
-            <div>
-              <h3 className="font-black text-[#2a7f62] uppercase text-xl mb-1">Our Address</h3>
-              <p className="text-black text-lg font-bold">527 Broadway St</p>
-              <p className="text-black text-lg">Tillsonburg, ON N4G 3S8</p>
-              <p className="text-gray-500 italic mt-1">(Located across from the movie theatre)</p>
-            </div>
-          </div>
+          {/* Right Side: Contact Info (Blue Sidebar) */}
+          <div className="lg:w-2/5 bg-[#2a7f62] p-8 md:p-12 text-white flex flex-col justify-between">
+            <div className="space-y-10">
+              <h2 className="text-3xl font-black uppercase mb-4">Contact us</h2>
+              
+              <div className="flex gap-5">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">📍</div>
+                <div>
+                  <h4 className="font-bold text-xl mb-1">Our Address</h4>
+                  <p className="opacity-90 leading-snug">527 Broadway St<br />Tillsonburg, ON N4G 3S8</p>
+                  <p className="text-sm italic mt-1 text-white/70">Across from the movie theatre</p>
+                </div>
+              </div>
 
-          <div className="flex gap-6">
-            <div className="text-[#2a7f62] text-4xl">🕒</div>
-            <div>
-              <h3 className="font-black text-[#2a7f62] uppercase text-xl mb-1">Hours</h3>
-              <div className="text-black space-y-1 text-lg font-medium">
-                <p>Monday: 8 AM – 5 PM</p>
-                <p>Tuesday: 8 AM – 6 PM</p>
-                <p>Wed – Fri: 8 AM – 5 PM</p>
-                <p>Saturday: 8 AM – 1 PM</p>
-                <p>Sunday: <span className="text-red-600 font-bold uppercase">Closed</span></p>
+              <div className="flex gap-5">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">📞</div>
+                <div>
+                  <h4 className="font-bold text-xl mb-1">Phone</h4>
+                  <p className="opacity-90">(519) 688-2123</p>
+                </div>
+              </div>
+
+              <div className="flex gap-5">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">✉️</div>
+                <div>
+                  <h4 className="font-bold text-xl mb-1">Email</h4>
+                  <p className="opacity-90 break-all">frontdesk.edwardsvs@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex gap-5">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">🕒</div>
+                <div>
+                  <h4 className="font-bold text-xl mb-1">Hours</h4>
+                  <div className="text-sm opacity-90 space-y-1">
+                    <p>Mon: 8 AM – 5 PM</p>
+                    <p>Tue: 8 AM – 6 PM</p>
+                    <p>Wed – Fri: 8 AM – 5 PM</p>
+                    <p>Sat: 8 AM – 1 PM</p>
+                    <p className="font-bold text-red-300 uppercase">Sun: Closed</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex gap-6">
-            <div className="text-red-600 text-4xl">⚠️</div> 
-            <div>
-              <h3 className="font-black text-[#2a7f62] uppercase text-xl mb-1">Emergency Services</h3>
-              <p className="text-black text-lg leading-relaxed">
-                We provide 24/7 emergency care for existing clients. Please call us directly if your pet needs urgent care.
+            <div className="mt-12 pt-8 border-t border-white/20">
+              <p className="text-sm font-bold uppercase tracking-widest text-white/70 mb-2">Emergency</p>
+              <p className="text-sm leading-relaxed italic">
+                24/7 emergency care available for existing clients. Please call us directly.
               </p>
             </div>
           </div>
         </div>
-
-        <div className="bg-[#f1c40f] p-10 rounded-2xl shadow-xl min-h-[600px] flex flex-col justify-center">
-          <form className="space-y-6">
-            <div className="grid grid-cols-2 gap-6">
-              <input type="text" placeholder="First Name *" className="w-full p-4 rounded-lg outline-none text-lg border-none" required />
-              <input type="text" placeholder="Last Name *" className="w-full p-4 rounded-lg outline-none text-lg border-none" required />
-            </div>
-            <input type="email" placeholder="Email Address *" className="w-full p-4 rounded-lg outline-none text-lg border-none" required />
-            <input type="tel" placeholder="Phone Number" className="w-full p-4 rounded-lg outline-none text-lg border-none" />
-            <textarea rows={6} placeholder="How can we help you? *" className="w-full p-4 rounded-lg outline-none text-lg border-none" required></textarea>
-            <button type="submit" className="bg-[#2a7f62] text-white font-black uppercase px-12 py-5 rounded-lg hover:bg-[#1e5c47] transition-all w-full text-xl shadow-lg">
-              Submit Form
-            </button>
-          </form>
-        </div>
       </div>
 
+      {/* Map Section */}
       <div className="max-w-6xl mx-auto px-4 pb-24">
         <div className="w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white bg-gray-100">
           <iframe 

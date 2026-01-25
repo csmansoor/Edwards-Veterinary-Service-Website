@@ -237,7 +237,7 @@ export const SERVICES: Service[] = [
     tagline: 'Fast Answers, Accurate Care',
     ctaText: 'Learn About Diagnostics',
     mainImage: 'https://plus.unsplash.com/premium_photo-1676325102346-7f0f536d1f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVkaWNhbCUyMGxhYnxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1582719298866-977ee81c87d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3D',
+    secondaryImage: 'https://images.unsplash.com/photo-1582719298866-977ee81c87d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3Dh',
     thirdImage: 'https://plus.unsplash.com/premium_photo-1661374890961-0e69d1c30e14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3D',
     section1Heading: 'SCIENCE-DRIVEN DIAGNOSTICS',
     section1Subheading: 'Laboratory Services in Tillsonburg, ON',
