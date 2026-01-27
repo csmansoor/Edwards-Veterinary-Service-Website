@@ -17,6 +17,7 @@ import wendy from './images/wendy.jpg';
 // @ts-ignore
 import keyla from './images/keyla.jpg';
 
+
 export const SERVICES: Service[] = [
   {
     id: 'wellness',
@@ -475,18 +476,59 @@ export const SERVICES: Service[] = [
     ]
   }
 ];
-
 export const DOCTORS: TeamMember[] = [
-  { id: 'd1', name: 'Dr. Paul Edwards', role: 'Veterinarian', bio: 'Dr. Edwards graduated from the Ontario Veterinary College in 1985 and has been practicing in Tillsonburg ever since.', image: drpaul },
-  { id: 'd2', name: 'Dr. Haris Aziz', role: 'Veterinarian', bio: 'Bio coming soon.', image: aziz },
-  { id: 'd3', name: 'Dr. Shahid Zaman', role: 'Veterinarian', bio: 'Bio coming soon.', image: shahid },
+  { 
+    id: 'd1', 
+    name: 'Dr. Paul Edwards', 
+    role: 'Veterinarian', 
+    bio: 'Dr. Edwards graduated from the Ontario Veterinary College in 1985 and has been practicing in Tillsonburg ever since. Over the years, he has had the pleasure of working with many different types of companion animals, from alpacas to kangaroos and sugar gliders to zebras and many, many in between. Dr. Paul has always enjoyed being part of the One Health team to improve the quality of the human-animal bond. In his downtime, he is part of a team of veterinarians that provides veterinary care in the Caribbean. There are many challenges that present themselves in tropical medicine, and he enjoys the challenges they present.', 
+    image: drpaul 
+  },
+  { 
+    id: 'd2', 
+    name: 'Dr. Haris Aziz', 
+    role: 'Veterinarian', 
+    bio: 'Bio coming soon.', 
+    image: aziz 
+  },
+  { 
+    id: 'd3', 
+    name: 'Dr. Shahid Zaman', 
+    role: 'Veterinarian', 
+    bio: 'Bio coming soon.', 
+    image: shahid 
+  },
 ];
 
 export const CARE_TEAM: TeamMember[] = [
-  { id: 'c1', name: 'Josie Edwards', role: 'Practice Management', bio: 'Josie has been with Edwards Veterinary since its beginnings in 1993.', image: josie },
-  { id: 'c2', name: 'Kayla McClure (RVT)', role: 'Practice Management', bio: 'Graduated Northern College 2022.', image: keyla },
-  { id: 'c3', name: 'Kelly Britton (Reception)', role: 'Practice Management', bio: 'Focus on providing care and compassion.', image: kella },
-  { id: 'c4', name: 'Wendy V.(Technician)', role: 'tech', bio: 'Wendy grew up in Tillsonburg with a love for animals.', image: wendy }
+  { 
+    id: 'c1', 
+    name: 'Josie Edwards', 
+    role: 'Practice Management', 
+    bio: 'Josie has been with Edwards Veterinary since its beginnings in 1993 as the office administrator. She graduated from St. Clair College’s Animal Health Technician program in 1980 and worked in London and Tillsonburg. Then, life events sent her back to school to graduate from Fanshawe College as a Registered Nurse, and she worked in the emergency departments in St. Thomas and Tillsonburg. She has been involved in the veterinary field for over forty years and continues to enjoy the privilege and pleasures of helping care for animals and their people.', 
+    image: josie 
+  },
+  { 
+    id: 'c2', 
+    name: 'Kayla McClure (RVT)', 
+    role: 'Registered Veterinary Technician', 
+    bio: 'Kayla knew she wanted to go into vet med, growing up on her family’s farms and volunteering at her local wildlife rehabilitation center.\n\nShe graduated from the Northern College veterinary technician program in 2022. That same year, she passed her board exam and became a Registered Veterinary Technician. She went back to school and received her bachelor’s, became a certified wildlife rehabilitator, and registered as a veterinary technologist in 2023.\n\nKayla worked up north in Dryden for a year after graduating to see a variety of animals, from polar bears to snakes and falcons. She decided to move back home to Ingersoll and started at Edwards in 2024. She has been there ever since.', 
+    image: keyla 
+  },
+  { 
+    id: 'c3', 
+    name: 'Kelly Britton (Reception)', 
+    role: 'Client Care Representative', 
+    bio: 'Since joining, Kelly has loved working at Edwards Veterinary Services. Her focus is on providing care and compassion to pets and their owners. She takes pride in greeting our clients and ensuring a friendly, respectful environment that helps everyone feel welcome.\n\nOutside of her work at Edwards, you can often find Kelly gardening, biking, or attending a yoga class. She’s passionate about creating positive experiences for both animals and their families.', 
+    image: kella 
+  },
+  { 
+    id: 'c4', 
+    name: 'Wendy V.(Technician)', 
+    role: 'Veterinary Technician', 
+    bio: 'Wendy grew up in Tillsonburg and had a love for animals at an early age. Her many pets included cats, dogs, rabbits, birds, hamsters, and horses.\n\nShe graduated from Ridgetown College’s Veterinary Technician program in 1995 and was hired by Edwards Veterinary Services shortly after. She worked for a brief period before taking a break to start a family.\n\nShe was hired back in 2008 and has enjoyed working with the team ever since. She is dedicated to the comfort and well-being of patients and enjoys the laboratory diagnostics and surgical aspects of the profession.\n\nIn her spare time, she enjoys gardening, cuddling with her cat, and spending time with family and friends.', 
+    image: wendy 
+  }
 ];
 export interface Testimonial {
   id: string;
