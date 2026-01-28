@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    setStatus('sending');
+
+    // --- YOUR CONTACT FORM KEYS ---
+    const SERVICE_ID = 'service_2oxre08';
+    const TEMPLATE_ID = 'template_cionnhi'; // Specific for Contact Form
+    const PUBLIC_KEY = 'wlh8iAtcVqHPFFMf1';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then((result) => {
+          console.log('Success:', result.text);
+          setStatus('success');
+          form.current?.reset();
+          // Reset status after 5 seconds
+          setTimeout(() => setStatus('idle'), 5000);
+      }, (error) => {
+          console.log('Error:', error.text);
+          setStatus('error');
+      });
+  };
+
   return (
-    <section className="bg-white">
+    <section className="bg-white" id="contact">
       {/* Banner Section */}
       <div 
         className="relative py-24 bg-cover bg-center text-center text-white overflow-hidden"
@@ -44,17 +73,62 @@ const ContactForm = () => {
             <h2 className="text-3xl font-black text-gray-800 mb-2 uppercase">Get in touch</h2>
             <p className="text-gray-500 mb-8 font-medium">We'll get back to you as soon as possible.</p>
             
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" placeholder="First Name *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
-                <input type="text" placeholder="Last Name *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
-              </div>
-              <input type="email" placeholder="Email Address *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required />
-              <input type="tel" placeholder="Phone Number" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" />
-              <textarea rows={5} placeholder="How can we help you? *" className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" required></textarea>
-              <button type="submit" className="bg-[#2a7f62] text-white font-black uppercase px-10 py-4 rounded-lg hover:bg-[#1e5c47] transition-all shadow-lg text-lg">
-                Send Message
+            <form ref={form} onSubmit={sendEmail} className="space-y-4">
+              
+              {/* Name Field - Must match {{name}} in EmailJS */}
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Full Name *" 
+                className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" 
+                required 
+              />
+              
+              {/* Email Field - Must match {{email}} in EmailJS */}
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Email Address *" 
+                className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" 
+                required 
+              />
+              
+              {/* Phone Field - Must match {{phone}} in EmailJS */}
+              <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Phone Number" 
+                className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" 
+              />
+              
+              {/* Message Field - Must match {{message}} in EmailJS */}
+              <textarea 
+                name="message" 
+                rows={5} 
+                placeholder="How can we help you? *" 
+                className="w-full p-4 bg-gray-50 rounded-lg outline-none border border-gray-200 focus:border-[#2a7f62] transition-colors" 
+                required
+              ></textarea>
+              
+              <button 
+                type="submit" 
+                disabled={status === 'sending'}
+                className="bg-[#2a7f62] text-white font-black uppercase px-10 py-4 rounded-lg hover:bg-[#1e5c47] transition-all shadow-lg text-lg disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
+              >
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
+
+              {/* Status Messages */}
+              {status === 'success' && (
+                <div className="mt-4 p-4 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
+                  ✅ Message sent successfully!
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-lg font-bold border border-red-200">
+                  ❌ Failed to send. Please call us directly.
+                </div>
+              )}
             </form>
           </div>
 
@@ -117,7 +191,7 @@ const ContactForm = () => {
       <div className="max-w-6xl mx-auto px-4 pb-24">
         <div className="w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white bg-gray-100">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2922.955513689445!2d-80.7303358!3d42.8632168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882db834927289b5%3A0x6a10065094200424!2s527%20Broadway%2C%20Tillsonburg%2C%20ON%20N4G%203S8!5e0!3m2!1sen!2sca!4v1715800000000!5m2!1sen!2sca" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2919.263529369932!2d-80.73059002343242!3d42.97274097114251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c35a666e85717%3A0xc3f8e5b6164f815!2s527%20Broadway%20St%2C%20Tillsonburg%2C%20ON%20N4G%203S8!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 

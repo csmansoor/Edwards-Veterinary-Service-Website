@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const Appointment: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [formType, setFormType] = useState<string>('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
+  
+  const [formType, setFormType] = useState<string>('General Appointment');
   const [petSpecies, setPetSpecies] = useState<string>('');
+  
+  const form = useRef<HTMLFormElement>(null);
   const location = useLocation();
-  const navigate = useNavigate(); // Navigation for the back button
+  const navigate = useNavigate();
 
   // --- DYNAMIC MEDICATION LOGIC ---
   const [medications, setMedications] = useState([{ name: '', dosage: '', freq: '', dur: '' }]);
@@ -26,22 +31,69 @@ const Appointment: React.FC = () => {
     setMedications(newMeds);
   };
 
-  // 1. SCROLL TO TOP ON PAGE LOAD
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 2. DETECT FORM TYPE FROM URL
+  // Detect which form button was clicked on the Forms page
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const type = params.get('type');
-    if (type) setFormType(type);
+    if (type) {
+        if(type === 'surgery') setFormType('Surgery Consent');
+        else if(type === 'prescription') setFormType('Prescription Refill');
+        else if(type === 'new-client') setFormType('New Client Registration');
+        else setFormType('General Appointment');
+    }
   }, [location]);
 
+  // --- SUBMIT HANDLER ---
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo(0, 0); // Scroll to top for success message
+    if (!form.current) return;
+    
+    setStatus('sending');
+
+    // 1. Convert Medications Array to a single string for the email
+    const medsString = medications
+      .filter(m => m.name) // Only include rows with a name
+      .map(m => `- ${m.name} (Dose: ${m.dosage}, Freq: ${m.freq}, Dur: ${m.dur})`)
+      .join('\n');
+
+    // 2. Create hidden inputs to force this data into the email
+    
+    // Medications
+    const existingMedsInput = form.current.querySelector('input[name="medications_list"]');
+    if (existingMedsInput) existingMedsInput.remove();
+    const medsInput = document.createElement('input');
+    medsInput.type = 'hidden';
+    medsInput.name = 'medications_list';
+    medsInput.value = medsString || 'None';
+    form.current.appendChild(medsInput);
+
+    // Form Type (e.g., Surgery Consent)
+    const existingTypeInput = form.current.querySelector('input[name="form_type"]');
+    if (existingTypeInput) existingTypeInput.remove();
+    const typeInput = document.createElement('input');
+    typeInput.type = 'hidden';
+    typeInput.name = 'form_type';
+    typeInput.value = formType;
+    form.current.appendChild(typeInput);
+
+    // --- KEYS ---
+    const SERVICE_ID = 'service_2oxre08';
+    const TEMPLATE_ID = 'template_0q6sdeh'; // Your Master Template ID
+    const PUBLIC_KEY = 'wlh8iAtcVqHPFFMf1';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(() => {
+        setSubmitted(true);
+        setStatus('idle');
+        window.scrollTo(0, 0);
+      }, (error) => {
+        console.error('FAILED...', error.text);
+        setStatus('error');
+      });
   };
 
   if (submitted) {
@@ -49,55 +101,33 @@ const Appointment: React.FC = () => {
       <div className="min-h-[600px] flex items-center justify-center container mx-auto px-4 py-20">
         <div className="bg-white p-12 rounded-3xl shadow-2xl text-center max-w-lg border border-[#2a7f62]/10">
           <div className="w-20 h-20 bg-[#2a7f62]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-10 h-10 text-[#2a7f62]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+            <span className="text-4xl">✅</span>
           </div>
-          <h2 className="text-3xl font-bold text-[#2a7f62] mb-4">Form Submitted!</h2>
-          <p className="text-gray-600 mb-8">Thank you. Our medical team will review your information and contact you shortly.</p>
-          <button onClick={() => setSubmitted(false)} className="text-[#2a7f62] font-bold underline">Submit another request</button>
+          <h2 className="text-3xl font-bold text-[#2a7f62] mb-4">Request Sent!</h2>
+          <p className="text-gray-600 mb-8">Thank you. We have received your {formType}. Our team will review it and contact you shortly.</p>
+          <button onClick={() => {setSubmitted(false); navigate('/');}} className="text-[#2a7f62] font-bold underline">Back to Home</button>
         </div>
       </div>
     );
   }
 
-  const MedicationTable = () => (
+  // --- FIXED: This is now a simple render function, NOT a component ---
+  const renderMedicationTable = () => (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <label className="block text-sm font-bold text-gray-700 uppercase">Current Medications</label>
-        <button 
-          type="button" 
-          onClick={addMedication} 
-          className="bg-[#2a7f62] text-white px-3 py-1 rounded-full text-xs font-bold hover:bg-black transition-all"
-        >
-          + Add Medication
-        </button>
+        <button type="button" onClick={addMedication} className="bg-[#2a7f62] text-white px-3 py-1 rounded-full text-xs font-bold hover:bg-black transition-all">+ Add</button>
       </div>
       <div className="overflow-x-auto bg-gray-50 p-4 rounded-2xl border border-gray-100">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left font-bold text-gray-600 border-b">
-              <th className="pb-2">Name</th>
-              <th className="pb-2 px-1">Dosage</th>
-              <th className="pb-2 px-1">Freq.</th>
-              <th className="pb-2">Dur.</th>
-              <th className="pb-2 w-8"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {medications.map((med, index) => (
-              <tr key={index} className="animate-in fade-in slide-in-from-left-2 duration-300">
-                <td className="py-2"><input type="text" value={med.name} onChange={(e) => handleMedChange(index, 'name', e.target.value)} className="w-full p-2 bg-white border rounded shadow-sm" placeholder="Name" /></td>
-                <td className="py-2 px-1"><input type="text" value={med.dosage} onChange={(e) => handleMedChange(index, 'dosage', e.target.value)} className="w-full p-2 bg-white border rounded shadow-sm" placeholder="5mg" /></td>
-                <td className="py-2 px-1"><input type="text" value={med.freq} onChange={(e) => handleMedChange(index, 'freq', e.target.value)} className="w-full p-2 bg-white border rounded shadow-sm" placeholder="2x/day" /></td>
-                <td className="py-2 px-1"><input type="text" value={med.dur} onChange={(e) => handleMedChange(index, 'dur', e.target.value)} className="w-full p-2 bg-white border rounded shadow-sm" placeholder="30d" /></td>
-                <td className="py-2 text-center">
-                  {medications.length > 1 && (
-                    <button type="button" onClick={() => removeMedication(index)} className="text-red-400 hover:text-red-600 font-bold">✕</button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {medications.map((med, index) => (
+          <div key={index} className="flex gap-2 mb-2 min-w-[500px]">
+            <input type="text" value={med.name} onChange={(e) => handleMedChange(index, 'name', e.target.value)} className="flex-1 p-2 border rounded" placeholder="Name" />
+            <input type="text" value={med.dosage} onChange={(e) => handleMedChange(index, 'dosage', e.target.value)} className="w-20 p-2 border rounded" placeholder="Dose" />
+            <input type="text" value={med.freq} onChange={(e) => handleMedChange(index, 'freq', e.target.value)} className="w-20 p-2 border rounded" placeholder="Freq" />
+            <input type="text" value={med.dur} onChange={(e) => handleMedChange(index, 'dur', e.target.value)} className="w-20 p-2 border rounded" placeholder="Dur" />
+            {index > 0 && <button type="button" onClick={() => removeMedication(index)} className="text-red-500 font-bold px-2">✕</button>}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -107,57 +137,41 @@ const Appointment: React.FC = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           
-          {/* HEADER SECTION WITH BACK BUTTON */}
           <div className="bg-[#2a7f62] p-8 text-white relative">
-            <button 
-              onClick={() => navigate(-1)} 
-              className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-xl transition-all text-xs font-bold md:left-8"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-              </svg>
-              <span>BACK</span>
+            <button onClick={() => navigate(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-xl text-xs font-bold md:left-8">
+              ← BACK
             </button>
-
             <div className="text-center">
-              <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
-                {formType === 'surgery' ? 'Surgery Consent Form' : 
-                 formType === 'prescription' ? 'Prescription Refill Request' : 
-                 'Client & Patient Information'}
-              </h1>
+              <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{formType}</h1>
               <p className="mt-2 opacity-90 italic text-sm">Please complete all mandatory fields marked with *</p>
             </div>
           </div>
           
-          <form onSubmit={handleSubmit} className="p-6 md:p-12 space-y-8">
+          <form ref={form} onSubmit={handleSubmit} className="p-6 md:p-12 space-y-8">
             
+            {/* 1. BASIC INFO (Always Visible) */}
             <section className="space-y-6">
               <h2 className="text-xl font-bold text-gray-800 border-b pb-2">1. Basic Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Owner Full Name *</label>
-                  <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]" placeholder="First and Last Name" />
+                  <label className="font-bold text-sm">Owner Full Name *</label>
+                  <input required name="owner_name" type="text" className="w-full px-4 py-3 rounded-xl border" placeholder="Full Name" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Email Address *</label>
-                  <input required type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]" placeholder="email@example.com" />
+                  <label className="font-bold text-sm">Email Address *</label>
+                  <input required name="owner_email" type="email" className="w-full px-4 py-3 rounded-xl border" placeholder="email@example.com" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Phone Number *</label>
-                  <input required type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]" placeholder="(519) 000-0000" />
+                  <label className="font-bold text-sm">Phone Number *</label>
+                  <input required name="owner_phone" type="tel" className="w-full px-4 py-3 rounded-xl border" placeholder="(519) ..." />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Pet's Name *</label>
-                  <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]" placeholder="Buddy" />
+                  <label className="font-bold text-sm">Pet Name *</label>
+                  <input required name="pet_name" type="text" className="w-full px-4 py-3 rounded-xl border" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Pet Species *</label>
-                  <select 
-                    required 
-                    value={petSpecies}
-                    onChange={(e) => setPetSpecies(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]"
-                  >
+                  <label className="font-bold text-sm">Pet Species *</label>
+                  <select required name="pet_species" value={petSpecies} onChange={(e) => setPetSpecies(e.target.value)} className="w-full px-4 py-3 rounded-xl border">
                     <option value="">Select...</option>
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>
@@ -165,155 +179,167 @@ const Appointment: React.FC = () => {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Reason for Visit *</label>
-                  <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-[#2a7f62]" placeholder="e.g. Annual Checkup" />
+                  <label className="font-bold text-sm">Reason for Visit *</label>
+                  <input required name="visit_reason" type="text" className="w-full px-4 py-3 rounded-xl border" placeholder="e.g. Checkup" />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+              {/* APPOINTMENT PREFERENCES */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-2xl border">
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase text-gray-500">Preferred Day *</label>
-                  <input required type="text" placeholder="e.g. Monday" className="w-full p-3 rounded-lg border border-gray-200" />
+                    <label className="text-xs font-black uppercase text-gray-500">Preferred Day</label>
+                    <input name="pref_day" type="text" placeholder="e.g. Monday" className="w-full p-3 rounded-lg border" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase text-gray-500">Preferred Date *</label>
-                  <input required type="date" className="w-full p-3 rounded-lg border border-gray-200" />
+                    <label className="text-xs font-black uppercase text-gray-500">Preferred Date</label>
+                    <input name="pref_date" type="date" className="w-full p-3 rounded-lg border" />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-xs font-black uppercase text-gray-500">Preferred Time *</label>
-                  <input required type="time" className="w-full p-3 rounded-lg border border-gray-200" />
+                    <label className="text-xs font-black uppercase text-gray-500">Preferred Time</label>
+                    <input name="pref_time" type="time" className="w-full p-3 rounded-lg border" />
                 </div>
               </div>
             </section>
 
-            {formType === 'prescription' && (
+            {/* 2. PRESCRIPTION SECTION */}
+            {formType === 'Prescription Refill' && (
               <section className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <h2 className="text-xl font-bold text-blue-600 border-b pb-2">2. Prescription Details</h2>
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Pet Weight *</label>
-                  <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200" placeholder="e.g. 25 lbs" />
+                  <label className="font-bold text-sm">Pet Weight *</label>
+                  <input required name="pet_weight" type="text" className="w-full px-4 py-3 rounded-xl border" placeholder="e.g. 25 lbs" />
                 </div>
                 
-                <MedicationTable />
+                {renderMedicationTable()}
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Special Instructions</label>
-                  <textarea className="w-full px-4 py-3 rounded-xl border border-gray-200 h-24" placeholder="Any specific notes for your pet's medication?"></textarea>
+                  <label className="font-bold text-sm">Special Instructions</label>
+                  <textarea name="special_instructions" className="w-full px-4 py-3 rounded-xl border h-24"></textarea>
                 </div>
               </section>
             )}
 
-            {formType === 'surgery' && (
+            {/* 3. SURGERY SECTION */}
+            {formType === 'Surgery Consent' && (
               <section className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <h2 className="text-xl font-bold text-red-600 border-b pb-2">2. Surgical & Medical History</h2>
-                
+                <h2 className="text-xl font-bold text-red-600 border-b pb-2">2. Surgical History</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="block text-sm font-bold text-gray-700">Pet Breed *</label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-sm font-bold text-gray-700">Pet Sex *</label>
-                    <select required className="w-full px-4 py-3 rounded-xl border border-gray-200">
-                      <option value="">Select...</option>
-                      <option>Male - Neutered</option>
-                      <option>Male - Intact</option>
-                      <option>Female - Spayed</option>
-                      <option>Female - Intact</option>
-                    </select>
-                  </div>
+                    <div className="space-y-2">
+                        <label className="font-bold text-sm">Pet Breed *</label>
+                        <input required name="pet_breed" type="text" className="w-full px-4 py-3 rounded-xl border" />
+                    </div>
+                    <div className="space-y-2">
+                        <label className="font-bold text-sm">Pet Sex *</label>
+                        <select required name="pet_sex" className="w-full px-4 py-3 rounded-xl border">
+                            <option value="">Select...</option>
+                            <option>Male - Neutered</option>
+                            <option>Male - Intact</option>
+                            <option>Female - Spayed</option>
+                            <option>Female - Intact</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className="p-4 bg-orange-50 rounded-2xl border border-orange-100">
-                   <label className="block text-sm font-bold text-orange-800 mb-2">When was the last time your pet ate? *</label>
-                   <div className="flex gap-4">
-                     <input required type="date" className="flex-1 p-3 rounded-lg border border-orange-200" />
-                     <input required type="time" className="flex-1 p-3 rounded-lg border border-orange-200" />
-                   </div>
+                    <label className="block text-sm font-bold text-orange-800 mb-2">Last time pet ate? *</label>
+                    <div className="flex gap-4">
+                        <input required name="last_ate_date" type="date" className="flex-1 p-3 rounded-lg border" />
+                        <input required name="last_ate_time" type="time" className="flex-1 p-3 rounded-lg border" />
+                    </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="block text-sm font-bold text-gray-700">Does your pet have current medical conditions? If yes, describe: *</label>
-                  <textarea required className="w-full p-4 rounded-xl border border-gray-200 h-20"></textarea>
-                  
-                  <MedicationTable />
+                    <label className="font-bold text-sm">Current Medical Conditions?</label>
+                    <textarea name="medical_conditions" className="w-full p-4 rounded-xl border h-20"></textarea>
+                    {renderMedicationTable()}
                 </div>
 
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-6">
-                  {petSpecies === 'Dog' && (
-                    <div className="space-y-4">
-                      <h3 className="font-bold text-[#2a7f62]">For Dogs (Vaccines Required)</h3>
-                      <p className="text-xs text-gray-500 italic">Rabies and DAPP vaccines are REQUIRED with proof.</p>
-                      <div className="space-y-2">
-                        <label className="flex items-center gap-3"><input type="checkbox" /> <span>Rabies - $15.95</span></label>
-                        <label className="flex items-center gap-3"><input type="checkbox" /> <span>DAPP - $33.75</span></label>
-                        <hr />
-                        <label className="block text-sm font-bold">Heartworm test ($39.95)?</label>
-                        <div className="flex gap-4"><label><input type="radio" name="hw" /> Yes</label><label><input type="radio" name="hw" /> No</label></div>
-                        <label className="block text-sm font-bold mt-4">Extract deciduous (baby) teeth? ($13.00 - $50.00)</label>
-                        <div className="flex gap-4"><label><input type="radio" name="teeth" /> Yes</label><label><input type="radio" name="teeth" /> No</label></div>
-                      </div>
-                    </div>
-                  )}
+                {/* CHECKBOXES & RADIOS */}
+                <div className="bg-gray-50 p-6 rounded-2xl border space-y-6">
+                    {petSpecies === 'Dog' && (
+                        <div className="space-y-4">
+                            <h3 className="font-bold text-[#2a7f62]">For Dogs</h3>
+                            <label className="flex items-center gap-3"><input type="checkbox" name="rabies" value="Yes" /> <span>Rabies - $15.95</span></label>
+                            <label className="flex items-center gap-3"><input type="checkbox" name="dapp" value="Yes" /> <span>DAPP - $33.75</span></label>
+                            
+                            <label className="block text-sm font-bold mt-2">Heartworm test ($39.95)?</label>
+                            <div className="flex gap-4">
+                                <label><input type="radio" name="heartworm" value="Yes" /> Yes</label>
+                                <label><input type="radio" name="heartworm" value="No" /> No</label>
+                            </div>
 
-                  {petSpecies === 'Cat' && (
-                    <div className="space-y-4">
-                      <h3 className="font-bold text-[#2a7f62]">For Cats</h3>
-                      <label className="block text-sm font-bold">Feline Leukemia/FIV test ($50.25)?</label>
-                      <div className="flex gap-4"><label><input type="radio" name="cat_test" /> Yes</label><label><input type="radio" name="cat_test" /> No</label></div>
-                      <p className="text-xs text-gray-500 italic">Rabies required ($15.95), FELV ($29.75), RCCP ($26.50)</p>
-                      <label className="block text-sm font-bold">Ear Tipping (Stray/Feral)? (FREE)</label>
-                      <div className="flex gap-4"><label><input type="radio" name="tip" /> Yes</label><label><input type="radio" name="tip" /> No</label></div>
-                    </div>
-                  )}
+                            <label className="block text-sm font-bold mt-2">Extract baby teeth?</label>
+                            <div className="flex gap-4">
+                                <label><input type="radio" name="teeth" value="Yes" /> Yes</label>
+                                <label><input type="radio" name="teeth" value="No" /> No</label>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {petSpecies === 'Cat' && (
+                        <div className="space-y-4">
+                            <h3 className="font-bold text-[#2a7f62]">For Cats</h3>
+                            <label className="block text-sm font-bold">Feline Leukemia/FIV test?</label>
+                            <div className="flex gap-4">
+                                <label><input type="radio" name="felv_fiv" value="Yes" /> Yes</label>
+                                <label><input type="radio" name="felv_fiv" value="No" /> No</label>
+                            </div>
+                            <label className="block text-sm font-bold mt-2">Ear Tipping?</label>
+                            <div className="flex gap-4">
+                                <label><input type="radio" name="ear_tip" value="Yes" /> Yes</label>
+                                <label><input type="radio" name="ear_tip" value="No" /> No</label>
+                            </div>
+                        </div>
+                    )}
 
-                  <div className="pt-4 border-t space-y-4">
-                    <label className="block text-sm font-bold">Elizabeth collar (Cone) ($23-$40)?</label>
-                    <div className="flex gap-4"><label><input type="radio" name="cone" /> Yes</label><label><input type="radio" name="cone" /> No</label></div>
-                    <label className="block text-sm font-bold">Insert Microchip today ($50.75)?</label>
-                    <div className="flex gap-4"><label><input type="radio" name="chip" /> Yes</label><label><input type="radio" name="chip" /> No</label></div>
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <label className="block text-sm font-bold text-blue-900">Pre-anesthetic Bloodwork ($98.25)?</label>
-                      <p className="text-[10px] mb-2 text-blue-700">(Required for all pets over 5 years of age)</p>
-                      <div className="flex gap-4"><label><input type="radio" name="blood" /> Yes</label><label><input type="radio" name="blood" /> No</label></div>
+                    <div className="pt-4 border-t space-y-4">
+                        <label className="block text-sm font-bold">Elizabeth collar (Cone)?</label>
+                        <div className="flex gap-4">
+                            <label><input type="radio" name="cone" value="Yes" /> Yes</label>
+                            <label><input type="radio" name="cone" value="No" /> No</label>
+                        </div>
+                        <label className="block text-sm font-bold mt-2">Microchip?</label>
+                        <div className="flex gap-4">
+                            <label><input type="radio" name="microchip" value="Yes" /> Yes</label>
+                            <label><input type="radio" name="microchip" value="No" /> No</label>
+                        </div>
+                        <label className="block text-sm font-bold mt-2 text-blue-900">Pre-anesthetic Bloodwork?</label>
+                        <div className="flex gap-4">
+                            <label><input type="radio" name="bloodwork" value="Yes" /> Yes</label>
+                            <label><input type="radio" name="bloodwork" value="No" /> No</label>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
-                <div className="space-y-4 bg-red-50 p-6 rounded-2xl border-2 border-red-200">
-                  <h3 className="text-lg font-black text-red-700 uppercase">Emergency Protocol (CPR/DNR)</h3>
-                  <p className="text-xs text-red-800 leading-relaxed italic">In the event of unforeseen circumstances should your pet require CPR, costs are between $100-$300.</p>
-                  <div className="space-y-4">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input type="radio" name="cpr" className="mt-1" required />
-                      <span className="text-sm font-bold text-gray-800">I request the staff to perform CPR (Resuscitation) on my pet.</span>
-                    </label>
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input type="radio" name="cpr" className="mt-1" required />
-                      <span className="text-sm font-bold text-gray-800">I DO NOT want CPR performed on my pet (DNR).</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div className="text-[10px] text-gray-500 bg-white p-6 border rounded-2xl leading-relaxed h-48 overflow-y-scroll">
-                  I certify that I am the owner... [Full Legal Text]
+                <div className="bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                    <h3 className="text-lg font-black text-red-700 uppercase mb-2">Emergency Protocol (CPR)</h3>
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-3">
+                            <input type="radio" name="cpr_choice" value="Perform CPR" required />
+                            <span className="font-bold">I request CPR (Resuscitation)</span>
+                        </label>
+                        <label className="flex items-center gap-3">
+                            <input type="radio" name="cpr_choice" value="Do Not Resuscitate" required />
+                            <span className="font-bold">I DO NOT want CPR (DNR)</span>
+                        </label>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                   <div className="space-y-2">
-                     <label className="block text-sm font-bold text-gray-700">Today's Date *</label>
-                     <input required type="date" className="w-full p-3 border rounded-xl" defaultValue={new Date().toISOString().split('T')[0]} />
-                   </div>
-                   <div className="space-y-2">
-                     <label className="block text-sm font-bold text-gray-700">Digital Signature *</label>
-                     <input required type="text" placeholder="Type Full Name to Sign" className="w-full p-3 border rounded-xl italic font-serif" />
-                   </div>
+                    <div className="space-y-2">
+                        <label className="font-bold text-sm">Today's Date *</label>
+                        <input required name="sign_date" type="date" className="w-full p-3 border rounded-xl" defaultValue={new Date().toISOString().split('T')[0]} />
+                    </div>
+                    <div className="space-y-2">
+                        <label className="font-bold text-sm">Digital Signature *</label>
+                        <input required name="signature" type="text" placeholder="Type Full Name" className="w-full p-3 border rounded-xl italic font-serif" />
+                    </div>
                 </div>
               </section>
             )}
 
-            <button type="submit" className="w-full bg-[#2a7f62] text-white py-5 rounded-2xl font-black text-xl hover:bg-black transition-all shadow-xl transform hover:-translate-y-1">
-              Submit Secure Form
+            <button disabled={status === 'sending'} type="submit" className="w-full bg-[#2a7f62] text-white py-5 rounded-2xl font-black text-xl hover:bg-black transition-all shadow-xl disabled:opacity-50">
+                {status === 'sending' ? 'Sending Form...' : 'Submit Secure Form'}
             </button>
 
           </form>
