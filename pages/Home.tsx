@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// @ts-ignore
 import wellnessExamImg from '../images/wellness-exam.png';
+// @ts-ignore
 import puppyVaccineImg from '../images/puppy.jpg';
+// @ts-ignore
 import dentistryImg from '../images/dentistry.jpg';
+// @ts-ignore
 import diagnosticsImg from '../images/xray.jpg';
+// @ts-ignore
 import mobileServicesImg from '../images/mobile.png';
-import buildingExteriorImg from '../images/IMG_3952-1.jpg';
-
+// @ts-ignore
+import buildingExteriorImg from '../images/building.jpg';
+// @ts-ignore
+import bannerlogoImg from '../images/mark.png';
+ 
 const Home: React.FC = () => {
   // Slider State for Testimonials
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -99,7 +107,7 @@ const Home: React.FC = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
           <div className="flex flex-col items-center justify-center">
-            <img src="/logo.png" alt="Logo" className="w-32 h-32 md:w-40 md:h-40 object-contain mb-2 opacity-90" />
+            <img src={bannerlogoImg} alt="Logo" className="w-32 h-32 md:w-40 md:h-40 object-contain mb-2 opacity-90" />
             <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none uppercase">EDWARDS</h1>
             <p className="text-3xl md:text-5xl font-serif italic mb-10 tracking-wide">Veterinary Services</p>
             <Link to="/appointment" className="bg-[#2a7f62] text-white px-10 py-4 font-bold text-xl uppercase tracking-widest hover:bg-green-700 transition shadow-lg transform hover:scale-105">

@@ -78,6 +78,25 @@ import bondOfTrustImg from './images/A-Bond-of-Trust.jpg';
 import bulliesImg from './images/bullies.jpg';
 // @ts-ignore
 import markImg from './images/mark.png';
+// @ts-ignore
+import labortryImg from './images/lab6.png';
+// @ts-ignore
+import laboratoryImg from './images/lab3.jpg';
+// @ts-ignore
+import xray2Img from './images/xray2.png';
+// @ts-ignore
+import xray3Img from './images/xray3.png';
+// @ts-ignore
+import inhouse2Img from './images/inhouse2.png';
+// @ts-ignore
+import inhouse3Img from './images/inhouse3.png';
+// @ts-ignore
+import pet1Img from './images/pet1.jpg';
+// @ts-ignore
+import pet2Img from './images/pet2.jpg';
+
+
+
 
 
 export const SERVICES: Service[] = [
@@ -300,8 +319,8 @@ export const SERVICES: Service[] = [
     tagline: 'Accurate diagnostics without the wait',
     ctaText: 'Find Out More About Our Lab Services',
     mainImage: labImg,
-    secondaryImage: labImg,
-    thirdImage: labImg,
+    secondaryImage: laboratoryImg,
+    thirdImage: labortryImg,
     section1Heading: 'SCIENCE-DRIVEN DIAGNOSTICS',
     section1Subheading: 'Laboratory Services in Tillsonburg, ON',
     section1Description: 'When your pet is ill, we don’t want to wait days for answers. Our in-house laboratory allows us to get vital data within minutes.',
@@ -334,9 +353,9 @@ export const SERVICES: Service[] = [
     description: 'We use digital radiography to quickly and effectively assess injuries, internal conditions, and dental concerns.',
     tagline: 'Clear answers with advanced imaging',
     ctaText: 'Read About Our Imaging Services',
-    mainImage: xrayImg,
+    mainImage: xray2Img,
     secondaryImage: xrayImg,
-    thirdImage: xrayImg,
+    thirdImage: xray3Img,
     section1Heading: 'ADVANCED DIGITAL RADIOGRAPHY',
     section1Subheading: 'Veterinary Imaging in Tillsonburg, ON',
     section1Description: 'Digital X-rays are a non-invasive way to get clear answers about your pet’s internal health, bones, and organs.',
@@ -405,8 +424,8 @@ export const SERVICES: Service[] = [
     tagline: 'Bringing our care to your door',
     ctaText: 'Get Details About Mobile Services',
     mainImage: mobileImg,
-    secondaryImage: mobileImg,
-    thirdImage: mobileImg,
+    secondaryImage: inhouse2Img,
+    thirdImage: inhouse3Img,
     section1Heading: 'WE BRING THE CLINIC TO YOUR DOOR',
     section1Subheading: 'Mobile Veterinary Unit in Tillsonburg, ON',
     section1Description: 'For busy families or pets that find the clinic stressful, our Mobile Veterinary Unit provides a convenient alternative for comprehensive care.',
@@ -651,19 +670,20 @@ export const TESTIMONIALS: Testimonial[] = [
   }
 ];
 
+
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
     title: 'Seasonal Allergies in Dogs',
     excerpt: 'Is your pup scratching more than usual?',
     date: 'Oct 12, 2023',
-    image: bulliesImg
+    image: pet1Img,
   },
   {
     id: 'b2',
     title: 'Prebiotics and Probiotics',
     excerpt: 'Supporting a balanced gut microbiome.',
     date: 'Jan 20, 2024',
-    image: bulliesImg
+    image: pet2Img,
   }
 ];

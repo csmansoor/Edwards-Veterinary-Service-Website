@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../ContactForm';
 import BottomBubbleMenu from './BottomBubbleMenu';
-
-// --- My LOGO ---
-//@ts-ignore
-import fullLogo from '../images/full-logo.png'; 
+// @ts-ignore
+import logoimg from '../images/Logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +16,7 @@ const Header = () => {
         {/* --- LOGO SECTION --- */}
         <Link to="/" className="flex items-center">
           <img 
-            src={fullLogo} 
+            src={logoimg} 
             alt="Edwards Veterinary Services" 
             className="h-16 md:h-20 w-auto object-contain" 
           />

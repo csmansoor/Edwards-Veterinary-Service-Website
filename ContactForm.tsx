@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 // @ts-ignore
-import contactBannerImg from './images/IMG_6625.jpg';
+import contactBannerImg from './images/contactBanner.png';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
