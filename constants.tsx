@@ -16,6 +16,68 @@ import shahid from './images/shahid.jpg';
 import wendy from './images/wendy.jpg';
 // @ts-ignore
 import keyla from './images/keyla.jpg';
+// @ts-ignore
+import wellnessExamImg from './images/wellness-exam.png';
+// @ts-ignore
+import wellnessImg from './images/wellness.jpg';
+// @ts-ignore
+import shepherdImg from './images/shepherd.jpg';
+// @ts-ignore
+import surgeryImg from './images/surgery.jpg';
+// @ts-ignore
+import orthoSurgeryImg from './images/ortho-surgery.png';
+// @ts-ignore
+import bandageImg from './images/bandage.jpg';
+// @ts-ignore
+import dentistryImg from './images/dentistry.jpg';
+// @ts-ignore
+import dentalImg from './images/dental.jpg';
+// @ts-ignore
+import exoticDentalImg from './images/exotic-pet-dental-care-2.png';
+// @ts-ignore
+import puppyImg from './images/puppy.jpg';
+// @ts-ignore
+import kittenExamImg from './images/kitten-exam.png';
+// @ts-ignore
+import pomeranianImg from './images/pomeranian.jpg';
+// @ts-ignore
+import exoticServicesImg from './images/exotic-pet-services-1.png';
+// @ts-ignore
+import exoticImg from './images/exotic.jpg';
+// @ts-ignore
+import parrotImg from './images/Blue-Parrotlet-on-Hand.jpg';
+// @ts-ignore
+import groomingImg from './images/grooming.jpg';
+// @ts-ignore
+import grooming1Img from './images/grooming1.jpg';
+// @ts-ignore
+import grooming2Img from './images/grooming (2).jpg';
+// @ts-ignore
+import labImg from './images/lab.jpg';
+// @ts-ignore
+import xrayImg from './images/xray.jpg';
+// @ts-ignore
+import nutritionalImg from './images/nutritional-counseling.png';
+// @ts-ignore
+import catNoseImg from './images/catnose.jpg';
+// @ts-ignore
+import mobileImg from './images/mobile.png';
+// @ts-ignore
+import urgentImg from './images/urgent.png';
+// @ts-ignore
+import coneDogImg from './images/conedog.jpg';
+// @ts-ignore
+import bulldogCheckImg from './images/Bulldog-Puppy-Health-Check-by-Veterinarian-1.jpg';
+// @ts-ignore
+import endOfLifeImg from './images/endoflife.jpg';
+// @ts-ignore
+import companionsImg from './images/Unlikely-Companions-Unbreakable-Bond.jpg';
+// @ts-ignore
+import bondOfTrustImg from './images/A-Bond-of-Trust.jpg';
+// @ts-ignore
+import bulliesImg from './images/bullies.jpg';
+// @ts-ignore
+import markImg from './images/mark.png';
 
 
 export const SERVICES: Service[] = [
@@ -27,9 +89,9 @@ export const SERVICES: Service[] = [
     description: 'From annual exams and parasite prevention to tailored vaccination schedules, we focus on early detection and long-term wellness.',
     tagline: 'The foundation of lifelong health',
     ctaText: 'Learn More About Pet Wellness Care',
-    mainImage:'https://media.istockphoto.com/id/2222963156/photo/veterinarian-examining-a-cat-with-stethoscope-in-clinic.webp?a=1&b=1&s=612x612&w=0&k=20&c=vtigdKbJ2-RM--yl9xPEX7xwNrsfbuOJTTkv3qRxkOQ=',
-    secondaryImage:'https://media.istockphoto.com/id/2160576555/photo/veterinarian-examining-happy-dog-during-routine-checkup.webp?a=1&b=1&s=612x612&w=0&k=20&c=q9QkYc_mRUU9N7hob__lXUhBJS4G4_b_EpANHtnAriE=',
-    thirdImage:'https://plus.unsplash.com/premium_photo-1661962400362-e6aea4885bb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwd2VsbG5lc3MlMjBjYXJlJTIwY2xpbmljYWx8ZW58MHx8MHx8fDA%3D',
+    mainImage: wellnessExamImg,
+    secondaryImage: wellnessImg,
+    thirdImage: shepherdImg,
     section1Heading: 'LIFELONG WELLNESS STARTS HERE',
     section1Subheading: 'Preventive Pet Care in Tillsonburg, ON',
     section1Description: 'Routine preventive care is the key to your pet’s long, healthy life. Partner with our team at Edwards Veterinary Services for comprehensive pet wellness care in Tillsonburg, ON, to support your pet through every life stage.',
@@ -62,9 +124,9 @@ export const SERVICES: Service[] = [
     description: 'Our experienced veterinarians perform a range of soft tissue surgeries using modern techniques and careful monitoring from our comprehensive in-house suite.',
     tagline: 'Safe, effective surgical care tailored to your pet’s needs',
     ctaText: 'Schedule a Surgical Consultation',
-    mainImage: 'https://images.unsplash.com/photo-1727830968495-ea2798aaee35?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBldCUyMHN1cmdlcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1758206523735-079e56f2faf7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGV0JTIwc3VyZ2VyeSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
-    thirdImage: 'https://media.istockphoto.com/id/92213089/photo/veterinary-dentistry.webp?a=1&b=1&s=612x612&w=0&k=20&c=ow7apjUJ61rBm8sDQxYR3wuFtMkhAzRdjyrTO2ocTYY=',
+    mainImage: surgeryImg,
+    secondaryImage: orthoSurgeryImg,
+    thirdImage: bandageImg,
     section1Heading: 'EXPERT SURGICAL CARE FOR YOUR PET',
     section1Subheading: 'Soft Tissue Surgery in Tillsonburg, ON',
     section1Description: 'When your pet needs surgery, you want the highest standard of care. Our team provides safe, precise soft tissue procedures using modern techniques.',
@@ -97,9 +159,9 @@ export const SERVICES: Service[] = [
     description: 'We offer professional dental cleanings, digital dental X-rays, and oral surgery to address tooth pain, infection, and long-term dental health.',
     tagline: 'Healthy teeth mean a healthier, happier pet',
     ctaText: 'Discover Our Pet Dental Services',
-    mainImage: 'https://plus.unsplash.com/premium_photo-1663040637726-fbfa797696a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBldCUyMGRlbnRpc3RvcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1740410728872-cea63dd27621?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHBldCUyMGRlbnRpc3RvcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1663040486740-60e41b8fd1e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBldCUyMGRlbnRpc3Rvcnl8ZW58MHx8MHx8fDA%3D',
+    mainImage: dentistryImg,
+    secondaryImage: dentalImg,
+    thirdImage: exoticDentalImg,
     section1Heading: 'ORAL HEALTH IS OVERALL HEALTH',
     section1Subheading: 'Pet Dentistry in Tillsonburg, ON',
     section1Description: 'Dental disease is one of the most common issues in pets. We provide comprehensive dental care to prevent heart, liver, and kidney complications.',
@@ -132,9 +194,9 @@ export const SERVICES: Service[] = [
     description: 'We provide early-life care, including exams, vaccines, nutritional advice, and deworming to help your young pets grow strong and healthy.',
     tagline: 'Get your new family member off to a great start',
     ctaText: 'Explore Our Puppy & Kitten Programs',
-    mainImage: 'https://images.unsplash.com/photo-1719464454959-9cf304ef4774?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHklMjBjYXJlJTIwY2xpbmljYWx8ZW58MHx8MHx8fDA%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fHB1cHB5JTIwY2FyZSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1702598829265-5c375ee8e9e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHB1cHB5JTIwY2FyZSUyMGNsaW5pY2FsfGVufDB8fDB8fHww',
+    mainImage: puppyImg,
+    secondaryImage: kittenExamImg,
+    thirdImage: pomeranianImg,
     section1Heading: 'THE BEST START FOR YOUR NEW BEST FRIEND',
     section1Subheading: 'Pediatric Pet Care in Tillsonburg, ON',
     section1Description: 'The first few months of a pet’s life are the most critical for development. We guide you through the process of building a strong immune system.',
@@ -167,9 +229,9 @@ export const SERVICES: Service[] = [
     description: 'We treat various exotic pets at our clinic, including birds, reptiles, and small mammals. Our team has experience handling their unique care needs.',
     tagline: 'Trusted care for unique companions',
     ctaText: 'Learn More About Exotic Pet Services',
-    mainImage: 'https://media.istockphoto.com/id/1369649907/photo/a-veterinarian-is-checking-the-health-of-a-lovebird-forpus-bird-physical-examination.webp?a=1&b=1&s=612x612&w=0&k=20&c=At_w5P9ZgzjwDqxsJVZnGo_WBgr4-8anb_bPwV7z9yk=',
-    secondaryImage: 'https://media.istockphoto.com/id/1451147165/photo/vetenerian-holding-a-bearded-dragon.webp?a=1&b=1&s=612x612&w=0&k=20&c=M7H1l_dKyAerurdjMsjLSMAtpw-tg8q6aOJ8xoL6XVE=',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1663050689215-e2f4f493811c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGV4b3RpYyUyMHBldCUyMGNhcmV8ZW58MHx8MHx8fDA%3D',
+    mainImage: exoticServicesImg,
+    secondaryImage: exoticImg,
+    thirdImage: parrotImg,
     section1Heading: 'COMPASSIONATE CARE FOR UNIQUE COMPANIONS',
     section1Subheading: 'Exotic Veterinary Medicine in Tillsonburg, ON',
     section1Description: 'Exotic pets have specialized biological and husbandry needs. Our team is trained to care for your unique feathered, scaled, or pocket-sized friends.',
@@ -202,9 +264,9 @@ export const SERVICES: Service[] = [
     description: 'Whether your pet needs a sedated groom, medical bath, or regular hygiene maintenance, we offer grooming services in a low-stress environment.',
     tagline: 'Comfort-focused grooming for health and hygiene',
     ctaText: 'Book a Grooming Appointment',
-    mainImage: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1200',
-    secondaryImage: 'https://images.unsplash.com/photo-1527526029430-319f10814151?q=80&w=1200',
-    thirdImage: 'https://images.unsplash.com/photo-1591768575198-88dac53fbd0a?q=80&w=1200',
+    mainImage: groomingImg,
+    secondaryImage: grooming1Img,
+    thirdImage: grooming2Img,
     section1Heading: 'HYGIENE IS A HEALTH PRIORITY',
     section1Subheading: 'Professional Grooming in Tillsonburg, ON',
     section1Description: 'Grooming is about more than just a haircut. It is a vital part of maintaining skin health, comfort, and general hygiene for your pet.',
@@ -237,9 +299,9 @@ export const SERVICES: Service[] = [
     description: 'Our in-house lab provides quick results for bloodwork, urinalysis, and other essential tests. We also collaborate with referral labs for advanced diagnostics.',
     tagline: 'Accurate diagnostics without the wait',
     ctaText: 'Find Out More About Our Lab Services',
-    mainImage: 'https://plus.unsplash.com/premium_photo-1676325102346-7f0f536d1f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVkaWNhbCUyMGxhYnxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://images.unsplash.com/photo-1582719298866-977ee81c87d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3Dh',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1661374890961-0e69d1c30e14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3D',
+    mainImage: labImg,
+    secondaryImage: labImg,
+    thirdImage: labImg,
     section1Heading: 'SCIENCE-DRIVEN DIAGNOSTICS',
     section1Subheading: 'Laboratory Services in Tillsonburg, ON',
     section1Description: 'When your pet is ill, we don’t want to wait days for answers. Our in-house laboratory allows us to get vital data within minutes.',
@@ -272,9 +334,9 @@ export const SERVICES: Service[] = [
     description: 'We use digital radiography to quickly and effectively assess injuries, internal conditions, and dental concerns.',
     tagline: 'Clear answers with advanced imaging',
     ctaText: 'Read About Our Imaging Services',
-    mainImage: 'https://plus.unsplash.com/premium_photo-1663133428083-63c20842d53e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://plus.unsplash.com/premium_photo-1661963606290-34deef08c3c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1702599226134-941aac13ce56?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0JTIweCUyMHJheXxlbnwwfHwwfHx8MA%3D%3D',
+    mainImage: xrayImg,
+    secondaryImage: xrayImg,
+    thirdImage: xrayImg,
     section1Heading: 'ADVANCED DIGITAL RADIOGRAPHY',
     section1Subheading: 'Veterinary Imaging in Tillsonburg, ON',
     section1Description: 'Digital X-rays are a non-invasive way to get clear answers about your pet’s internal health, bones, and organs.',
@@ -307,9 +369,9 @@ export const SERVICES: Service[] = [
     description: 'From weight management to special dietary needs, we’ll help you develop a plan that supports your pet’s overall health.',
     tagline: 'Tailored nutrition for pets at every life stage',
     ctaText: 'Schedule a Nutrition Consultation',
-    mainImage: 'https://media.istockphoto.com/id/2209000320/photo/veterinarian-examines-cats-eating-habits-and-food.webp?a=1&b=1&s=612x612&w=0&k=20&c=EonJeciCXahZaIjb_D79RFAaymK-tBVxgIW82zk4oX8=',
-    secondaryImage: 'https://media.istockphoto.com/id/2207537408/photo/cat-nutrition-after-surgery.webp?a=1&b=1&s=612x612&w=0&k=20&c=eWLOCw5h6kGKGMDLNvq0762ntKCfqgHR9CjXVXMQ-jU=',
-    thirdImage: 'https://media.istockphoto.com/id/2234704502/photo/veterinary-care-for-playful-kittens-enjoying-milk-in-a-clinic-setting.webp?a=1&b=1&s=612x612&w=0&k=20&c=Opzji6Fks5q_EjS-BuXx_ysIZrDViJ8CbAIkCATaE7E=',
+    mainImage: nutritionalImg,
+    secondaryImage: catNoseImg,
+    thirdImage: wellnessImg,
     section1Heading: 'NUTRITION IS THE FOUNDATION OF HEALTH',
     section1Subheading: 'Nutritional Support in Tillsonburg, ON',
     section1Description: 'Every pet is unique, and so are their dietary needs. We provide science-based nutrition advice to support your pet’s specific health goals.',
@@ -342,9 +404,9 @@ export const SERVICES: Service[] = [
     description: 'Available to current clients only, we feature a mobile veterinary unit to conveniently deliver our services right in the comfort of home.',
     tagline: 'Bringing our care to your door',
     ctaText: 'Get Details About Mobile Services',
-    mainImage: 'https://media.istockphoto.com/id/1369495211/photo/dog-grooming-tutorial-vlog.webp?a=1&b=1&s=612x612&w=0&k=20&c=36BgABI3Oun9-1vtBR9REmdDEO-iFS39DcK8zynOcLc=',
-    secondaryImage: 'https://apurrfectgroomer.com/wp-content/uploads/2018/02/27628677_1785241378212997_6085241599818113248_o.jpg',
-    thirdImage:'https://jmfamily.com/wp-content/uploads/Aussie-Pet-Mobile-4.jpg',
+    mainImage: mobileImg,
+    secondaryImage: mobileImg,
+    thirdImage: mobileImg,
     section1Heading: 'WE BRING THE CLINIC TO YOUR DOOR',
     section1Subheading: 'Mobile Veterinary Unit in Tillsonburg, ON',
     section1Description: 'For busy families or pets that find the clinic stressful, our Mobile Veterinary Unit provides a convenient alternative for comprehensive care.',
@@ -377,9 +439,9 @@ export const SERVICES: Service[] = [
     description: 'For current clients, we offer 24-hour emergency support and mobile veterinary services, bringing our care to your doorstep when your pet needs it most.',
     tagline: 'Convenient and reliable care when it matters most',
     ctaText: 'More About Emergency Care',
-    mainImage: 'https://plus.unsplash.com/premium_photo-1677166331830-c5b00ec76c5b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHBldCUyMGVtZXJnZW5jeSUyMGNhcmV8ZW58MHx8MHx8fDA%3D',
-    secondaryImage: 'https://plus.unsplash.com/premium_photo-1664300971660-f119896a8c50?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwZW1lcmdlbmN5JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
-    thirdImage:'https://www.ovrs.com/blog/wp-content/uploads/2018/09/OVRS-ER-shutterstock_743948878.jpg',
+    mainImage: urgentImg,
+    secondaryImage: coneDogImg,
+    thirdImage: bulldogCheckImg,
     section1Heading: 'READY FOR LIFE’S UNEXPECTED MOMENTS',
     section1Subheading: 'Urgent & Emergency Care in Tillsonburg, ON',
     section1Description: 'In a medical crisis, every second matters. We provide rapid intervention and stabilization for our established clients when they need us most.',
@@ -412,9 +474,9 @@ export const SERVICES: Service[] = [
     description: 'We provide in-clinic and at-home euthanasia, helping you say goodbye with dignity, love, and peace of mind.',
     tagline: 'Compassionate support through difficult decisions',
     ctaText: 'Learn More About End-of-Life Services',
-    mainImage: 'https://jeffersonanimalhospitals.com/wp-content/uploads/2024/05/pain-management.jpg',
-    secondaryImage: 'https://www.animalcarectr.com/services/_images/end_of_life.jpg',
-    thirdImage: 'https://www.carecredit.com/sites/cc/image/end-of-life-pet-care.jpg',
+    mainImage: endOfLifeImg,
+    secondaryImage: companionsImg,
+    thirdImage: bondOfTrustImg,
     section1Heading: 'A COMPASSIONATE GOODBYE',
     section1Subheading: 'End-of-Life Care in Tillsonburg, ON',
     section1Description: 'Saying goodbye is the hardest part of being a pet parent. We are here to support you through this difficult journey with dignity and love.',
@@ -447,9 +509,9 @@ export const SERVICES: Service[] = [
     description: 'For non-life-threatening cases that still require immediate treatment, we offer same-day urgent care to get your pets back on their paws.',
     tagline: 'Expert help, available right away',
     ctaText: 'Learn More About Urgent Care',
-    mainImage: 'https://plus.unsplash.com/premium_photo-1663047756170-0bec0113645e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
-    secondaryImage: 'https://plus.unsplash.com/premium_photo-1663050701598-4e75c3175eae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
-    thirdImage: 'https://plus.unsplash.com/premium_photo-1663040617958-4cba2ab2e496?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0JTIwdXJnZW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
+    mainImage: bulliesImg,
+    secondaryImage: coneDogImg,
+    thirdImage: urgentImg,
     section1Heading: 'FAST CARE FOR PRESSING NEEDS',
     section1Subheading: 'Same-Day Veterinary Care in Tillsonburg, ON',
     section1Description: 'Ear infections, minor wounds, and sudden illness don’t always wait for an appointment. We offer same-day slots to get your pet feeling better fast.',
@@ -595,13 +657,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Seasonal Allergies in Dogs',
     excerpt: 'Is your pup scratching more than usual?',
     date: 'Oct 12, 2023',
-    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=1200'
+    image: bulliesImg
   },
   {
     id: 'b2',
     title: 'Prebiotics and Probiotics',
     excerpt: 'Supporting a balanced gut microbiome.',
     date: 'Jan 20, 2024',
-    image: 'https://iandloveandyou.com/cdn/shop/articles/Pet-Food-Prebiotics-and-Probiotics_ba26be98-0361-46fb-a8af-2cf4418db9c7.jpg?v=1741835334&width=2800'
+    image: bulliesImg
   }
 ];

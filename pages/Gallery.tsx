@@ -1,22 +1,26 @@
 import React from 'react';
+import gallery1 from '../images/gallery.jpg';
+import gallery2 from '../images/gallery2.jpg';
+import gallery3 from '../images/gallery3.jpg';
+import gallery4 from '../images/gallery4.jpg';
 
 // Array of images for the gallery
 const IMAGES = [
   { 
     id: 1, 
-    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/492504955_1301931515272250_775604131793366319_n-1.jpg' 
+    url: gallery1,
   },
   { 
     id: 2, 
-    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/493881546_1301931308605604_4811192717619557355_n-1.jpg' 
+    url: gallery2,
   },
   { 
     id: 3, 
-    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/493931542_1301931531938915_2570619481159989854_n-1.jpg' 
+    url: gallery3,
   },
   { 
     id: 4, 
-    url: 'https://edwardsvet.ca/wp-content/uploads/2025/07/494118762_1301931525272249_7740344777626305592_n-1.jpg' 
+    url: gallery4,
   },
 ];
 

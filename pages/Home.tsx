@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import wellnessExamImg from '../images/wellness-exam.png';
+import puppyVaccineImg from '../images/puppy.jpg';
+import dentistryImg from '../images/dentistry.jpg';
+import diagnosticsImg from '../images/xray.jpg';
+import mobileServicesImg from '../images/mobile.png';
+import buildingExteriorImg from '../images/IMG_3952-1.jpg';
 
 const Home: React.FC = () => {
   // Slider State for Testimonials
@@ -9,27 +15,27 @@ const Home: React.FC = () => {
     {
       title: "Pet Wellness & Preventive Care",
       desc: "Comprehensive wellness exams to ensure your pets live a long, happy, and healthy life.",
-      img: "https://media.istockphoto.com/id/2222963156/photo/veterinarian-examining-a-cat-with-stethoscope-in-clinic.webp?a=1&b=1&s=612x612&w=0&k=20&c=vtigdKbJ2-RM--yl9xPEX7xwNrsfbuOJTTkv3qRxkOQ="
+      img: wellnessExamImg
     },
     {
       title: "Vaccinations for Dogs & Cats",
       desc: "Customized immunization plans to protect your furry family members from common diseases.",
-      img: "https://indyvetcare.com/wp-content/uploads/2022/06/veterinarian-giving-puppy-shot.jpg"
+      img: puppyVaccineImg
     },
     {
       title: "Pet Dentistry & Dental X-Rays",
       desc: "Complete oral health services including professional cleaning and digital dental imaging.",
-      img: "https://plus.unsplash.com/premium_photo-1663040637726-fbfa797696a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBldCUyMGRlbnRpc3RvcnklMjBjbGluaWNhbHxlbnwwfHwwfHx8MA%3D%3D"
+      img: dentistryImg
     },
     {
       title: "In-House Diagnostics & Radiology",
       desc: "State-of-the-art digital X-rays and diagnostics for fast and accurate medical results.",
-      img: "https://images.unsplash.com/photo-1582719298866-977ee81c87d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1lZGljYWwlMjBsYWJ8ZW58MHx8MHx8fDA%3Dh"
+      img: diagnosticsImg
     },
     {
       title: "Mobile & At-Home Services",
       desc: "Bringing the vet to you. Stress-free veterinary care in the comfort of your own home.",
-      img: "https://jmfamily.com/wp-content/uploads/Aussie-Pet-Mobile-4.jpg"
+      img: mobileServicesImg
     }
   ];
 
@@ -107,7 +113,7 @@ const Home: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
-            <img src="https://edwardsvet.ca/wp-content/uploads/2025/05/Edwards-Veterinary-Services-Building-Exterior.jpg" alt="Building" className="rounded-3xl shadow-2xl w-full h-[500px] object-cover" />
+            <img src={buildingExteriorImg} alt="Building" className="rounded-3xl shadow-2xl w-full h-[500px] object-cover" />
           </div>
           <div className="lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2a7f62] mb-6 leading-tight">Your Local, Community-Rooted Veterinarian in Tillsonburg, ON</h2>

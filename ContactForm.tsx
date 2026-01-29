@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+// @ts-ignore
+import contactBannerImg from './images/IMG_6625.jpg';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -37,7 +39,7 @@ const ContactForm = () => {
       <div 
         className="relative py-24 bg-cover bg-center text-center text-white overflow-hidden"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://c8.alamy.com/comp/2GEAX3N/an-aerial-view-of-the-tillsonburg-ontario-canada-city-center-2GEAX3N.jpg')` 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${contactBannerImg})` 
         }}
       >
         <div className="max-w-4xl mx-auto px-4 relative z-10">

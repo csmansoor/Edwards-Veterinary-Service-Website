@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import aboutDogsImg from '../images/A-Bond-of-Trust.jpg';
+import examRoomImg from '../images/kitten-exam.png';
+import companionsImg from '../images/Unlikely-Companions-Unbreakable-Bond.jpg';
 
 const About: React.FC = () => {
   return (
@@ -24,7 +27,7 @@ const About: React.FC = () => {
             </div>
             <div className="lg:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1200" 
+                src={aboutDogsImg}
                 alt="Group of happy dogs" 
                 className="rounded-3xl shadow-2xl w-full h-[400px] object-cover border-8 border-white"
               />
@@ -74,10 +77,10 @@ const About: React.FC = () => {
           {/* Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
             <div className="rounded-3xl overflow-hidden shadow-xl h-80">
-              <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=1200" alt="Clinic Exam Room" className="w-full h-full object-cover" />
+              <img src={examRoomImg} alt="Clinic Exam Room" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-xl h-80">
-              <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=1200" alt="White dog and gray cat hugging each other on grass" className="w-full h-full object-cover" />
+              <img src={companionsImg} alt="White dog and gray cat hugging each other on grass" className="w-full h-full object-cover" />
             </div>
           </div>
 
