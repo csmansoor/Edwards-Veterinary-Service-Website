@@ -89,15 +89,17 @@ const Contact: React.FC = () => {
               </ul>
             </div>
 
-            {/* Live Google Map */}
+           {/* Live Google Map */}
             <div className="bg-gray-100 h-80 rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <iframe 
                 width="100%" 
                 height="100%" 
                 frameBorder="0" 
                 style={{ border: 0 }}
-                src="https://www.google.com/maps?q=527+Broadway+St,+Tillsonburg,+ON+N4G+3S8&output=embed" 
+                // 👇 THIS IS THE CORRECT, WORKING LINK
+                src="https://maps.google.com/maps?q=Edwards+Veterinary+Services+527+Broadway+St+Tillsonburg&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen
+                loading="lazy" 
                 title="Edwards Veterinary Services Location"
               ></iframe>
             </div>
