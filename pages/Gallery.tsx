@@ -1,8 +1,12 @@
 import React from 'react';
-import gallery1 from '../images/gallery.jpg';
-import gallery2 from '../images/gallery2.jpg';
-import gallery3 from '../images/gallery3.jpg';
-import gallery4 from '../images/gallery4.jpg';
+//@ts-ignore
+import gallery1 from '../images/gallery.webp';
+//@ts-ignore
+import gallery2 from '../images/gallery2.webp';
+//@ts-ignore
+import gallery3 from '../images/gallery3.webp';
+//@ts-ignore
+import gallery4 from '../images/gallery4.webp';
 
 // Array of images for the gallery
 const IMAGES = [

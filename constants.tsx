@@ -1,100 +1,100 @@
 import React from 'react';
 import { Service, TeamMember, BlogPost } from './types';
 import Testimonial from './pages/Testimonials';
-// Importing local images
-// @ts-ignore
-import drpaul from './images/paul.jpg';
-// @ts-ignore
-import kella from './images/kella.jpg';
-// @ts-ignore
-import josie from './images/josie.jpg';
-// @ts-ignore
-import aziz from './images/aziz.jpg';
-// @ts-ignore
-import shahid from './images/shahid.jpg';
-// @ts-ignore
-import wendy from './images/wendy.jpg';
-// @ts-ignore
-import keyla from './images/keyla.jpg';
-// @ts-ignore
-import wellnessExamImg from './images/wellness-exam.png';
-// @ts-ignore
-import wellnessImg from './images/wellness.jpg';
-// @ts-ignore
-import shepherdImg from './images/shepherd.jpg';
-// @ts-ignore
-import surgeryImg from './images/surgery.jpg';
-// @ts-ignore
-import orthoSurgeryImg from './images/ortho-surgery.png';
-// @ts-ignore
-import bandageImg from './images/bandage.jpg';
-// @ts-ignore
-import dentistryImg from './images/dentistry.jpg';
-// @ts-ignore
-import dentalImg from './images/dental.jpg';
-// @ts-ignore
-import exoticDentalImg from './images/exotic-pet-dental-care-2.png';
-// @ts-ignore
-import puppyImg from './images/puppy.jpg';
-// @ts-ignore
-import kittenExamImg from './images/kitten-exam.png';
-// @ts-ignore
-import pomeranianImg from './images/pomeranian.jpg';
-// @ts-ignore
-import exoticServicesImg from './images/exotic-pet-services-1.png';
-// @ts-ignore
-import exoticImg from './images/exotic.jpg';
-// @ts-ignore
-import parrotImg from './images/Blue-Parrotlet-on-Hand.jpg';
-// @ts-ignore
-import groomingImg from './images/grooming.jpg';
-// @ts-ignore
-import grooming1Img from './images/grooming1.jpg';
-// @ts-ignore
-import grooming2Img from './images/grooming (2).jpg';
-// @ts-ignore
-import labImg from './images/lab.jpg';
-// @ts-ignore
-import xrayImg from './images/xray.jpg';
-// @ts-ignore
-import nutritionalImg from './images/nutritional-counseling.png';
-// @ts-ignore
-import catNoseImg from './images/catnose.jpg';
-// @ts-ignore
-import mobileImg from './images/mobile.png';
-// @ts-ignore
-import urgentImg from './images/urgent.png';
-// @ts-ignore
-import coneDogImg from './images/conedog.jpg';
-// @ts-ignore
-import bulldogCheckImg from './images/Bulldog-Puppy-Health-Check-by-Veterinarian-1.jpg';
-// @ts-ignore
-import endOfLifeImg from './images/endoflife.jpg';
-// @ts-ignore
-import companionsImg from './images/Unlikely-Companions-Unbreakable-Bond.jpg';
-// @ts-ignore
-import bondOfTrustImg from './images/A-Bond-of-Trust.jpg';
-// @ts-ignore
-import bulliesImg from './images/bullies.jpg';
-// @ts-ignore
-import markImg from './images/mark.png';
-// @ts-ignore
-import labortryImg from './images/lab6.png';
-// @ts-ignore
-import laboratoryImg from './images/lab3.jpg';
-// @ts-ignore
-import xray2Img from './images/xray2.png';
-// @ts-ignore
-import xray3Img from './images/xray3.png';
-// @ts-ignore
-import inhouse2Img from './images/inhouse2.png';
-// @ts-ignore
-import inhouse3Img from './images/inhouse3.png';
-// @ts-ignore
-import pet1Img from './images/pet1.jpg';
-// @ts-ignore
-import pet2Img from './images/pet2.jpg';
 
+// Importing local images (Updated to .webp)
+// @ts-ignore
+import drpaul from './images/paul.webp';
+// @ts-ignore
+import kella from './images/kella.webp';
+// @ts-ignore
+import josie from './images/josie.webp';
+// @ts-ignore
+import aziz from './images/aziz.webp';
+// @ts-ignore
+import shahid from './images/shahid.webp';
+// @ts-ignore
+import wendy from './images/wendy.webp';
+// @ts-ignore
+import keyla from './images/keyla.webp';
+// @ts-ignore
+import wellnessExamImg from './images/wellness-exam.webp';
+// @ts-ignore
+import wellnessImg from './images/wellness.webp';
+// @ts-ignore
+import shepherdImg from './images/shepherd.webp';
+// @ts-ignore
+import surgeryImg from './images/surgery.webp';
+// @ts-ignore
+import orthoSurgeryImg from './images/ortho-surgery.webp';
+// @ts-ignore
+import bandageImg from './images/bandage.webp';
+// @ts-ignore
+import dentistryImg from './images/dentistry.webp';
+// @ts-ignore
+import dentalImg from './images/dental.webp';
+// @ts-ignore
+import exoticDentalImg from './images/exotic-pet-dental-care-2.webp';
+// @ts-ignore
+import puppyImg from './images/puppy.webp';
+// @ts-ignore
+import kittenExamImg from './images/kitten-exam.webp';
+// @ts-ignore
+import pomeranianImg from './images/pomeranian.webp';
+// @ts-ignore
+import exoticServicesImg from './images/exotic-pet-services-1.webp';
+// @ts-ignore
+import exoticImg from './images/exotic.webp';
+// @ts-ignore
+import parrotImg from './images/Blue-Parrotlet-on-Hand.webp';
+// @ts-ignore
+import groomingImg from './images/grooming.webp';
+// @ts-ignore
+import grooming1Img from './images/grooming1.webp';
+// @ts-ignore
+import grooming2Img from './images/grooming (2).webp';
+// @ts-ignore
+import labImg from './images/lab.webp';
+// @ts-ignore
+import xrayImg from './images/xray.webp';
+// @ts-ignore
+import nutritionalImg from './images/nutritional-counseling.webp';
+// @ts-ignore
+import catNoseImg from './images/catnose.webp';
+// @ts-ignore
+import mobileImg from './images/mobile.webp';
+// @ts-ignore
+import urgentImg from './images/urgent.webp';
+// @ts-ignore
+import coneDogImg from './images/conedog.webp';
+// @ts-ignore
+import bulldogCheckImg from './images/Bulldog-Puppy-Health-Check-by-Veterinarian-1.webp';
+// @ts-ignore
+import endOfLifeImg from './images/endoflife.webp';
+// @ts-ignore
+import companionsImg from './images/Unlikely-Companions-Unbreakable-Bond.webp';
+// @ts-ignore
+import bondOfTrustImg from './images/A-Bond-of-Trust.webp';
+// @ts-ignore
+import bulliesImg from './images/bullies.webp';
+// @ts-ignore
+import markImg from './images/mark.webp';
+// @ts-ignore
+import labortryImg from './images/lab6.webp';
+// @ts-ignore
+import laboratoryImg from './images/lab3.webp';
+// @ts-ignore
+import xray2Img from './images/xray2.webp';
+// @ts-ignore
+import xray3Img from './images/xray3.webp';
+// @ts-ignore
+import inhouse2Img from './images/inhouse2.webp';
+// @ts-ignore
+import inhouse3Img from './images/inhouse3.webp';
+// @ts-ignore
+import pet1Img from './images/pet1.webp';
+// @ts-ignore
+import pet2Img from './images/pet2.webp';
 
 
 

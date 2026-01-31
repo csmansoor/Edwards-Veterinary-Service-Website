@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { DOCTORS, CARE_TEAM } from '../constants';
 //@ts-ignore
-import teamBanner from '../images/team.jpg';
+import teamBanner from '../images/team.webp';
 
 // --- DOCTOR CARD COMPONENT ---
 const DoctorCard = ({ doc }: { doc: any }) => {

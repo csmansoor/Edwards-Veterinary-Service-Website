@@ -3,11 +3,11 @@ import { BLOG_POSTS } from '../constants';
 
 // --- 👇 1. IMPORT YOUR IMAGES HERE 👇 ---
 // @ts-ignore
-import blogBannerImg from '../images/pet3.jpg'; 
+import blogBannerImg from '../images/pet3.webp'; 
 // @ts-ignore
-import diseaseSectionImg from '../images/pet4.jpg'; 
+import diseaseSectionImg from '../images/pet4.webp'; 
 // @ts-ignore
-import wellnessSectionImg from '../images/pet5.jpg'; 
+import wellnessSectionImg from '../images/pet5.webp'; 
 
 const Blog: React.FC = () => {
 

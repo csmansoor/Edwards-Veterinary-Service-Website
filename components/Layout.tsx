@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ContactForm from '../ContactForm';
 import BottomBubbleMenu from './BottomBubbleMenu';
 // @ts-ignore
-import logoimg from '../images/Logo.png';
+import logoimg from '../images/Logo.webp';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

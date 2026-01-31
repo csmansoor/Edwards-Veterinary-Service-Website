@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import wellnessExamImg from '../images/wellness-exam.png';
+import wellnessExamImg from '../images/wellness-exam.webp';
 // @ts-ignore
-import puppyVaccineImg from '../images/puppy.jpg';
+import puppyVaccineImg from '../images/puppy.webp';
 // @ts-ignore
-import dentistryImg from '../images/dentistry.jpg';
+import dentistryImg from '../images/dentistry.webp';
 // @ts-ignore
-import diagnosticsImg from '../images/xray.jpg';
+import diagnosticsImg from '../images/xray.webp';
 // @ts-ignore
-import mobileServicesImg from '../images/mobile.png';
+import mobileServicesImg from '../images/mobile.webp';
 // @ts-ignore
-import buildingExteriorImg from '../images/building.jpg';
+import buildingExteriorImg from '../images/building.webp';
 // @ts-ignore
-import bannerlogoImg from '../images/mark.png';
+import bannerlogoImg from '../images/mark.webp';
  
 const Home: React.FC = () => {
   // Slider State for Testimonials

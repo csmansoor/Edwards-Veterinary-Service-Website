@@ -2,13 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import aboutDogsImg from '../images/A-Bond-of-Trust.jpg';
+import aboutDogsImg from '../images/A-Bond-of-Trust.webp';
 // @ts-ignore
-import examRoomImg from '../images/kitten-exam.png';
+import examRoomImg from '../images/kitten-exam.webp';
 // @ts-ignore
-import companionsImg from '../images/Unlikely-Companions-Unbreakable-Bond.jpg';
+import companionsImg from '../images/Unlikely-Companions-Unbreakable-Bond.webp';
 //@ts-ignore
-import petdeskImg from '../images/Logo.png';
+import petdeskImg from '../images/Logo.webp';
 
 const About: React.FC = () => {
   return (

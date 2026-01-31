@@ -1,14 +1,14 @@
 import React from 'react';
 // @ts-ignore
-import medsImg from '../images/petmedication.png';
+import medsImg from '../images/petmedication.webp';
 // @ts-ignore
-import groomingImg from '../images/groomproduct.jpg';
+import groomingImg from '../images/groomproduct.webp';
 // @ts-ignore
-import foodImg from '../images/petfood.jpg';
+import foodImg from '../images/petfood.webp';
 // @ts-ignore
-import toysImg from '../images/toy.jpg';
+import toysImg from '../images/toy.webp';
 // @ts-ignore
-import storeBannerImg from '../images/pet6.jpg'; 
+import storeBannerImg from '../images/pet6.webp'; 
 
 const Store: React.FC = () => {
   return (
