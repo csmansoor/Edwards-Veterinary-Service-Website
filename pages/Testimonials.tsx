@@ -1,9 +1,18 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { TESTIMONIALS } from '../constants';
 
 const Testimonials: React.FC = () => {
   return (
     <div className="bg-gray-50 pb-20 pt-24">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Client Reviews & Testimonials | Edwards Veterinary Services</title>
+        <meta name="description" content="Read reviews from pet owners in Tillsonburg. See why our clients trust Edwards Veterinary Services for their pets' wellness, surgery, and emergency care." />
+        <link rel="canonical" href="https://gotec.ca/testimonials" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
+
       {/* Header Section */}
       <section className="bg-[#2a7f62] py-20 text-white text-center">
         <h1 className="text-5xl font-black mb-4 uppercase tracking-tight">Client Testimonials</h1>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+
 // @ts-ignore
 import medsImg from '../images/petmedication.webp';
 // @ts-ignore
@@ -6,13 +8,20 @@ import groomingImg from '../images/groomproduct.webp';
 // @ts-ignore
 import foodImg from '../images/petfood.webp';
 // @ts-ignore
-import toysImg from '../images/toy.webp';
+import toysImg from '../images/storebanner.webp';
 // @ts-ignore
 import storeBannerImg from '../images/pet6.webp'; 
 
 const Store: React.FC = () => {
   return (
     <div className="bg-white pb-20">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Online Pet Pharmacy & Store | Edwards Veterinary Services</title>
+        <meta name="description" content="Shop our online veterinary store for prescription pet food, medication refills, flea & tick prevention, and pet supplies. Local pickup in Tillsonburg available." />
+        <link rel="canonical" href="https://gotec.ca/store" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
       
       {/* --- NEW PICTURE BANNER --- */}
       {/* Updated Height: h-[500px] for mobile, h-[700px] for desktop */}

@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 
 const Careers: React.FC = () => {
   const openings = [
@@ -9,6 +9,14 @@ const Careers: React.FC = () => {
 
   return (
     <div className="bg-white pb-20">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Careers & Veterinary Jobs in Tillsonburg | Edwards Veterinary Services</title>
+        <meta name="description" content="Join our team! Edwards Veterinary Services is hiring Registered Veterinary Technicians and Receptionists in Tillsonburg, ON. View current openings." />
+        <link rel="canonical" href="https://gotec.ca/careers" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
+
       <section className="bg-brand py-20 text-white text-center">
         <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
         <p className="text-xl text-brand-light">Build your career in compassionate veterinary medicine.</p>

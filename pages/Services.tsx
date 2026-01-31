@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { SERVICES } from '../constants';
 
 const Services: React.FC = () => {
   return (
     <div className="bg-gray-50">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Veterinary Services & Surgery | Edwards Veterinary Services</title>
+        <meta name="description" content="Comprehensive pet care: Soft tissue surgery, dental cleaning, vaccinations, x-rays, and mobile vet services in Tillsonburg." />
+        <link rel="canonical" href="https://gotec.ca/services" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
+
       {/* PROFESSIONAL HEADER */}
       <section className="bg-[#2a7f62] py-24 text-white text-center relative overflow-hidden">
         {/* Subtle background decoration */}

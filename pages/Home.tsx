@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+
 // @ts-ignore
 import wellnessExamImg from '../images/wellness-exam.webp';
 // @ts-ignore
@@ -14,7 +16,9 @@ import mobileServicesImg from '../images/mobile.webp';
 import buildingExteriorImg from '../images/building.webp';
 // @ts-ignore
 import bannerlogoImg from '../images/mark.webp';
- 
+// @ts-ignore
+import heroVideo from '../images/heroVideo.mp4';
+
 const Home: React.FC = () => {
   // Slider State for Testimonials
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -78,6 +82,43 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
+      {/* 👇 SEO HEAD BLOCK STARTS HERE 👇 */}
+      <Helmet>
+        <title>Veterinarian in Tillsonburg | Edwards Veterinary Services</title>
+        <meta name="description" content="Compassionate veterinary care in Tillsonburg, ON. We offer pet wellness exams, surgery, dentistry, and emergency care for dogs, cats, and exotic pets." />
+        <meta name="keywords" content="Veterinarian Tillsonburg, Vet Clinic, Pet Surgery, Dog Grooming, Cat Dentist, Emergency Vet Ontario" />
+        <link rel="canonical" href="https://gotec.ca/" />
+
+        {/* Local Business Schema (Google Maps Helper) */}
+        <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "VeterinaryCare",
+            "name": "Edwards Veterinary Services",
+            "image": "https://gotec.ca//assets/mark.webp",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "527 Broadway Street",
+              "addressLocality": "Tillsonburg",
+              "addressRegion": "ON",
+              "postalCode": "N4G 3S8",
+              "addressCountry": "CA"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 42.8646,
+              "longitude": -80.7297
+            },
+            "telephone": "+15196882123",
+            "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-13:00",
+            "priceRange": "$$"
+          }
+        `}
+        </script>
+      </Helmet>
+      {/* 👆 SEO HEAD BLOCK ENDS HERE 👆 */}
+
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -102,7 +143,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover brightness-[0.5]">
             {/* FIXED: Removed leading slash for GitHub Pages compatibility */}
-            <source src="hero-video.mp4" type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
         <div className="container mx-auto px-4 relative z-10 text-white text-center">

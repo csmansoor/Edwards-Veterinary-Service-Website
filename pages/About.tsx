@@ -1,6 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+
 // @ts-ignore
 import aboutDogsImg from '../images/A-Bond-of-Trust.webp';
 // @ts-ignore
@@ -13,6 +14,14 @@ import petdeskImg from '../images/Logo.webp';
 const About: React.FC = () => {
   return (
     <div className="bg-white">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>About Our Clinic | Edwards Veterinary Services</title>
+        <meta name="description" content="Meet the team at Edwards Veterinary Services. Over 35 years of compassionate pet care in Tillsonburg, dedicated to treating your pets like family." />
+        <link rel="canonical" href="https://gotec.ca/about" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
+
       {/* Page Header */}
       <section className="bg-brand py-20 text-white">
         <div className="container mx-auto px-4 text-center">

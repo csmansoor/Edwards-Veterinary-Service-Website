@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { SERVICES } from '../constants';
 
 const ServiceDetail: React.FC = () => {
@@ -12,6 +13,14 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <div className="bg-white">
+      {/* 👇 ADD THIS DYNAMIC SEO BLOCK 👇 */}
+      <Helmet>
+        <title>{`${service.title} | Edwards Veterinary Services`}</title>
+        <meta name="description" content={`Edwards Veterinary Services offers professional ${service.title.toLowerCase()} in Tillsonburg. ${service.description}`} />
+        <link rel="canonical" href={`https://gotec.ca/services/${service.slug}`} />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
+
       {/* HEADER SECTION */}
       <section className="bg-[#2a7f62] py-20 text-white text-center">
         <div className="container mx-auto px-4">

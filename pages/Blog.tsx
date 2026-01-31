@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { BLOG_POSTS } from '../constants';
 
 // --- 👇 1. IMPORT YOUR IMAGES HERE 👇 ---
@@ -21,6 +22,13 @@ const Blog: React.FC = () => {
 
   return (
     <div className="bg-gray-50 pb-20">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Veterinary Blog & Pet Health Tips | Edwards Veterinary Services</title>
+        <meta name="description" content="Read expert veterinary advice, pet health tips, and clinic news from Edwards Veterinary Services in Tillsonburg. Learn about disease prevention, wellness, and more." />
+        <link rel="canonical" href="https://gotec.ca/blog" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
       
       {/* --- BANNER SECTION --- */}
       <div 

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { DOCTORS, CARE_TEAM } from '../constants';
 //@ts-ignore
 import teamBanner from '../images/team.webp';
@@ -106,6 +107,13 @@ const Team: React.FC = () => {
 
   return (
     <div className="bg-gray-50 pb-20 overflow-x-hidden">
+      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      <Helmet>
+        <title>Our Veterinarians & Care Team | Edwards Veterinary Services</title>
+        <meta name="description" content="Meet the dedicated veterinarians and staff at Edwards Veterinary Services in Tillsonburg. Dr. Paul Edwards and his team provide compassionate pet care." />
+        <link rel="canonical" href="https://gotec.ca/team" />
+      </Helmet>
+      {/* 👆 SEO BLOCK ENDS 👆 */}
       
       {/* --- HEADER SECTION --- */}
       <section 
