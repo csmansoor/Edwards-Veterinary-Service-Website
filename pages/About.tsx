@@ -20,7 +20,7 @@ const About: React.FC = () => {
         <meta name="description" content="Meet the team at Edwards Veterinary Services. Over 35 years of compassionate pet care in Tillsonburg, dedicated to treating your pets like family." />
         <link rel="canonical" href="https://gotec.ca/about" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
       {/* Page Header */}
       <section className="bg-brand py-20 text-white">

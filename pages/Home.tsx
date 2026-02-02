@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 
 // @ts-ignore
 import wellnessExamImg from '../images/wellness-exam.webp';
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {/* 👇 SEO HEAD BLOCK STARTS HERE 👇 */}
+      
       <Helmet>
         <title>Veterinarian in Tillsonburg | Edwards Veterinary Services</title>
         <meta name="description" content="Compassionate veterinary care in Tillsonburg, ON. We offer pet wellness exams, surgery, dentistry, and emergency care for dogs, cats, and exotic pets." />
@@ -117,7 +117,7 @@ const Home: React.FC = () => {
         `}
         </script>
       </Helmet>
-      {/* 👆 SEO HEAD BLOCK ENDS HERE 👆 */}
+      
 
       <style>{`
         @keyframes marquee {
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
       <section className="relative h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover brightness-[0.5]">
-            {/* FIXED: Removed leading slash for GitHub Pages compatibility */}
+            
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
@@ -285,7 +285,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            {/* FIXED: Changed path to /testimonials */}
+           
             <Link to="/testimonials" className="inline-block bg-[#f4b400] text-white px-10 py-4 rounded-md font-black text-lg transition-all shadow-lg uppercase tracking-widest hover:bg-black">
               Read More Client Reviews
             </Link>

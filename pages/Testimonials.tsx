@@ -1,17 +1,17 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 import { TESTIMONIALS } from '../constants';
 
 const Testimonials: React.FC = () => {
   return (
     <div className="bg-gray-50 pb-20 pt-24">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      
       <Helmet>
         <title>Client Reviews & Testimonials | Edwards Veterinary Services</title>
         <meta name="description" content="Read reviews from pet owners in Tillsonburg. See why our clients trust Edwards Veterinary Services for their pets' wellness, surgery, and emergency care." />
         <link rel="canonical" href="https://gotec.ca/testimonials" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
       {/* Header Section */}
       <section className="bg-[#2a7f62] py-20 text-white text-center">
@@ -20,14 +20,14 @@ const Testimonials: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 mt-16 max-w-6xl">
-        {/* Using columns-1 md:columns-2 for a nice masonry look with long text */}
+      
         <div className="columns-1 md:columns-2 gap-8 space-y-8">
           {TESTIMONIALS.map((t) => (
             <div 
               key={t.id} 
               className="break-inside-avoid bg-white p-10 rounded-3xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              {/* Large Quote Mark */}
+            
               <span className="text-6xl text-[#2a7f62] opacity-20 leading-none mb-[-20px]">“</span>
               
               <p className="text-gray-700 text-lg italic mb-8 leading-relaxed relative z-10">
@@ -47,7 +47,7 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
+      
         <div className="mt-20 text-center bg-[#2a7f62]/5 p-12 rounded-3xl border border-[#2a7f62]/10">
           <h3 className="text-2xl font-bold text-[#2a7f62] mb-4">Want to share your experience?</h3>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">

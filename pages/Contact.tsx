@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 
 const Contact: React.FC = () => {
   const [sent, setSent] = useState(false);
 
   return (
     <div className="bg-white">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      
       <Helmet>
         <title>Contact Us | Edwards Veterinary Services</title>
         <meta name="description" content="Visit us at 527 Broadway St, Tillsonburg. Call (519) 688-2123 to book an appointment. 24-hour emergency care available for current clients." />
         <link rel="canonical" href="https://gotec.ca/contact" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
       <section className="bg-brand py-20 text-white text-center">
         <h1 className="text-4xl font-bold">Contact Us</h1>
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                 height="100%" 
                 frameBorder="0" 
                 style={{ border: 0 }}
-                // 👇 THIS IS THE CORRECT, WORKING LINK
+                //Google map limk
                 src="https://maps.google.com/maps?q=Edwards+Veterinary+Services+527+Broadway+St+Tillsonburg&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen
                 loading="lazy" 

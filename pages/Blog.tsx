@@ -2,7 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
 import { BLOG_POSTS } from '../constants';
 
-// --- 👇 1. IMPORT YOUR IMAGES HERE 👇 ---
 // @ts-ignore
 import blogBannerImg from '../images/pet3.webp'; 
 // @ts-ignore
@@ -22,13 +21,13 @@ const Blog: React.FC = () => {
 
   return (
     <div className="bg-gray-50 pb-20">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+     
       <Helmet>
         <title>Veterinary Blog & Pet Health Tips | Edwards Veterinary Services</title>
         <meta name="description" content="Read expert veterinary advice, pet health tips, and clinic news from Edwards Veterinary Services in Tillsonburg. Learn about disease prevention, wellness, and more." />
         <link rel="canonical" href="https://gotec.ca/blog" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
       
       {/* --- BANNER SECTION --- */}
       <div 
@@ -121,7 +120,7 @@ const Blog: React.FC = () => {
           {/* Article Block 2: Wellness Pillars */}
           <div className="flex flex-col md:flex-row-reverse gap-8 items-start">
             
-            {/* REMOVED 'sticky top-8' HERE ALSO */}
+            
             <div className="w-full md:w-1/2">
                <img 
                  src={wellnessSectionImg} 

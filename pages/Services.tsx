@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 import { SERVICES } from '../constants';
 
 const Services: React.FC = () => {
   return (
     <div className="bg-gray-50">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+     
       <Helmet>
         <title>Veterinary Services & Surgery | Edwards Veterinary Services</title>
         <meta name="description" content="Comprehensive pet care: Soft tissue surgery, dental cleaning, vaccinations, x-rays, and mobile vet services in Tillsonburg." />
         <link rel="canonical" href="https://gotec.ca/services" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
-      {/* PROFESSIONAL HEADER */}
+      {/*  HEADER */}
       <section className="bg-[#2a7f62] py-24 text-white text-center relative overflow-hidden">
-        {/* Subtle background decoration */}
+        
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
@@ -43,7 +43,7 @@ const Services: React.FC = () => {
               key={service.id} 
               className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2"
             >
-              {/* IMAGE BANNER (Replaces the Emoji icon) */}
+              {/* IMAGE BANNER  */}
               <div className="h-56 w-full overflow-hidden relative">
                 <img 
                   src={service.mainImage} 
@@ -83,7 +83,7 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      {/* EMERGENCY QUICK-LINK CTA */}
+      {/* EMERGENCY QUICK-LINK  */}
       <section className="container mx-auto px-4 pb-20">
         <div className="bg-yellow-400 rounded-[3rem] p-10 md:p-16 text-center shadow-xl">
           <h2 className="text-3xl font-black text-yellow-900 uppercase mb-4">Emergency After-Hours?</h2>

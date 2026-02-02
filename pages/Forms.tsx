@@ -22,7 +22,7 @@ const Forms: React.FC = () => {
               <h3 className="text-xl font-bold text-[#2a7f62] mb-4">{f.title}</h3>
               <p className="text-gray-600 mb-6">{f.description}</p>
               
-              {/* THE CRITICAL CHANGE IS RIGHT HERE: */}
+              
               <Link 
                 to={`/appointment?type=${f.slug}`} 
                 className="inline-block bg-[#2a7f62] text-white px-6 py-2 rounded-lg font-bold hover:bg-black transition"

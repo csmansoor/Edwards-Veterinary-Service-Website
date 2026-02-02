@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 
 //@ts-ignore
 import gallery1 from '../images/gallery.webp';
@@ -33,13 +33,13 @@ const IMAGES = [
 const Gallery: React.FC = () => {
   return (
     <div className="bg-white pb-20">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      
       <Helmet>
         <title>Photo Gallery | Edwards Veterinary Services</title>
         <meta name="description" content="View photos of our veterinary clinic in Tillsonburg, happy patients, and our facilities. Submit your own pet photos to our community gallery." />
         <link rel="canonical" href="https://gotec.ca/gallery" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+     
 
       {/* Page Title Section */}
       <section className="bg-brand py-20 text-white text-center">

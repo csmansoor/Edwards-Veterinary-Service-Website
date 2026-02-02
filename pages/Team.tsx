@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 import { DOCTORS, CARE_TEAM } from '../constants';
 //@ts-ignore
 import teamBanner from '../images/team.webp';
@@ -52,7 +52,7 @@ const DoctorCard = ({ doc }: { doc: any }) => {
   );
 };
 
-// --- CARE TEAM FLIP CARD COMPONENT ---
+// --- CARE TEAM FLIP CARD code ---
 const CareTeamCard = ({ member }: { member: any }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -167,7 +167,7 @@ const Team: React.FC = () => {
             <div className="h-px w-12 bg-[#2a7f62]"></div>
           </div>
 
-          {/* Left Arrow (Outside, Black) */}
+          {/* Left Arrow  */}
           <div className="absolute top-1/2 -left-8 md:-left-16 z-20 transform -translate-y-1/2">
             <button 
               onClick={() => scroll('left')} 
@@ -179,7 +179,7 @@ const Team: React.FC = () => {
             </button>
           </div>
 
-          {/* Right Arrow (Outside, Black) */}
+          {/* Right Arrow  */}
           <div className="absolute top-1/2 -right-8 md:-right-16 z-20 transform -translate-y-1/2">
             <button 
               onClick={() => scroll('right')} 
@@ -191,7 +191,7 @@ const Team: React.FC = () => {
             </button>
           </div>
 
-          {/* Horizontal Scroll Container */}
+          {/* Horizontal Scroll  */}
           <div 
             ref={scrollRef}
             className="flex overflow-x-auto gap-8 pb-8 px-4 no-scrollbar snap-x snap-mandatory scroll-smooth"

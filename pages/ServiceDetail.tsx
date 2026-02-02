@@ -13,13 +13,13 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <div className="bg-white">
-      {/* 👇 ADD THIS DYNAMIC SEO BLOCK 👇 */}
+      
       <Helmet>
         <title>{`${service.title} | Edwards Veterinary Services`}</title>
         <meta name="description" content={`Edwards Veterinary Services offers professional ${service.title.toLowerCase()} in Tillsonburg. ${service.description}`} />
         <link rel="canonical" href={`https://gotec.ca/services/${service.slug}`} />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
       {/* HEADER SECTION */}
       <section className="bg-[#2a7f62] py-20 text-white text-center">
@@ -32,7 +32,7 @@ const ServiceDetail: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 py-16 max-w-5xl">
-        {/* SECTION 1: Intro with Green Heading */}
+        {/* SECTION 1: Intro */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2a7f62] uppercase mb-2">
             {service.section1Heading}
@@ -80,7 +80,7 @@ const ServiceDetail: React.FC = () => {
           />
         </div>
 
-        {/* SECTION 3: Service spectrum (Light Gray Box) */}
+        {/* SECTION 3: Service sectiom(Light Gray Box) */}
         <div className="bg-gray-50 p-10 md:p-14 rounded-[3rem] mb-20 border border-gray-100">
           <h2 className="text-3xl font-bold text-[#2a7f62] mb-4">{service.section3Heading}</h2>
           <p className="text-gray-600 mb-8 font-medium italic">{service.section3Subheading}</p>
@@ -123,7 +123,7 @@ const ServiceDetail: React.FC = () => {
           </div>
         </div>
 
-        {/* TRUSTED TEAM BANNER (Solid Yellow) */}
+        {/* TRUSTED TEAM BANNER (Yellow) */}
         <div className="bg-yellow-400 p-10 md:p-16 rounded-[3rem] text-center mb-16 shadow-xl">
           <h2 className="text-3xl font-black text-yellow-900 uppercase mb-6 tracking-tight">
             Trusted Local Veterinary Team
@@ -137,7 +137,7 @@ const ServiceDetail: React.FC = () => {
           </p>
         </div>
 
-        {/* FOOTER CTA & BACK BUTTON */}
+        {/* FOOTER & BACK BUTTON */}
         <div className="text-center space-y-10">
           <Link 
             to="/appointment" 

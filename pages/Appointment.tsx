@@ -135,13 +135,13 @@ const Appointment: React.FC = () => {
 
   return (
     <div className="bg-gray-50 py-10 md:py-20">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      
       <Helmet>
         <title>Book Veterinary Appointment | Edwards Veterinary Services</title>
         <meta name="description" content="Book a vet appointment, request prescription refills, or submit surgery consent forms online. Fast and secure scheduling for Tillsonburg pets." />
         <link rel="canonical" href="https://gotec.ca/appointment" />
       </Helmet>
-      {/* 👆 SEO BLOCK ENDS 👆 */}
+      
 
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">

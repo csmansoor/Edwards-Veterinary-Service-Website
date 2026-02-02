@@ -53,7 +53,7 @@ const Payments: React.FC = () => {
           </p>
         </div>
 
-        {/* Payment Methods Grid */}
+        {/* Payment Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {paymentMethods.map((method) => (
             <div 
@@ -95,7 +95,7 @@ const Payments: React.FC = () => {
               Talk to Our Team
             </Link>
           </div>
-          {/* Decorative Circle */}
+          
           <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         </div>
       </div>
