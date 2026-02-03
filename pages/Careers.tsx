@@ -16,32 +16,38 @@ const Careers: React.FC = () => {
         <link rel="canonical" href="https://gotec.ca/careers" />
       </Helmet>
       
-
-      <section className="bg-brand py-20 text-white text-center">
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-20 text-white text-center">
         <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
-        <p className="text-xl text-brand-light">Build your career in compassionate veterinary medicine.</p>
+        {/* CHANGE: Text to light green/white for contrast */}
+        <p className="text-xl text-green-50">Build your career in compassionate veterinary medicine.</p>
       </section>
 
       <div className="container mx-auto px-4 mt-16 max-w-4xl">
-        <h2 className="text-3xl font-bold text-brand mb-8">Current Openings</h2>
+        {/* CHANGE: Text to #008000 */}
+        <h2 className="text-3xl font-bold text-[#008000] mb-8">Current Openings</h2>
         <div className="space-y-6">
           {openings.map((job, i) => (
             <div key={i} className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
-                <span className="text-xs font-bold text-brand bg-brand/10 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">{job.type}</span>
+                {/* CHANGE: Text to #008000, bg to #008000/10 */}
+                <span className="text-xs font-bold text-[#008000] bg-[#008000]/10 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">{job.type}</span>
                 <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
                 <p className="text-gray-600 mt-2">{job.description}</p>
               </div>
-              <button className="bg-brand text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-dark transition shadow-md whitespace-nowrap">
+              {/* CHANGE: bg to #008000, hover to #006400 */}
+              <button className="bg-[#008000] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006400] transition shadow-md whitespace-nowrap">
                 Apply Now
               </button>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 bg-brand text-white p-12 rounded-3xl shadow-xl">
+        {/* CHANGE: bg to #008000 */}
+        <div className="mt-20 bg-[#008000] text-white p-12 rounded-3xl shadow-xl">
           <h2 className="text-2xl font-bold mb-6">How to Apply</h2>
-          <p className="text-lg text-brand-light mb-8 leading-relaxed">
+          {/* CHANGE: Text to light green/white for contrast */}
+          <p className="text-lg text-green-50 mb-8 leading-relaxed">
             We are always looking for passionate animal lovers to join our family. Even if we don't have a specific opening that fits your skills right now, feel free to send us your resume!
           </p>
           <div className="flex flex-col md:flex-row gap-8">
@@ -51,7 +57,8 @@ const Careers: React.FC = () => {
               </div>
               <div>
                 <p className="font-bold">Email Resumes to:</p>
-                <p className="text-brand-light">frontdesk.edwardsvs@gmail.com</p>
+                {/* CHANGE: Text to light green/white for contrast */}
+                <p className="text-green-100">frontdesk.edwardsvs@gmail.com</p>
               </div>
             </div>
           </div>

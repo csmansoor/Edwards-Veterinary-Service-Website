@@ -22,7 +22,8 @@ const ServiceDetail: React.FC = () => {
       
 
       {/* HEADER SECTION */}
-      <section className="bg-[#2a7f62] py-20 text-white text-center">
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-20 text-white text-center">
         <div className="container mx-auto px-4">
           <div className="text-7xl mb-6">{service.icon}</div>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight">
@@ -34,7 +35,8 @@ const ServiceDetail: React.FC = () => {
       <div className="container mx-auto px-4 py-16 max-w-5xl">
         {/* SECTION 1: Intro */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2a7f62] uppercase mb-2">
+          {/* CHANGE: Text color to #008000 */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#008000] uppercase mb-2">
             {service.section1Heading}
           </h2>
           <h3 className="text-xl font-semibold text-gray-500 mb-6">
@@ -82,7 +84,8 @@ const ServiceDetail: React.FC = () => {
 
         {/* SECTION 3: Service sectiom(Light Gray Box) */}
         <div className="bg-gray-50 p-10 md:p-14 rounded-[3rem] mb-20 border border-gray-100">
-          <h2 className="text-3xl font-bold text-[#2a7f62] mb-4">{service.section3Heading}</h2>
+          {/* CHANGE: Text color to #008000 */}
+          <h2 className="text-3xl font-bold text-[#008000] mb-4">{service.section3Heading}</h2>
           <p className="text-gray-600 mb-8 font-medium italic">{service.section3Subheading}</p>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
             {service.section3List.map((item, i) => (
@@ -111,8 +114,10 @@ const ServiceDetail: React.FC = () => {
           <p className="text-lg text-gray-600 mb-10">{service.section4Description}</p>
           <div className="space-y-4">
             {service.section4Bullets.map((bullet, i) => (
-              <div key={i} className="flex items-start bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-[#2a7f62] transition-colors">
-                <div className="bg-[#2a7f62] text-white rounded-full p-1.5 mr-4 mt-1 flex-shrink-0">
+              // CHANGE: Hover border color to #008000
+              <div key={i} className="flex items-start bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-[#008000] transition-colors">
+                {/* CHANGE: Icon background to #008000 */}
+                <div className="bg-[#008000] text-white rounded-full p-1.5 mr-4 mt-1 flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path>
                   </svg>
@@ -139,15 +144,17 @@ const ServiceDetail: React.FC = () => {
 
         {/* FOOTER & BACK BUTTON */}
         <div className="text-center space-y-10">
+          {/* CHANGE: Background to #008000 */}
           <Link 
             to="/appointment" 
-            className="bg-[#2a7f62] text-white px-16 py-6 rounded-full font-extrabold text-2xl hover:bg-black transition-all shadow-2xl inline-block uppercase tracking-widest transform hover:scale-105"
+            className="bg-[#008000] text-white px-16 py-6 rounded-full font-extrabold text-2xl hover:bg-black transition-all shadow-2xl inline-block uppercase tracking-widest transform hover:scale-105"
           >
             {service.ctaText}
           </Link>
           
           <div className="pt-4">
-            <Link to="/services" className="text-[#2a7f62] font-black text-lg flex items-center justify-center hover:opacity-70 transition group">
+            {/* CHANGE: Text color to #008000 */}
+            <Link to="/services" className="text-[#008000] font-black text-lg flex items-center justify-center hover:opacity-70 transition group">
               <svg className="w-6 h-6 mr-3 transition-transform group-hover:translate-x-[-10px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
               </svg>

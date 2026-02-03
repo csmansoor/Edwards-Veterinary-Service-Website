@@ -29,7 +29,8 @@ const DoctorCard = ({ doc }: { doc: any }) => {
           </div>
 
           {/* --- BACK SIDE (Bio Only) --- */}
-          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#2a7f62] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center text-white shadow-xl">
+          {/* CHANGE: Background to #008000 */}
+          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#008000] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center text-white shadow-xl">
             <div className="w-12 h-1 bg-white/30 mb-6 rounded-full"></div>
             <div className="overflow-y-auto max-h-[450px] custom-scrollbar px-2">
               <p className="text-sm leading-relaxed font-medium whitespace-pre-line">
@@ -74,7 +75,8 @@ const CareTeamCard = ({ member }: { member: any }) => {
         </div>
 
         {/* --- BACK SIDE --- */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#2a7f62] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center text-white shadow-xl">
+        {/* CHANGE: Background to #008000 */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#008000] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center text-white shadow-xl">
           <h3 className="text-2xl font-black uppercase mb-2">{member.name}</h3>
           <div className="w-12 h-1 bg-white/30 mb-6 rounded-full"></div>
           <div className="overflow-y-auto max-h-[350px] custom-scrollbar">
@@ -124,9 +126,10 @@ const Team: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-black mb-10 text-white uppercase tracking-tighter drop-shadow-lg">
             MEET OUR TEAM
           </h1>
+          {/* CHANGE: Background to #008000, hover text to #008000 */}
           <button 
             onClick={scrollToTeam}
-            className="bg-[#2a7f62] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-[#2a7f62] transition-all duration-300 shadow-lg transform hover:scale-105"
+            className="bg-[#008000] text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-[#008000] transition-all duration-300 shadow-lg transform hover:scale-105"
           >
             Get To Know Us
           </button>
@@ -135,11 +138,13 @@ const Team: React.FC = () => {
 
       {/* --- INTRO TEXT SECTION --- */}
       <div className="container mx-auto px-4 mt-20 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#2a7f62] uppercase mb-6 tracking-tight">
+        {/* CHANGE: Text to #008000 */}
+        <h2 className="text-3xl md:text-4xl font-bold text-[#008000] uppercase mb-6 tracking-tight">
           MEET THE TEAM BEHIND YOUR PET’S CARE
         </h2>
         <p className="text-lg text-gray-700 leading-relaxed">
-          At <span className="text-[#2a7f62] font-bold">Edwards Veterinary Services</span>, our passionate and skilled team is dedicated to supporting your pet’s lifelong health and happiness. As a privately owned and operated hospital, we take pride in building personal connections with the families we serve. We’re excited to welcome you and your companion, and we can’t wait to get to know you both better.
+          {/* CHANGE: Text to #008000 */}
+          At <span className="text-[#008000] font-bold">Edwards Veterinary Services</span>, our passionate and skilled team is dedicated to supporting your pet’s lifelong health and happiness. As a privately owned and operated hospital, we take pride in building personal connections with the families we serve. We’re excited to welcome you and your companion, and we can’t wait to get to know you both better.
         </p>
       </div>
 
@@ -148,9 +153,12 @@ const Team: React.FC = () => {
         {/* --- DOCTORS SECTION --- */}
         <div id="our-doctors" className="mb-32">
           <div className="flex items-center justify-center space-x-4 mb-16">
-            <div className="h-px w-12 bg-[#2a7f62]"></div>
-            <h2 className="text-4xl font-bold text-[#2a7f62] uppercase tracking-tighter">Our Doctors</h2>
-            <div className="h-px w-12 bg-[#2a7f62]"></div>
+            {/* CHANGE: Line color to #008000 */}
+            <div className="h-px w-12 bg-[#008000]"></div>
+            {/* CHANGE: Header text to #008000 */}
+            <h2 className="text-4xl font-bold text-[#008000] uppercase tracking-tighter">Our Doctors</h2>
+            {/* CHANGE: Line color to #008000 */}
+            <div className="h-px w-12 bg-[#008000]"></div>
           </div>
           <div className="space-y-12">
             {DOCTORS.map((doc, idx) => (
@@ -162,9 +170,12 @@ const Team: React.FC = () => {
         {/* --- CARE TEAM SECTION WITH ARROWS --- */}
         <div className="relative pb-12">
           <div className="flex items-center justify-center space-x-4 mb-16">
-            <div className="h-px w-12 bg-[#2a7f62]"></div>
-            <h2 className="text-4xl font-bold text-[#2a7f62] uppercase tracking-tighter">Our Care Team</h2>
-            <div className="h-px w-12 bg-[#2a7f62]"></div>
+            {/* CHANGE: Line color to #008000 */}
+            <div className="h-px w-12 bg-[#008000]"></div>
+            {/* CHANGE: Header text to #008000 */}
+            <h2 className="text-4xl font-bold text-[#008000] uppercase tracking-tighter">Our Care Team</h2>
+            {/* CHANGE: Line color to #008000 */}
+            <div className="h-px w-12 bg-[#008000]"></div>
           </div>
 
           {/* Left Arrow  */}

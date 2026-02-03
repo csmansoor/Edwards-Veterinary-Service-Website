@@ -14,8 +14,9 @@ const Services: React.FC = () => {
       </Helmet>
       
 
-      {/*  HEADER */}
-      <section className="bg-[#2a7f62] py-24 text-white text-center relative overflow-hidden">
+      {/* HEADER */}
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-24 text-white text-center relative overflow-hidden">
         
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -57,14 +58,16 @@ const Services: React.FC = () => {
               </div>
 
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-black mb-3 text-[#2a7f62] leading-tight uppercase tracking-tight group-hover:text-black transition-colors">
+                {/* CHANGE: Title text to #008000 */}
+                <h3 className="text-2xl font-black mb-3 text-[#008000] leading-tight uppercase tracking-tight group-hover:text-black transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-8 leading-relaxed font-medium">
                   {service.description}
                 </p>
                 
-                <div className="mt-auto flex items-center text-[#2a7f62] font-black uppercase tracking-wider text-sm">
+                {/* CHANGE: Link text to #008000 */}
+                <div className="mt-auto flex items-center text-[#008000] font-black uppercase tracking-wider text-sm">
                   <span className="border-b-2 border-transparent group-hover:border-yellow-400 transition-all pb-1">
                     Explore Service
                   </span>
@@ -90,9 +93,10 @@ const Services: React.FC = () => {
           <p className="text-xl text-yellow-950 font-bold mb-8 max-w-2xl mx-auto">
             We prioritize our active clients for urgent needs. If you are in a crisis, don't wait.
           </p>
+          {/* KEPT: bg-black as requested. CHANGE: hover to #008000 */}
           <Link 
             to="/services/pet-emergency-care" 
-            className="bg-black text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[#2a7f62] transition-colors inline-block"
+            className="bg-black text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[#008000] transition-colors inline-block"
           >
             Emergency Info
           </Link>

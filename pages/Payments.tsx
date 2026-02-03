@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +7,8 @@ const Payments: React.FC = () => {
       name: 'Cash', 
       detail: 'Standard cash payments are accepted at the front desk.', 
       icon: (
-        <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        // CHANGE: Icon color to #008000
+        <svg className="w-12 h-12 text-[#008000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       )
@@ -37,16 +37,19 @@ const Payments: React.FC = () => {
 
   return (
     <div className="bg-white pb-20">
-      <section className="bg-brand py-20 text-white text-center">
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-20 text-white text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Payment Options</h1>
-          <p className="text-xl text-brand-light">Flexible ways to pay for your pet's health and wellness.</p>
+          {/* CHANGE: Text to light green/white for contrast */}
+          <p className="text-xl text-green-50">Flexible ways to pay for your pet's health and wellness.</p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 mt-16 max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-brand mb-6">Accepted Methods</h2>
+          {/* CHANGE: Text to #008000 */}
+          <h2 className="text-3xl font-bold text-[#008000] mb-6">Accepted Methods</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             To ensure we can provide the best medical attention to all patients, 
             payment is required at the time services are rendered.
@@ -63,14 +66,16 @@ const Payments: React.FC = () => {
               <div className="mb-8 transform group-hover:scale-110 transition duration-300 h-16 flex items-center">
                 {method.icon}
               </div>
-              <h3 className="text-2xl font-bold text-brand mb-4">{method.name}</h3>
+              {/* CHANGE: Text to #008000 */}
+              <h3 className="text-2xl font-bold text-[#008000] mb-4">{method.name}</h3>
               <p className="text-gray-500 mb-8 leading-relaxed">{method.detail}</p>
               {method.link && (
                 <a 
                   href={method.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="mt-auto text-brand font-bold flex items-center hover:underline"
+                  // CHANGE: Text to #008000
+                  className="mt-auto text-[#008000] font-bold flex items-center hover:underline"
                 >
                   Learn about Humm
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
@@ -81,21 +86,25 @@ const Payments: React.FC = () => {
         </div>
 
         {/* Info Card */}
-        <div className="bg-brand rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
+        {/* CHANGE: Background to #008000 */}
+        <div className="bg-[#008000] rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <h3 className="text-2xl font-bold mb-4">Transparent Pricing</h3>
-              <p className="text-brand-light text-lg">
+              {/* CHANGE: Text to light green/white for contrast */}
+              <p className="text-green-50 text-lg">
                 We provide detailed estimates for all surgeries and hospitalized treatments. 
                 If you have any questions regarding costs, please don't hesitate to ask 
                 our team before your appointment begins.
               </p>
             </div>
-            <Link to="/contact" className="bg-white text-brand px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap">
+            {/* CHANGE: Text to #008000 */}
+            <Link to="/contact" className="bg-white text-[#008000] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap">
               Talk to Our Team
             </Link>
           </div>
           
+          {/* CHANGE: Blur color to #008000/10 or white/10 (kept white/10 as it's an overlay on dark bg) */}
           <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         </div>
       </div>

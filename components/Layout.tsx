@@ -23,50 +23,63 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex space-x-8 items-center font-medium">
-          <Link to="/" className="hover:text-[#2a7f62] transition">Home</Link>
+        <nav className="hidden lg:flex space-x-6 items-center font-medium">
+          <Link to="/" className="hover:text-[#008000] transition">Home</Link>
           
+          {/* About Dropdown */}
           <div className="relative group">
-            <button className="flex items-center space-x-1 hover:text-[#2a7f62] transition py-2">
+            <button className="flex items-center space-x-1 hover:text-[#008000] transition py-2">
               <span>About Us</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div className="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl py-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-              <Link to="/about" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Our Story</Link>
-              <Link to="/team" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Our Team</Link>
-              <Link to="/gallery" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Photo Gallery</Link>
-              <Link to="/testimonials" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Testimonials</Link>
-              <Link to="/careers" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Careers</Link>
+              <Link to="/about" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Our Story</Link>
+              <Link to="/team" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Our Team</Link>
+              <Link to="/gallery" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Photo Gallery</Link>
+              <Link to="/testimonials" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Testimonials</Link>
+              <Link to="/careers" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Careers</Link>
             </div>
           </div>
 
+          {/* Services Dropdown */}
           <div className="relative group">
-            <button className="flex items-center space-x-1 hover:text-[#2a7f62] transition py-2">
+            <button className="flex items-center space-x-1 hover:text-[#008000] transition py-2">
               <span>Services</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div className="absolute top-full left-0 w-64 bg-white border border-gray-100 shadow-xl py-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-              <Link to="/services" className="block px-4 py-2 font-bold text-[#2a7f62] hover:bg-[#2a7f62] hover:text-white transition">View All Services</Link>
+              <Link to="/services" className="block px-4 py-2 font-bold text-[#008000] hover:bg-[#008000] hover:text-white transition">View All Services</Link>
             </div>
           </div>
 
+          {/* Resources Dropdown */}
           <div className="relative group">
-            <button className="flex items-center space-x-1 hover:text-[#2a7f62] transition py-2">
+            <button className="flex items-center space-x-1 hover:text-[#008000] transition py-2">
               <span>Resources</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div className="absolute top-full left-0 w-52 bg-white border border-gray-100 shadow-xl py-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
-              <Link to="/forms" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Forms</Link>
-              <Link to="/faqs" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">FAQs</Link>
-              <Link to="/payments" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Payment Options</Link>
-              <Link to="/blog" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#2a7f62]">Blog</Link>
+              <Link to="/forms" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Forms</Link>
+              <Link to="/faqs" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">FAQs</Link>
+              <Link to="/payments" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Payment Options</Link>
+              <Link to="/blog" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#008000]">Blog</Link>
             </div>
           </div>
 
-          <Link to="/store" className="hover:text-[#2a7f62] transition">Online Store</Link>
-          <Link to="/appointment" className="bg-[#2a7f62] text-white px-6 py-2 rounded-full hover:bg-[#1e5c46] transition transform hover:scale-105 shadow-md">
-            Book Now
+          {/* Online Store Button (Desktop) */}
+          <Link to="/store" className="bg-[#008000] text-white px-6 py-2 rounded-full hover:bg-green-800 transition transform hover:scale-105 shadow-md whitespace-nowrap">
+            Online Store
           </Link>
+          
+          {/* Book Now Button (Desktop) - EXTERNAL LINK */}
+          <a 
+            href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-[#008000] text-white px-6 py-2 rounded-full hover:bg-green-800 transition transform hover:scale-105 shadow-md whitespace-nowrap"
+          >
+            Book Now
+          </a>
         </nav>
 
         {/* Mobile Toggle Button */}
@@ -87,7 +100,7 @@ const Header = () => {
             
             <div className="space-y-3">
               <p className="font-black text-gray-900 uppercase text-xs tracking-widest">About Us</p>
-              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#2a7f62]/20">
+              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#008000]/20">
                 <Link to="/about" onClick={toggleMenu} className="text-gray-700 font-medium">Our Story</Link>
                 <Link to="/team" onClick={toggleMenu} className="text-gray-700 font-medium">Our Team</Link>
                 <Link to="/gallery" onClick={toggleMenu} className="text-gray-700 font-medium">Photo Gallery</Link>
@@ -98,14 +111,14 @@ const Header = () => {
 
             <div className="space-y-3">
               <p className="font-black text-gray-900 uppercase text-xs tracking-widest">Services</p>
-              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#2a7f62]/20">
-                <Link to="/services" onClick={toggleMenu} className="text-[#2a7f62] font-bold">View All Services</Link>
+              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#008000]/20">
+                <Link to="/services" onClick={toggleMenu} className="text-[#008000] font-bold">View All Services</Link>
               </div>
             </div>
 
             <div className="space-y-3">
               <p className="font-black text-gray-900 uppercase text-xs tracking-widest">Resources</p>
-              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#2a7f62]/20">
+              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-[#008000]/20">
                 <Link to="/forms" onClick={toggleMenu} className="text-gray-700 font-medium">Forms</Link>
                 <Link to="/faqs" onClick={toggleMenu} className="text-gray-700 font-medium">FAQs</Link>
                 <Link to="/payments" onClick={toggleMenu} className="text-gray-700 font-medium">Payment Options</Link>
@@ -113,10 +126,24 @@ const Header = () => {
               </div>
             </div>
 
-            <Link to="/store" onClick={toggleMenu} className="text-xl font-bold border-b pb-2 text-gray-900">Online Store</Link>
-            <Link to="/appointment" onClick={toggleMenu} className="bg-[#2a7f62] text-white text-center py-4 rounded-xl font-bold shadow-lg">
-              Book Appointment
-            </Link>
+            {/* --- MOBILE BUTTONS --- */}
+            <div className="flex flex-col space-y-4 mt-6 items-start">
+              <Link to="/store" onClick={toggleMenu} className="bg-[#008000] text-white text-center w-auto px-10 py-2 rounded-full font-bold shadow-md hover:bg-green-800 transition">
+                Online Store
+              </Link>
+              
+              {/* FIXED: Mobile Link now points to PetDesk */}
+              <a 
+                href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={toggleMenu} 
+                className="bg-[#008000] text-white text-center w-auto px-10 py-2 rounded-full font-bold shadow-md hover:bg-green-800 transition"
+              >
+                Book Appointment
+              </a>
+            </div>
+
           </nav>
         </div>
       )}
@@ -127,33 +154,52 @@ const Header = () => {
 const Footer = () => (
   <footer className="bg-gray-900 text-white pt-16 pb-8">
     <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      
+      {/* Column 1: Logo & Tagline */}
       <div className="space-y-4">
         <div className="flex items-center space-x-2">
-          {/* Footer Logo: Simple Text for now, or you can use image here too */}
-          <div className="bg-[#2a7f62] w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl">E</div>
+          {/* Footer Logo */}
+          <div className="bg-[#008000] w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl">E</div>
           <span className="text-xl font-bold">Edwards Veterinary</span>
         </div>
         <p className="text-gray-400 text-sm">Providing compassionate, high-quality veterinary care.</p>
       </div>
+
+      {/* Column 2: Quick Links */}
       <div>
-        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#2a7f62] pl-3">Quick Links</h4>
+        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#008000] pl-3">Quick Links</h4>
         <ul className="space-y-3 text-gray-400">
-          <li><Link to="/about" className="hover:text-[#2a7f62] transition">About Us</Link></li>
-          <li><Link to="/services" className="hover:text-[#2a7f62] transition">Our Services</Link></li>
-          <li><Link to="/contact" className="hover:text-[#2a7f62] transition">Contact Us</Link></li>
+          <li><Link to="/about" className="hover:text-[#008000] transition">About Us</Link></li>
+          <li><Link to="/services" className="hover:text-[#008000] transition">Our Services</Link></li>
+          <li><Link to="/contact" className="hover:text-[#008000] transition">Contact Us</Link></li>
         </ul>
       </div>
+
+      {/* Column 3: Contact Info */}
       <div>
-        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#2a7f62] pl-3">Contact</h4>
+        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#008000] pl-3">Contact</h4>
         <p className="text-gray-400 text-sm">527 Broadway St, Tillsonburg<br />(519) 688-2123</p>
       </div>
+
+      {/* Column 4: Social Media */}
       <div>
-        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#2a7f62] pl-3">Hours</h4>
-        <ul className="text-gray-400 text-sm space-y-1">
-          <li>Mon-Fri: 8 AM – 5 PM</li>
-          <li>Sat: 8 AM – 1 PM</li>
-        </ul>
+        <h4 className="text-lg font-bold mb-6 border-l-4 border-[#008000] pl-3">Follow us on social media</h4>
+        <div className="flex space-x-4">
+          <a 
+            href="https://www.facebook.com/share/1DsMN5SS4a/?mibextid=wwXIfr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-gray-800 p-3 rounded-full text-gray-400 hover:bg-[#1877F2] hover:text-white transition-all duration-300"
+            aria-label="Facebook"
+          >
+            {/* Facebook Icon SVG */}
+            <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
       </div>
+
     </div>
     <div className="container mx-auto px-4 mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
       <p>© {new Date().getFullYear()} Edwards Veterinary Services.</p>

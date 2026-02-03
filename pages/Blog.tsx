@@ -45,9 +45,10 @@ const Blog: React.FC = () => {
             Expert advice for a happy, healthy pet.
           </p>
           
+          {/* CHANGE: Button bg to #008000, hover to #006400 */}
           <button 
             onClick={scrollToRead}
-            className="bg-[#2a7f62] hover:bg-[#1e5c47] text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider transition-all shadow-lg transform hover:scale-105"
+            className="bg-[#008000] hover:bg-[#006400] text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider transition-all shadow-lg transform hover:scale-105"
           >
             Start Reading
           </button>
@@ -67,8 +68,10 @@ const Blog: React.FC = () => {
                 />
               </div>
               <div className="p-8 flex-grow">
-                <span className="text-[#2a7f62] font-bold text-sm uppercase tracking-widest">{post.date}</span>
-                <h3 className="text-2xl font-bold text-gray-900 mt-2 mb-4 group-hover:text-[#2a7f62] transition">{post.title}</h3>
+                {/* CHANGE: Date text color to #008000 */}
+                <span className="text-[#008000] font-bold text-sm uppercase tracking-widest">{post.date}</span>
+                {/* CHANGE: Hover title color to #008000 */}
+                <h3 className="text-2xl font-bold text-gray-900 mt-2 mb-4 group-hover:text-[#008000] transition">{post.title}</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">{post.excerpt}</p>
               </div>
             </div>
@@ -78,14 +81,16 @@ const Blog: React.FC = () => {
 
       {/* --- NEW READING SECTION --- */}
       <div id="reading-section" className="container mx-auto px-4 mt-24 max-w-5xl">
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-[#2a7f62]">
+        {/* CHANGE: Border color to #008000 */}
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-[#008000]">
           
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-800 uppercase mb-4">
               Pet Health Tips & Veterinary News
             </h2>
-            <div className="h-1 w-24 bg-[#2a7f62] mx-auto"></div>
+            {/* CHANGE: Divider color to #008000 */}
+            <div className="h-1 w-24 bg-[#008000] mx-auto"></div>
           </div>
 
           {/* Article Block 1: Disease Info */}
@@ -101,7 +106,8 @@ const Blog: React.FC = () => {
             </div>
             
             <div className="w-full md:w-1/2 space-y-4">
-              <h3 className="text-2xl font-bold text-[#2a7f62] mb-3">Understanding Common Pet Diseases</h3>
+              {/* CHANGE: Title text color to #008000 */}
+              <h3 className="text-2xl font-bold text-[#008000] mb-3">Understanding Common Pet Diseases</h3>
               <p className="text-gray-600 leading-relaxed">
                 Detecting early signs of illness is key to your pet's longevity. Unlike humans, our pets cannot tell us when they are feeling unwell, often hiding their pain until the condition has advanced. Common issues like dental disease, diabetes, and arthritis can often be managed effectively if caught early, preventing long-term suffering.
               </p>
@@ -130,7 +136,8 @@ const Blog: React.FC = () => {
             </div>
             
             <div className="w-full md:w-1/2">
-              <h3 className="text-2xl font-bold text-[#2a7f62] mb-3">The Pillars of Pet Wellness</h3>
+              {/* CHANGE: Title text color to #008000 */}
+              <h3 className="text-2xl font-bold text-[#008000] mb-3">The Pillars of Pet Wellness</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Wellness goes beyond just vaccinations. It includes proper nutrition, weight management, and parasite prevention. Keeping your pet at a healthy weight is the single most effective way to extend their lifespan.
               </p>

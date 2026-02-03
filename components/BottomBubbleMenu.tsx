@@ -35,11 +35,11 @@ const BottomBubbleMenu = () => {
         {/* --- Book Appointment --- */}
         <Link
           to="/appointment"
-          className="flex items-center gap-1.5 bg-[#1abc9c] hover:bg-[#16a085] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
+          className="flex items-center gap-1.5 bg-[#008000] hover:bg-[#16a085] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
         >
           <span className="text-xs md:text-base">📅</span>
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
-            Book Appt
+            Appointment
           </span>
         </Link>
 
@@ -57,7 +57,7 @@ const BottomBubbleMenu = () => {
         {/* --- Call Now --- */}
         <a
           href="tel:5196882123"
-          className="flex items-center gap-1.5 bg-[#2ecc71] hover:bg-[#27ae60] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
+          className="flex items-center gap-1.5 bg-[#008000] hover:bg-[#27ae60] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
         >
           <span className="text-xs md:text-base">📞</span>
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider whitespace-nowrap">

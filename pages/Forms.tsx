@@ -10,7 +10,8 @@ const Forms: React.FC = () => {
 
   return (
     <div className="bg-gray-50 pb-20">
-      <section className="bg-[#2a7f62] py-20 text-white text-center">
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-20 text-white text-center">
         <h1 className="text-4xl font-bold mb-4">Online Forms</h1>
         <p className="text-xl opacity-90">Save time by completing your paperwork before your visit.</p>
       </section>
@@ -19,13 +20,15 @@ const Forms: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {formLinks.map((f) => (
             <div key={f.slug} className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition">
-              <h3 className="text-xl font-bold text-[#2a7f62] mb-4">{f.title}</h3>
+              {/* CHANGE: Text color to #008000 */}
+              <h3 className="text-xl font-bold text-[#008000] mb-4">{f.title}</h3>
               <p className="text-gray-600 mb-6">{f.description}</p>
               
               
               <Link 
                 to={`/appointment?type=${f.slug}`} 
-                className="inline-block bg-[#2a7f62] text-white px-6 py-2 rounded-lg font-bold hover:bg-black transition"
+                // CHANGE: Button background to #008000
+                className="inline-block bg-[#008000] text-white px-6 py-2 rounded-lg font-bold hover:bg-black transition"
               >
                 Open Form
               </Link>

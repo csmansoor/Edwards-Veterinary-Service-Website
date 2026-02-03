@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const FAQS_DATA = [
@@ -13,9 +12,11 @@ const FAQs: React.FC = () => {
 
   return (
     <div className="bg-white pb-20">
-      <section className="bg-brand py-20 text-white text-center">
+      {/* CHANGE: Background to #008000 */}
+      <section className="bg-[#008000] py-20 text-white text-center">
         <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-        <p className="text-xl text-brand-light">Everything you need to know about our clinic.</p>
+        {/* CHANGE: Text to light green/white for contrast */}
+        <p className="text-xl text-green-50">Everything you need to know about our clinic.</p>
       </section>
 
       <div className="container mx-auto px-4 mt-16 max-w-3xl">
@@ -27,8 +28,9 @@ const FAQs: React.FC = () => {
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition"
               >
                 <span className="font-bold text-lg text-gray-900">{faq.q}</span>
+                {/* CHANGE: Icon text to #008000 */}
                 <svg 
-                  className={`w-6 h-6 text-brand transition-transform ${openIndex === i ? 'rotate-180' : ''}`} 
+                  className={`w-6 h-6 text-[#008000] transition-transform ${openIndex === i ? 'rotate-180' : ''}`} 
                   fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -45,7 +47,8 @@ const FAQs: React.FC = () => {
 
         <div className="mt-20 text-center">
           <p className="text-gray-500 mb-6">Still have questions?</p>
-          <a href="/contact" className="text-brand font-bold border-2 border-brand px-10 py-3 rounded-full hover:bg-brand hover:text-white transition">
+          {/* CHANGE: Text, Border, and Hover bg to #008000 */}
+          <a href="/contact" className="text-[#008000] font-bold border-2 border-[#008000] px-10 py-3 rounded-full hover:bg-[#008000] hover:text-white transition">
             Contact Support
           </a>
         </div>
