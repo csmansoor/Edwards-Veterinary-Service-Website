@@ -119,7 +119,9 @@ const Home: React.FC = () => {
   const infiniteTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   // --- CALL THE HOOK ---
+  //@ts-ignore
   useAutoScroll(servicesScrollRef, isServicesHovered, 1); 
+  //@ts-ignore
   useAutoScroll(testimonialsScrollRef, isTestimonialsHovered, 0.8);
 
   const scrollServices = (direction: 'left' | 'right') => {
