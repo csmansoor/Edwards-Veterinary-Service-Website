@@ -19,24 +19,31 @@ import bannerlogoImg from '../images/mark.webp';
 // @ts-ignore
 import heroVideo from '../images/Hero-Video.mp4';
 
-// --- FIXED AUTO SCROLL HOOK ---
+// --- UPDATED AUTO SCROLL HOOK WITH TOUCH SUPPORT ---
 const useAutoScroll = (
-  // The "| null" here removes the red lines by matching the useRef type
   ref: React.RefObject<HTMLDivElement | null>, 
   isHovered: boolean, 
   speed: number = 1
 ): void => {
+  const [isTouched, setIsTouched] = useState(false);
+
   useEffect(() => {
     const scrollContainer = ref.current;
     if (!scrollContainer) return;
 
+    // Stop auto-scroll when user touches the screen
+    const handleTouchStart = () => setIsTouched(true);
+    const handleTouchEnd = () => setIsTouched(false);
+
+    scrollContainer.addEventListener('touchstart', handleTouchStart);
+    scrollContainer.addEventListener('touchend', handleTouchEnd);
+
     let animationFrameId: number;
 
     const autoScroll = () => {
-      if (scrollContainer && !isHovered) {
+      if (scrollContainer && !isHovered && !isTouched) {
         const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
         
-        // Loop back to start if at the end
         if (scrollContainer.scrollLeft >= maxScroll - 2) {
           scrollContainer.scrollLeft = 0;
         } else {
@@ -47,8 +54,13 @@ const useAutoScroll = (
     };
 
     animationFrameId = requestAnimationFrame(autoScroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered, speed, ref]); 
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      scrollContainer.removeEventListener('touchstart', handleTouchStart);
+      scrollContainer.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isHovered, isTouched, speed, ref]); 
 };
 
 const Home: React.FC = () => {
@@ -79,7 +91,6 @@ const Home: React.FC = () => {
   const infiniteServices = [...serviceList, ...serviceList, ...serviceList];
   const infiniteTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-  // These calls will no longer be red
   useAutoScroll(servicesScrollRef, isServicesHovered, 1); 
   useAutoScroll(testimonialsScrollRef, isTestimonialsHovered, 0.8);
 
@@ -96,16 +107,22 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
       <Helmet>
-        {/* Force UTF-8 to fix the Greek text issue */}
         <meta charSet="utf-8" />
         <title>Veterinarian in Tillsonburg | Edwards Veterinary Services</title>
         <meta name="description" content="Compassionate veterinary care in Tillsonburg, ON." />
         <link rel="canonical" href="https://gotec.ca/" />
       </Helmet>
 
+      {/* --- INJECTED MOBILE SCROLL CSS --- */}
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .no-scrollbar { 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; 
+            touch-action: pan-x; 
+        }
         .signature-font { font-family: 'Dancing Script', cursive; }
       `}</style>
 
@@ -166,72 +183,74 @@ const Home: React.FC = () => {
         </div>
       </section>
       
-      {/* Services Scroller */}
+      {/* Services Scroller - TOUCH ENABLED */}
       <section className="py-24 bg-white overflow-hidden relative group">
         <div className="container mx-auto px-4 mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-black text-[#008000] uppercase tracking-tight mb-4">Our Services</h2>
         </div>
         <div className="relative">
-          <button onClick={() => scrollServices('left')} className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Left">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 md:h-20 md:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+          <button onClick={() => scrollServices('left')} className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Left">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
           </button>
           <div 
             ref={servicesScrollRef}
-            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-12 md:px-16 scroll-smooth"
+            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-6 md:px-16 scroll-smooth touch-pan-x"
             onMouseEnter={() => setIsServicesHovered(true)}
             onMouseLeave={() => setIsServicesHovered(false)}
           >
             {infiniteServices.map((service, index) => (
-              <div key={index} className="flex-shrink-0 w-[320px] md:w-[420px] bg-gray-50 rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm group/card">
-                <div className="h-64 overflow-hidden relative">
+              <div key={index} className="flex-shrink-0 w-[280px] md:w-[420px] bg-gray-50 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm group/card">
+                <div className="h-48 md:h-64 overflow-hidden relative">
                   <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" />
                 </div>
-                <div className="p-10">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4 leading-tight">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed line-clamp-2">{service.desc}</p>
+                <div className="p-6 md:p-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4 leading-tight">{service.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">{service.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={() => scrollServices('right')} className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Right">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 md:h-20 md:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+          <button onClick={() => scrollServices('right')} className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Right">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
           </button>
         </div>
       </section>
 
-      {/* Emergency Red Banner */}
+      {/* Emergency Banner */}
       <section className="py-20 bg-red-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 tracking-tighter">24-Hour Emergency Veterinary Care</h2>
-            <p className="text-xl mb-10 leading-relaxed">We provide 24/7 emergency veterinary care for our existing clients. If your pet is experiencing an emergency, please call us immediately for assistance.
-
-     New clients are welcome to contact us during regular business hours to join our waitlist or inquire about becoming a patient at our Tillsonburg clinic.</p>
+            <h2 className="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter">24-Hour Emergency Veterinary Care</h2>
+            <p className="text-lg md:text-xl mb-10 leading-relaxed">
+                We provide 24/7 emergency veterinary care for our existing clients. 
+                <br /><br />
+                New clients are welcome to contact us during regular business hours to join our waitlist.
+            </p>
             <a href="tel:5196882123" className="inline-block bg-white text-red-600 px-10 py-4 font-black text-xl uppercase tracking-widest hover:bg-gray-100 transition shadow-xl transform hover:scale-105">Call (519) 688-2123</a>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - TOUCH ENABLED */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-[#008000] uppercase mb-4">What Our Clients Are Saying</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-[#008000] uppercase mb-4">What Our Clients Are Saying</h2>
           </div>
           <div 
             ref={testimonialsScrollRef}
-            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-4 scroll-smooth"
+            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-4 scroll-smooth touch-pan-x"
             onMouseEnter={() => setIsTestimonialsHovered(true)}
             onMouseLeave={() => setIsTestimonialsHovered(false)}
           >
             {infiniteTestimonials.map((t, index) => (
-              <div key={index} className="flex-shrink-0 w-[350px] md:w-[450px]">
-                <div className="bg-gray-50 p-10 rounded-[2.5rem] border border-gray-100 shadow-md h-full flex flex-col justify-between">
+              <div key={index} className="flex-shrink-0 w-[300px] md:w-[450px]">
+                <div className="bg-gray-50 p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-gray-100 shadow-md h-full flex flex-col justify-between">
                   <div>
-                    <span className="text-6xl text-[#008000] opacity-20 leading-none">“</span>
-                    <p className="text-lg text-gray-700 italic -mt-4 leading-relaxed">{t.text}</p>
+                    <span className="text-4xl md:text-6xl text-[#008000] opacity-20 leading-none">“</span>
+                    <p className="text-base md:text-lg text-gray-700 italic -mt-4 leading-relaxed">{t.text}</p>
                   </div>
-                  <p className="signature-font text-[#008000] text-3xl mt-8">— {t.author}</p>
+                  <p className="signature-font text-[#008000] text-2xl md:text-3xl mt-6 md:mt-8">— {t.author}</p>
                 </div>
               </div>
             ))}
