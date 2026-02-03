@@ -10,24 +10,11 @@ import gallery3 from '../images/gallery3.webp';
 //@ts-ignore
 import gallery4 from '../images/gallery4.webp';
 
-// Array of images for the gallery
 const IMAGES = [
-  { 
-    id: 1, 
-    url: gallery1,
-  },
-  { 
-    id: 2, 
-    url: gallery2,
-  },
-  { 
-    id: 3, 
-    url: gallery3,
-  },
-  { 
-    id: 4, 
-    url: gallery4,
-  },
+  { id: 1, url: gallery1 },
+  { id: 2, url: gallery2 },
+  { id: 3, url: gallery3 },
+  { id: 4, url: gallery4 },
 ];
 
 const Gallery: React.FC = () => {
@@ -35,33 +22,36 @@ const Gallery: React.FC = () => {
     <div className="bg-white pb-20">
       
       <Helmet>
+        <meta charSet="utf-8" />
         <title>Photo Gallery | Edwards Veterinary Services</title>
-        <meta name="description" content="View photos of our veterinary clinic in Tillsonburg, happy patients, and our facilities. Submit your own pet photos to our community gallery." />
+        <meta name="description" content="View photos of our veterinary clinic in Tillsonburg, happy patients, and our facilities." />
         <link rel="canonical" href="https://gotec.ca/gallery" />
       </Helmet>
-      
 
-      {/* Page Title Section */}
-      {/* CHANGE: Background to #008000 */}
-      <section className="bg-[#008000] py-20 text-white text-center">
-        <h1 className="text-4xl font-bold mb-4">Clinic Gallery</h1>
-        {/* CHANGE: Text color to a lighter green/white for contrast */}
-        <p className="text-xl text-green-50">Witness our dedication to veterinary excellence.</p>
+      {/* --- BANNER SECTION: REDUCED PADDING, SAME FONT SIZE --- */}
+      <section className="bg-[#008000] py-12 md:py-20 text-white text-center px-4">
+        {/* KEPT: text-5xl to text-8xl */}
+        <h1 className="text-5xl md:text-8xl font-black mb-4 md:mb-6 uppercase tracking-tighter italic drop-shadow-2xl">
+          Clinic Gallery
+        </h1>
+        {/* KEPT: text-2xl to text-3xl */}
+        <p className="text-xl md:text-3xl font-medium text-green-50 opacity-90 max-w-4xl mx-auto leading-tight">
+          Witness our dedication to veterinary excellence.
+        </p>
       </section>
 
-      <div className="container mx-auto px-4 mt-12">
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="container mx-auto px-4 mt-12 md:mt-20">
+        {/* IMAGE GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {IMAGES.map(img => (
-            <div key={img.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div className="aspect-square overflow-hidden">
+            <div key={img.id} className="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="h-[350px] md:h-[600px] overflow-hidden">
                 <img 
                   src={img.url} 
                   alt="Pet Gallery Image" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                 />
               </div>
-              {/* CHANGE: Hover overlay to #008000 */}
               <div className="absolute inset-0 bg-[#008000]/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
           ))}
@@ -70,101 +60,39 @@ const Gallery: React.FC = () => {
 
       {/* Philosophy Quote Section */}
       <div className="container mx-auto px-4 mt-24">
-        <div className="bg-gray-50 rounded-[40px] p-12 text-center border border-gray-100 max-w-4xl mx-auto">
-          <div className="inline-block p-4 bg-white rounded-full mb-6 shadow-sm">
-            {/* CHANGE: Icon text to #008000 */}
-            <svg className="w-8 h-8 text-[#008000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        <div className="bg-gray-50 rounded-[3rem] p-12 text-center border border-gray-100 max-w-5xl mx-auto">
+          <div className="inline-block p-6 bg-white rounded-full mb-6 shadow-md">
+            <svg className="w-10 h-10 text-[#008000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
           </div>
-          <p className="text-gray-600 mb-8 text-lg italic">
+          <p className="text-gray-700 mb-8 text-2xl md:text-3xl font-bold italic leading-relaxed">
             "Compassionate care for every stage of your pet's life."
           </p>
-          <div className="flex justify-center space-x-2">
-            {/* CHANGE: Dots to #008000 */}
-            {[1, 2, 3].map(i => <div key={i} className="h-1 w-8 bg-[#008000]/20 rounded-full"></div>)}
+          <div className="flex justify-center space-x-3">
+            {[1, 2, 3].map(i => <div key={i} className="h-2 w-12 bg-[#008000]/20 rounded-full"></div>)}
           </div>
         </div>
       </div>
 
-      {/* PHOTO SUBMISSION FORM */}
-      <div className="container mx-auto px-4 mt-24 mb-20 max-w-3xl">
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
+      {/* Submission Form remains the same scale */}
+      <div className="container mx-auto px-4 mt-24 mb-24 max-w-4xl">
+        <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-gray-100">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Submit Your Pet's Photo</h2>
-            <p className="text-gray-500">Share your favorite moments with our clinic community!</p>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 uppercase">Submit Photo</h2>
+            <p className="text-lg text-gray-500 font-medium">Share your favorite moments!</p>
           </div>
 
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            {/* Name Fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">Name *</label>
-                {/* CHANGE: Focus border and ring to #008000 */}
-                <input type="text" placeholder="First" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#008000] focus:ring-2 focus:ring-[#008000]/20 outline-none transition" required />
-              </div>
-              <div className="flex flex-col justify-end">
-                {/* CHANGE: Focus border and ring to #008000 */}
-                <input type="text" placeholder="Last" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#008000] focus:ring-2 focus:ring-[#008000]/20 outline-none transition" required />
-              </div>
+              <input type="text" placeholder="First Name" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-[#008000] outline-none transition-all" required />
+              <input type="text" placeholder="Last Name" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-[#008000] outline-none transition-all" required />
             </div>
-
-            {/* Email Field */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Email *</label>
-              {/* CHANGE: Focus border and ring to #008000 */}
-              <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#008000] focus:ring-2 focus:ring-[#008000]/20 outline-none transition" required />
-            </div>
-
-            {/* Pet's Name */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Pet's Name</label>
-              {/* CHANGE: Focus border and ring to #008000 */}
-              <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#008000] focus:ring-2 focus:ring-[#008000]/20 outline-none transition" />
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Tell us what is happening in this photo!</label>
-              {/* CHANGE: Focus border and ring to #008000 */}
-              <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#008000] focus:ring-2 focus:ring-[#008000]/20 outline-none transition resize-none"></textarea>
-            </div>
-
-            {/* File Upload Section */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">File Upload *</label>
-              <div 
-                // CHANGE: Hover border and bg to #008000
-                className="relative group border-2 border-dashed border-gray-300 rounded-2xl p-10 text-center hover:border-[#008000] hover:bg-[#008000]/5 transition-all cursor-pointer"
-                onDragOver={(e) => e.preventDefault()}
-              >
-                <input 
-                  type="file" 
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" 
-                  accept="image/*"
-                  required
-                />
-                <div className="space-y-3">
-                  {/* CHANGE: Group hover text to #008000 */}
-                  <div className="mx-auto h-12 w-12 text-gray-400 group-hover:text-[#008000] transition">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-600 font-medium text-lg">Drag & Drop Files</p>
-                  <p className="text-sm text-gray-400">or</p>
-                  {/* CHANGE: Text color to #008000, hover bg to #008000 */}
-                  <span className="inline-block bg-white px-6 py-2 rounded-full border border-gray-200 text-sm font-bold text-[#008000] shadow-sm group-hover:bg-[#008000] group-hover:text-white transition">Choose Files to Upload</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            {/* CHANGE: Bg to #008000, hover to darker green #006400, shadow to #008000 */}
-            <button 
-              type="submit" 
-              className="w-full bg-[#008000] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#006400] shadow-lg hover:shadow-[#008000]/30 transition-all transform active:scale-[0.98]"
-            >
+            <input type="email" placeholder="Email Address" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-[#008000] outline-none transition-all" required />
+            <input type="text" placeholder="Pet's Name" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-[#008000] outline-none transition-all" />
+            <textarea rows={4} placeholder="Description" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-[#008000] outline-none transition-all resize-none"></textarea>
+            
+            <button type="submit" className="w-full bg-[#008000] text-white py-5 rounded-2xl font-black text-xl hover:bg-[#006400] transition-all uppercase tracking-widest">
               Submit Photo
             </button>
           </form>

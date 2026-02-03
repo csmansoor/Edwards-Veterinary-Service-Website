@@ -11,54 +11,71 @@ const Careers: React.FC = () => {
     <div className="bg-white pb-20">
       
       <Helmet>
+        <meta charSet="utf-8" />
         <title>Careers & Veterinary Jobs in Tillsonburg | Edwards Veterinary Services</title>
-        <meta name="description" content="Join our team! Edwards Veterinary Services is hiring Registered Veterinary Technicians and Receptionists in Tillsonburg, ON. View current openings." />
+        <meta name="description" content="Join our team! Edwards Veterinary Services is hiring in Tillsonburg, ON." />
         <link rel="canonical" href="https://gotec.ca/careers" />
       </Helmet>
       
-      {/* CHANGE: Background to #008000 */}
-      <section className="bg-[#008000] py-20 text-white text-center">
-        <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
-        {/* CHANGE: Text to light green/white for contrast */}
-        <p className="text-xl text-green-50">Build your career in compassionate veterinary medicine.</p>
+      {/* BANNER: Balanced scaling */}
+      <section className="bg-[#008000] py-12 md:py-24 text-white text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter italic drop-shadow-lg leading-tight">
+          Join Our Team
+        </h1>
+        <p className="text-lg md:text-2xl text-green-50 font-medium opacity-95 max-w-3xl mx-auto leading-relaxed">
+          Build your career in compassionate veterinary medicine.
+        </p>
       </section>
 
-      <div className="container mx-auto px-4 mt-16 max-w-4xl">
-        {/* CHANGE: Text to #008000 */}
-        <h2 className="text-3xl font-bold text-[#008000] mb-8">Current Openings</h2>
-        <div className="space-y-6">
+      <div className="container mx-auto px-4 mt-12 md:mt-20 max-w-5xl">
+        <h2 className="text-3xl md:text-5xl font-black text-[#008000] mb-10 md:mb-14 uppercase tracking-tight text-center md:text-left">
+          Current Openings
+        </h2>
+        
+        <div className="space-y-6 md:space-y-8">
           {openings.map((job, i) => (
-            <div key={i} className="bg-gray-50 p-8 rounded-2xl border border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                {/* CHANGE: Text to #008000, bg to #008000/10 */}
-                <span className="text-xs font-bold text-[#008000] bg-[#008000]/10 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">{job.type}</span>
-                <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
-                <p className="text-gray-600 mt-2">{job.description}</p>
+            <div key={i} className="bg-gray-50 p-6 md:p-10 rounded-[2rem] border border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex-1">
+                <span className="text-xs md:text-sm font-black text-[#008000] bg-[#008000]/10 px-4 py-1.5 rounded-full uppercase tracking-widest mb-3 inline-block">
+                  {job.type}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
+                  {job.title}
+                </h3>
+                <p className="text-base md:text-xl text-gray-600 mt-3 font-medium leading-relaxed">
+                  {job.description}
+                </p>
               </div>
-              {/* CHANGE: bg to #008000, hover to #006400 */}
-              <button className="bg-[#008000] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006400] transition shadow-md whitespace-nowrap">
+              
+              <button className="w-full md:w-auto bg-[#008000] text-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[#006400] transition-all shadow-lg active:scale-95 text-sm md:text-base">
                 Apply Now
               </button>
             </div>
           ))}
         </div>
 
-        {/* CHANGE: bg to #008000 */}
-        <div className="mt-20 bg-[#008000] text-white p-12 rounded-3xl shadow-xl">
-          <h2 className="text-2xl font-bold mb-6">How to Apply</h2>
-          {/* CHANGE: Text to light green/white for contrast */}
-          <p className="text-lg text-green-50 mb-8 leading-relaxed">
-            We are always looking for passionate animal lovers to join our family. Even if we don't have a specific opening that fits your skills right now, feel free to send us your resume!
-          </p>
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex items-center space-x-4">
-              <div className="bg-white/10 p-4 rounded-full">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              </div>
-              <div>
-                <p className="font-bold">Email Resumes to:</p>
-                {/* CHANGE: Text to light green/white for contrast */}
-                <p className="text-green-100">frontdesk.edwardsvs@gmail.com</p>
+        {/* HOW TO APPLY BOX */}
+        <div className="mt-20 md:mt-32 bg-[#008000] text-white p-8 md:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl relative overflow-hidden">
+          {/* Decorative background circle */}
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full" />
+          
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">How to Apply</h2>
+            <p className="text-lg md:text-2xl text-green-50 mb-10 leading-relaxed font-medium">
+              We are always looking for passionate animal lovers to join our family. Even if we don't have a specific opening that fits your skills right now, feel free to send us your resume!
+            </p>
+            
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="flex items-center space-x-5 bg-white/10 p-6 rounded-3xl border border-white/20">
+                <div className="bg-white text-[#008000] p-4 rounded-2xl shadow-lg shrink-0">
+                  <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-black uppercase tracking-widest text-xs md:text-sm text-green-200 mb-1">Email Resumes to:</p>
+                  <p className="text-xl md:text-2xl font-bold break-all">frontdesk.edwardsvs@gmail.com</p>
+                </div>
               </div>
             </div>
           </div>
