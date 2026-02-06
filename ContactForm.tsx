@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 // @ts-ignore
-import contactBannerImg from './images/contactBanner.webp';
+import contactbannerImg from './images/contactbanner.webp';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -38,7 +38,7 @@ const ContactForm = () => {
       <div 
         className="relative py-24 bg-cover bg-center text-center text-white overflow-hidden"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${contactBannerImg})` 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${contactbannerImg})` 
         }}
       >
         <div className="max-w-4xl mx-auto px-4 relative z-10">
