@@ -12,7 +12,7 @@ import josie from './images/josie.webp';
 // @ts-ignore
 import aziz from './images/aziz.webp';
 // @ts-ignore
-import shahid from './images/shahid.webp';
+import shalu from './images/doctor3.webp';
 // @ts-ignore
 import wendy from './images/wendy.webp';
 // @ts-ignore
@@ -577,7 +577,7 @@ export const DOCTORS: TeamMember[] = [
     name: 'Dr. Shalu sheria', //name is changed 
     role: 'Veterinarian',         
     bio: 'Bio coming soon.',
-    image: aziz     //insert correct image 
+    image: shalu     //insert correct image 
     // (add photo to images name it then define it here)
   },
 ];
