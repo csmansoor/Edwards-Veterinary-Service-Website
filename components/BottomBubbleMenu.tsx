@@ -34,7 +34,7 @@ const BottomBubbleMenu = () => {
         
         {/* --- Book Appointment --- */}
         <Link
-          to="/appointment"
+          to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
           className="flex items-center gap-1.5 bg-[#008000] hover:bg-[#16a085] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
         >
           <span className="text-xs md:text-base">📅</span>

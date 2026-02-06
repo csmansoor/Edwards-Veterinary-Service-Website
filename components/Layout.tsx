@@ -132,7 +132,7 @@ const Header = () => {
                 Online Store
               </Link>
               
-              {/* FIXED: Mobile Link now points to PetDesk */}
+              {/*  Mobile Link  */}
               <a 
                 href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
                 target="_blank"

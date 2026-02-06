@@ -16,7 +16,7 @@ const Services: React.FC = () => {
         <link rel="canonical" href="https://gotec.ca/services" />
       </Helmet>
 
-      {/* HEADER: WIDER & LONGER */}
+      {/* HEADER: */}
       <section 
         className="relative py-32 md:py-60 text-white text-center overflow-hidden"
         style={{
@@ -26,7 +26,7 @@ const Services: React.FC = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Subtle dark overlay */}
+        {/*  dark overlay */}
         <div className="absolute inset-0 bg-black/40 z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10">

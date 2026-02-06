@@ -9,7 +9,7 @@ const Team: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
-  // TRIPLE the team: [A, B, C]. We start in B.
+  
   const loopedTeam = [...CARE_TEAM, ...CARE_TEAM, ...CARE_TEAM];
 
   // --- THE UNSTOPPABLE ENGINE ---
@@ -39,9 +39,13 @@ const Team: React.FC = () => {
       animationId = requestAnimationFrame(animate);
     };
 
-    // START POSITION: Jump to the middle set (B) immediately
-    const startPos = container.scrollWidth / 3;
-    container.scrollLeft = startPos;
+    // START POSITION: Jump to the middle set 
+    // DOM is fully sized before jumping
+    setTimeout(() => {
+        if (container.scrollLeft === 0) {
+            container.scrollLeft = container.scrollWidth / 3;
+        }
+    }, 100);
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
@@ -80,7 +84,7 @@ const Team: React.FC = () => {
         <p className="text-xl md:text-3xl text-gray-700 leading-relaxed font-medium">Dedicated to lifelong health and happiness.</p>
       </div>
 
-      {/* DOCTORS (Normal Static Layout) */}
+      {/* DOCTORS Layout) */}
       <div className="container mx-auto px-4 mt-20">
         <div className="flex items-center justify-center space-x-4 mb-20 text-[#008000]">
           <div className="h-px w-8 md:w-12 bg-current opacity-30"></div>
@@ -96,7 +100,7 @@ const Team: React.FC = () => {
           ))}
         </div>
 
-        {/* --- THE INFINITE CARE TEAM CARDS --- */}
+        {/* ---  INFINITE scroll CARE TEAM CARDS --- */}
         <div className="relative mb-20">
           <div className="flex items-center justify-center space-x-4 mb-16 text-[#008000]">
             <div className="h-px w-8 md:w-12 bg-current opacity-30"></div>
@@ -105,9 +109,9 @@ const Team: React.FC = () => {
           </div>
 
           <div className="relative group max-w-[1600px] mx-auto">
-            {/* LARGE NAVIGATION ARROWS */}
-            <button onClick={() => handleManualScroll('left')} className="absolute top-1/2 -left-2 md:-left-16 z-50 transform -translate-y-1/2 p-2 text-black opacity-30 hover:opacity-100 hover:text-[#008000] transition-all"><svg className="w-14 h-14 md:w-28 md:h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7"/></svg></button>
-            <button onClick={() => handleManualScroll('right')} className="absolute top-1/2 -right-2 md:-right-16 z-50 transform -translate-y-1/2 p-2 text-black opacity-30 hover:opacity-100 hover:text-[#008000] transition-all"><svg className="w-14 h-14 md:w-28 md:h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"/></svg></button>
+            {/* NAVIGATION ARROWS */}
+            <button onClick={() => handleManualScroll('left')} className="absolute top-1/2 -left-2 md:-left-16 z-10 transform -translate-y-1/2 p-2 text-black opacity-30 hover:opacity-100 hover:text-[#008000] transition-all"><svg className="w-14 h-14 md:w-28 md:h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7"/></svg></button>
+            <button onClick={() => handleManualScroll('right')} className="absolute top-1/2 -right-2 md:-right-16 z-10 transform -translate-y-1/2 p-2 text-black opacity-30 hover:opacity-100 hover:text-[#008000] transition-all"><svg className="w-14 h-14 md:w-28 md:h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"/></svg></button>
 
             <div 
               ref={scrollRef}
@@ -115,7 +119,8 @@ const Team: React.FC = () => {
               onMouseLeave={() => setIsHovered(false)}
               onTouchStart={() => setIsTouched(true)}
               onTouchEnd={() => setIsTouched(false)}
-              className="flex overflow-x-auto no-scrollbar gap-6 md:gap-10 pb-12 px-10 md:px-4 scroll-smooth touch-pan-x"
+              // UPDATED: Removed 'scroll-smooth' from here to fix mobile glitch
+              className="flex overflow-x-auto no-scrollbar gap-6 md:gap-10 pb-12 px-10 md:px-4 touch-pan-x"
             >
               {loopedTeam.map((member, idx) => (
                 <div key={idx} className="relative h-[480px] md:h-[550px] w-[280px] md:w-[400px] flex-shrink-0 cursor-pointer shadow-xl rounded-[2.5rem] overflow-hidden group/card border border-gray-100 bg-white">

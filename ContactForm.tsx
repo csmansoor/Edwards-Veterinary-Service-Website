@@ -57,7 +57,7 @@ const ContactForm = () => {
             Experience the Edwards Veterinary Services difference.
           </p>
           <Link 
-            to="/appointment" 
+            to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8" 
             className="inline-block bg-[#008000] hover:bg-[#006400] text-white font-black py-4 px-12 rounded-md uppercase transition-all shadow-xl text-lg"
           >
             Book an Appointment
@@ -171,7 +171,7 @@ const ContactForm = () => {
 
             <div className="mt-12 pt-8 border-t border-white/20">
               <p className="text-sm font-bold uppercase tracking-widest text-white/70 mb-2">Emergency</p>
-              {/* CHANGE: Updated text and increased font size to text-lg */}
+              {/*  Updated text and increased font size to text-lg */}
               <p className="text-lg leading-relaxed italic">
                 24/7 emergency veterinary care for existing clients.<br />
                 New clients are welcome to our Urgent Care during regular business.

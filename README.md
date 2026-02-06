@@ -1,4 +1,5 @@
 
+# warning??!! This application is for personal use only owned by Edwards Vet services 
 
 # Run and deploy 
 
@@ -18,3 +19,10 @@ This contains everything you need to run your app locally.
    `npm run dev`
 
  ## WOOHOO YOU ARE ALL SETTTT!!  
+
+
+ # Dist
+ # npm run build ----> npm run deploy
+ 
+
+

@@ -19,7 +19,7 @@ const FAQs: React.FC = () => {
         <meta name="description" content="Find answers to common questions about Edwards Veterinary Services." />
       </Helmet>
 
-      {/* BANNER: Reduced Desktop Font from 8xl to 6xl */}
+      {/* BANNER:  Desktop Font 6xl */}
       <section className="bg-[#008000] py-12 md:py-24 text-white text-center px-4">
         <h1 className="text-3xl md:text-6xl font-black mb-4 uppercase tracking-tighter italic drop-shadow-lg leading-tight">
           Frequently Asked Questions
@@ -37,7 +37,7 @@ const FAQs: React.FC = () => {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 md:p-8 text-left hover:bg-gray-50 transition"
               >
-                {/* Desktop Font reduced to 2xl for better hierarchy */}
+                {/* Desktop Font 2xl  */}
                 <span className="font-bold md:font-extrabold text-lg md:text-2xl text-gray-900 leading-snug pr-4">
                   {faq.q}
                 </span>

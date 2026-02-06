@@ -19,56 +19,16 @@ import bannerlogoImg from '../images/mark.webp';
 // @ts-ignore
 import heroVideo from '../images/Hero-Video.mp4';
 
-// --- UPDATED AUTO SCROLL HOOK WITH TOUCH SUPPORT ---
-const useAutoScroll = (
-  ref: React.RefObject<HTMLDivElement | null>, 
-  isHovered: boolean, 
-  speed: number = 1
-): void => {
-  const [isTouched, setIsTouched] = useState(false);
-
-  useEffect(() => {
-    const scrollContainer = ref.current;
-    if (!scrollContainer) return;
-
-    // Stop auto-scroll when user touches the screen
-    const handleTouchStart = () => setIsTouched(true);
-    const handleTouchEnd = () => setIsTouched(false);
-
-    scrollContainer.addEventListener('touchstart', handleTouchStart);
-    scrollContainer.addEventListener('touchend', handleTouchEnd);
-
-    let animationFrameId: number;
-
-    const autoScroll = () => {
-      if (scrollContainer && !isHovered && !isTouched) {
-        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-        
-        if (scrollContainer.scrollLeft >= maxScroll - 2) {
-          scrollContainer.scrollLeft = 0;
-        } else {
-          scrollContainer.scrollLeft += speed;
-        }
-      }
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      scrollContainer.removeEventListener('touchstart', handleTouchStart);
-      scrollContainer.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [isHovered, isTouched, speed, ref]); 
-};
-
 const Home: React.FC = () => {
   const servicesScrollRef = useRef<HTMLDivElement>(null);
   const testimonialsScrollRef = useRef<HTMLDivElement>(null);
   
+  // --- STATES ---
   const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const [isServicesTouched, setIsServicesTouched] = useState(false);
+  
   const [isTestimonialsHovered, setIsTestimonialsHovered] = useState(false);
+  const [isTestimonialsTouched, setIsTestimonialsTouched] = useState(false);
 
   const serviceList = [
     { title: "Pet Wellness & Preventive Care", desc: "Comprehensive wellness exams to ensure your pets live a long, happy, and healthy life.", img: wellnessExamImg },
@@ -91,8 +51,67 @@ const Home: React.FC = () => {
   const infiniteServices = [...serviceList, ...serviceList, ...serviceList];
   const infiniteTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-  useAutoScroll(servicesScrollRef, isServicesHovered, 1); 
-  useAutoScroll(testimonialsScrollRef, isTestimonialsHovered, 0.8);
+  // --- 1. SERVICES SCROLL LOGIC ---
+  useEffect(() => {
+    const container = servicesScrollRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    const speed = 1;
+
+    const animate = () => {
+      if (!isServicesHovered && !isServicesTouched) {
+        const setWidth = container.scrollWidth / 3;
+
+        if (container.scrollLeft >= setWidth * 2) {
+            container.scrollLeft -= setWidth;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += setWidth;
+        }
+        container.scrollLeft += speed;
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    setTimeout(() => {
+        if(container.scrollLeft === 0) container.scrollLeft = container.scrollWidth / 3;
+    }, 100);
+
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [isServicesHovered, isServicesTouched]);
+
+
+  // --- 2. TESTIMONIALS SCROLL LOGIC (FIXED) ---
+  useEffect(() => {
+    const container = testimonialsScrollRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    const speed = 0.8; // Slightly slower for reading
+
+    const animate = () => {
+      if (!isTestimonialsHovered && !isTestimonialsTouched) {
+        const setWidth = container.scrollWidth / 3;
+
+        if (container.scrollLeft >= setWidth * 2) {
+            container.scrollLeft -= setWidth;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += setWidth;
+        }
+        container.scrollLeft += speed;
+      }
+      animationId = requestAnimationFrame(animate);
+    };
+
+    setTimeout(() => {
+        if(container.scrollLeft === 0) container.scrollLeft = container.scrollWidth / 3;
+    }, 100);
+
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [isTestimonialsHovered, isTestimonialsTouched]);
+
 
   const scrollServices = (direction: 'left' | 'right') => {
     if (servicesScrollRef.current) {
@@ -138,7 +157,7 @@ const Home: React.FC = () => {
             <img src={bannerlogoImg} alt="Logo" className="w-32 h-32 md:w-40 md:h-40 object-contain mb-2 opacity-20" />
             <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none uppercase opacity-20">EDWARDS</h1>
             <p className="text-3xl md:text-5xl font-serif italic mb-10 tracking-wide opacity-20">Veterinary Services</p>
-            <Link to="/appointment" className="bg-[#008000] text-white px-6 py-3 md:px-10 md:py-4 md:text-xl font-bold uppercase tracking-widest hover:bg-green-700 transition shadow-lg transform hover:scale-105">
+            <Link to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8" className="bg-[#008000] text-white px-6 py-3 md:px-10 md:py-4 md:text-xl font-bold uppercase tracking-widest hover:bg-green-700 transition shadow-lg transform hover:scale-105">
               Book an Appointment
             </Link>
           </div>
@@ -192,11 +211,14 @@ const Home: React.FC = () => {
           <button onClick={() => scrollServices('left')} className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Left">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
           </button>
+          
           <div 
             ref={servicesScrollRef}
-            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-6 md:px-16 scroll-smooth touch-pan-x"
+            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-6 md:px-16 touch-pan-x"
             onMouseEnter={() => setIsServicesHovered(true)}
             onMouseLeave={() => setIsServicesHovered(false)}
+            onTouchStart={() => setIsServicesTouched(true)}
+            onTouchEnd={() => setIsServicesTouched(false)}
           >
             {infiniteServices.map((service, index) => (
               <div key={index} className="flex-shrink-0 w-[280px] md:w-[420px] bg-gray-50 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm group/card">
@@ -210,6 +232,7 @@ const Home: React.FC = () => {
               </div>
             ))}
           </div>
+          
           <button onClick={() => scrollServices('right')} className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-600 p-2" aria-label="Scroll Right">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
           </button>
@@ -224,7 +247,8 @@ const Home: React.FC = () => {
             <p className="text-lg md:text-xl mb-10 leading-relaxed">
                 We provide 24/7 emergency veterinary care for our existing clients. 
                 <br /><br />
-                New clients are welcome to contact us during regular business hours to join our waitlist.
+                 If your pet is experiencing an emergency, please call us immediately for assistance.
+                 New clients are welcome to contact us during regular business hours to join our waitlist or inquire about becoming a patient at our Tillsonburg clinic.
             </p>
             <a href="tel:5196882123" className="inline-block bg-white text-red-600 px-10 py-4 font-black text-xl uppercase tracking-widest hover:bg-gray-100 transition shadow-xl transform hover:scale-105">Call (519) 688-2123</a>
           </div>
@@ -239,9 +263,12 @@ const Home: React.FC = () => {
           </div>
           <div 
             ref={testimonialsScrollRef}
-            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-4 scroll-smooth touch-pan-x"
+            // IMPORTANT: Removed 'scroll-smooth', Added Touch Handlers
+            className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-4 touch-pan-x"
             onMouseEnter={() => setIsTestimonialsHovered(true)}
             onMouseLeave={() => setIsTestimonialsHovered(false)}
+            onTouchStart={() => setIsTestimonialsTouched(true)}
+            onTouchEnd={() => setIsTestimonialsTouched(false)}
           >
             {infiniteTestimonials.map((t, index) => (
               <div key={index} className="flex-shrink-0 w-[300px] md:w-[450px]">

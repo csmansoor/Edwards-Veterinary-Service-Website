@@ -25,9 +25,9 @@ const ServiceDetail: React.FC = () => {
       {/* HEADER SECTION - Reduced Padding and Font Size */}
       <section className="bg-[#008000] py-8 md:py-20 text-white text-center">
         <div className="container mx-auto px-4">
-          {/* Reduced icon size from 5xl/9xl to 3xl/6xl */}
+          {/*  icon size 3xl/6xl */}
           <div className="text-3xl md:text-6xl mb-2 md:mb-6">{service.icon}</div>
-          {/* Reduced title from 3xl/8xl to 2xl/5xl */}
+          {/*  title  2xl/5xl */}
           <h1 className="text-2xl md:text-5xl font-black uppercase tracking-tight leading-tight">
             {service.title}
           </h1>

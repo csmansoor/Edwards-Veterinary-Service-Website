@@ -30,11 +30,11 @@ const Gallery: React.FC = () => {
 
       {/* --- BANNER SECTION: REDUCED PADDING, SAME FONT SIZE --- */}
       <section className="bg-[#008000] py-12 md:py-20 text-white text-center px-4">
-        {/* KEPT: text-5xl to text-8xl */}
+        {/*  text-8xl */}
         <h1 className="text-5xl md:text-8xl font-black mb-4 md:mb-6 uppercase tracking-tighter italic drop-shadow-2xl">
           Clinic Gallery
         </h1>
-        {/* KEPT: text-2xl to text-3xl */}
+        {/* text-3xl */}
         <p className="text-xl md:text-3xl font-medium text-green-50 opacity-90 max-w-4xl mx-auto leading-tight">
           Witness our dedication to veterinary excellence.
         </p>

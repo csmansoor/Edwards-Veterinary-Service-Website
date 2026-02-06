@@ -574,10 +574,11 @@ export const DOCTORS: TeamMember[] = [
   },
   { 
     id: 'd3', 
-    name: 'Dr. Shahid Zaman', 
-    role: 'Veterinarian', 
-    bio: 'Bio coming soon.', 
-    image: shahid 
+    name: 'Dr. Shalu sheria', //name is changed 
+    role: 'Veterinarian',         
+    bio: 'Bio coming soon.',
+    image: aziz     //insert correct image 
+    // (add photo to images name it then define it here)
   },
 ];
 

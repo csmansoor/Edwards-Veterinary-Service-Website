@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; // 
 import { BLOG_POSTS } from '../constants';
 
 // @ts-ignore
@@ -11,7 +11,7 @@ import wellnessSectionImg from '../images/pet5.webp';
 
 const Blog: React.FC = () => {
 
-  // Function to smooth scroll to the reading section
+  // Function smooth scroll reading section
   const scrollToRead = () => {
     const section = document.getElementById('reading-section');
     if (section) {
@@ -81,7 +81,7 @@ const Blog: React.FC = () => {
 
       {/* --- NEW READING SECTION --- */}
       <div id="reading-section" className="container mx-auto px-4 mt-24 max-w-5xl">
-        {/* CHANGE: Border color to #008000 */}
+        {/*  Border color #008000 */}
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-[#008000]">
           
           {/* Header */}
@@ -96,7 +96,7 @@ const Blog: React.FC = () => {
           {/* Article Block 1: Disease Info */}
           <div className="flex flex-col md:flex-row gap-8 items-start mb-16">
             
-            {/* REMOVED 'sticky top-8' HERE - Image will now stay static */}
+            {/*  Image  static */}
             <div className="w-full md:w-1/2">
                <img 
                  src={diseaseSectionImg} 
@@ -106,7 +106,7 @@ const Blog: React.FC = () => {
             </div>
             
             <div className="w-full md:w-1/2 space-y-4">
-              {/* CHANGE: Title text color to #008000 */}
+              {/*  text color to #008000 */}
               <h3 className="text-2xl font-bold text-[#008000] mb-3">Understanding Common Pet Diseases</h3>
               <p className="text-gray-600 leading-relaxed">
                 Detecting early signs of illness is key to your pet's longevity. Unlike humans, our pets cannot tell us when they are feeling unwell, often hiding their pain until the condition has advanced. Common issues like dental disease, diabetes, and arthritis can often be managed effectively if caught early, preventing long-term suffering.
