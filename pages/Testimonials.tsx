@@ -14,7 +14,7 @@ const Testimonials: React.FC = () => {
       
 
       {/* Header Section */}
-      {/* CHANGE: Background to #008000 */}
+      
       <section className="bg-[#008000] py-20 text-white text-center">
         <h1 className="text-5xl font-black mb-4 uppercase tracking-tight">Client Testimonials</h1>
         <p className="text-xl opacity-90 font-medium">Hear from the families we serve in Tillsonburg.</p>
@@ -29,7 +29,7 @@ const Testimonials: React.FC = () => {
               className="break-inside-avoid bg-white p-10 rounded-3xl shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col"
             >
             
-              {/* CHANGE: Quote color to #008000 */}
+              
               <span className="text-6xl text-[#008000] opacity-20 leading-none mb-[-20px]">“</span>
               
               <p className="text-gray-700 text-lg italic mb-8 leading-relaxed relative z-10">
@@ -37,7 +37,7 @@ const Testimonials: React.FC = () => {
               </p>
               
               <div className="flex items-center space-x-4 mt-auto pt-6 border-t border-gray-50">
-                {/* CHANGE: Avatar bg and text to #008000 */}
+                
                 <div className="w-12 h-12 bg-[#008000]/10 rounded-full flex items-center justify-center text-[#008000] font-bold text-xl">
                   {t.name.charAt(0)}
                 </div>
@@ -51,13 +51,13 @@ const Testimonials: React.FC = () => {
         </div>
 
       
-        {/* CHANGE: Box bg, border, and text to #008000 */}
+       
         <div className="mt-20 text-center bg-[#008000]/5 p-12 rounded-3xl border border-[#008000]/10">
           <h3 className="text-2xl font-bold text-[#008000] mb-4">Want to share your experience?</h3>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">
             We value your feedback and would love to hear how we helped your pet. Your stories inspire us every day.
           </p>
-          {/* CHANGE: Button bg to #008000 */}
+         
           <a 
             href="https://g.page/review" 
             target="_blank" 

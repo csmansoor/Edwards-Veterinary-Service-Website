@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 
 // @ts-ignore
 import aboutDogsImg from '../images/A-Bond-of-Trust.webp';
@@ -14,7 +14,7 @@ import petdeskImg from '../images/Logo.webp';
 const About: React.FC = () => {
   return (
     <div className="bg-white">
-      {/* 👇 ADD THIS SEO BLOCK 👇 */}
+      {/* SEO BLOCK  */}
       <Helmet>
         <title>About Our Clinic | Edwards Veterinary Services</title>
         <meta name="description" content="Meet the team at Edwards Veterinary Services. Over 35 years of compassionate pet care in Tillsonburg, dedicated to treating your pets like family." />
@@ -23,7 +23,7 @@ const About: React.FC = () => {
       
 
       {/* Page Header */}
-      {/* CHANGE: Background to #008000 */}
+      {/*  Background #008000 */}
       <section className="bg-[#008000] py-20 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Edwards Veterinary Services</h1>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
 
           {/* Our Story */}
           <div className="mb-20">
-            {/* CHANGE: Text color to #008000 */}
+            {/* Text color #008000 */}
             <h2 className="text-3xl font-bold text-[#008000] mb-6">Our Story: Built on Compassion and Community</h2>
             <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
               <p className="text-gray-600 leading-relaxed mb-6">
@@ -67,9 +67,9 @@ const About: React.FC = () => {
           {/* Our Mission */}
           <div className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              {/* CHANGE: Text color to #008000 */}
+              {/*  Text color  #008000 */}
               <h2 className="text-3xl font-bold text-[#008000] mb-6">Our Mission</h2>
-              {/* CHANGE: Border color to #008000 */}
+              {/* Text color #008000 */}
               <p className="text-gray-600 leading-relaxed italic border-l-4 border-[#008000] pl-6 mb-4">
                 "As a private and locally owned business for 35 years, Edwards Veterinary has always strived to provide compassionate, personalized, and affordable care in Tillsonburg and the surrounding areas."
               </p>
@@ -77,19 +77,19 @@ const About: React.FC = () => {
                 Our DVMs, <strong>Dr. Paul Edwards</strong>, <strong>Dr. Haris Aziz</strong>, and <strong>Dr. Shahid Zaman</strong>, are highly qualified and look forward to meeting you.
               </p>
             </div>
-            {/* CHANGE: Background to #008000/5, Border to #008000/10 */}
+            {/*  Background #008000/5, Border #008000/10 */}
             <div className="bg-[#008000]/5 p-8 rounded-3xl border border-[#008000]/10">
-               {/* CHANGE: Text color to #008000 */}
+               {/* Text color #008000 */}
                <h3 className="text-xl font-bold text-[#008000] mb-4">Serving Tillsonburg and the Surrounding Areas</h3>
                <p className="text-gray-600 mb-6">We’re proud to be deeply embedded in Tillsonburg and the neighbouring farming communities. Our clients aren’t just appointments — they’re neighbours, friends, and fellow animal lovers.</p>
                <ul className="space-y-4">
                  <li className="flex items-start">
-                   {/* CHANGE: Icon color to #008000 */}
+                   {/* Icon color #008000 */}
                    <span className="text-[#008000] mr-3">🐾</span>
                    <span className="text-gray-700"><strong>Mobile veterinary services</strong> for current clients, making it easier for rural or mobility-restricted pet owners to access quality care.</span>
                  </li>
                  <li className="flex items-start">
-                   {/* CHANGE: Icon color to #008000 */}
+                   {/*  Icon color  #008000 */}
                    <span className="text-[#008000] mr-3">🐾</span>
                    <span className="text-gray-700"><strong>24-hour emergency service</strong> exclusively for our clients, ensuring that your pet’s needs are met no matter the hour.</span>
                  </li>

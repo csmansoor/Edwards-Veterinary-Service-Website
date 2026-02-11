@@ -28,13 +28,13 @@ const Gallery: React.FC = () => {
         <link rel="canonical" href="https://gotec.ca/gallery" />
       </Helmet>
 
-      {/* --- BANNER SECTION: REDUCED PADDING, SAME FONT SIZE --- */}
+      {/* --- BANNER SECTION*/}
       <section className="bg-[#008000] py-12 md:py-20 text-white text-center px-4">
-        {/*  text-8xl */}
+        
         <h1 className="text-5xl md:text-8xl font-black mb-4 md:mb-6 uppercase tracking-tighter italic drop-shadow-2xl">
           Clinic Gallery
         </h1>
-        {/* text-3xl */}
+       
         <p className="text-xl md:text-3xl font-medium text-green-50 opacity-90 max-w-4xl mx-auto leading-tight">
           Witness our dedication to veterinary excellence.
         </p>
@@ -75,7 +75,7 @@ const Gallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Submission Form remains the same scale */}
+      {/* Submission Form */}
       <div className="container mx-auto px-4 mt-24 mb-24 max-w-4xl">
         <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-gray-100">
           <div className="text-center mb-10">

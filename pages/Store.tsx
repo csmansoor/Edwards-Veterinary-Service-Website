@@ -31,7 +31,7 @@ const Store: React.FC = () => {
           backgroundImage: `url(${storeBannerImg})` 
         }}
       >
-        {/* Dark Overlay so text is readable */}
+        
         <div className="absolute inset-0 bg-black/50"></div>
         
         {/* Text Content */}
@@ -49,12 +49,12 @@ const Store: React.FC = () => {
         {/* Intro Section */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
           <div className="md:w-1/2">
-            {/* CHANGE: Text color to #008000 */}
+            
             <h2 className="text-3xl font-bold text-[#008000] mb-6">Everything Your Pet Needs, Just a Click Away</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Our care at Edwards Veterinary Services includes convenient online access to your pet’s medications and everyday essentials through our secure, easy-to-use pet pharmacy. From prescription medications and parasite prevention to specialized diets, food, toys, and wellness products, we make it simple for pet owners in Tillsonburg, ON to get everything their pets need in one trusted place.
             </p>
-            {/* CHANGE: Bg to #008000, hover to #006400 */}
+            
             <a 
               href="https://www.myvetstore.ca/home" 
               target="_blank" 
@@ -90,7 +90,7 @@ const Store: React.FC = () => {
 
         {/* Community Section */}
         <div className="bg-gray-50 p-10 rounded-3xl mb-20 border border-gray-100">
-          {/* CHANGE: Text color to #008000 */}
+          
           <h2 className="text-3xl font-bold text-[#008000] mb-6">Trusted, Convenient Pet Products</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             As a locally owned, community-rooted clinic serving Tillsonburg and surrounding farming areas, we’re proud to offer pharmacy services and general pet products that reflect our commitment to compassion, accessibility, and wellness.
@@ -101,9 +101,9 @@ const Store: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
           {/* A Bond of Trust */}
           <div>
-            {/* CHANGE: Text color to #008000 */}
+            
             <h3 className="text-2xl font-bold text-[#008000] mb-8 flex items-center">
-              {/* CHANGE: Icon background to #008000/10 */}
+             
               <span className="bg-[#008000]/10 p-2 rounded-lg mr-3">🤝</span>
               A Bond of Trust
             </h3>
@@ -116,7 +116,7 @@ const Store: React.FC = () => {
                 "Direct shipping to your home or local pickup"
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  {/* CHANGE: Icon text to #008000 */}
+                  
                   <span className="text-[#008000] font-bold mr-3">🐾</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -129,9 +129,9 @@ const Store: React.FC = () => {
 
           {/* Why Choose Our Online Store */}
           <div>
-            {/* CHANGE: Text color to #008000 */}
+            
             <h3 className="text-2xl font-bold text-[#008000] mb-8 flex items-center">
-              {/* CHANGE: Icon background to #008000/10 */}
+              
               <span className="bg-[#008000]/10 p-2 rounded-lg mr-3">⭐</span>
               Why Choose Our Online Pet Store?
             </h3>
@@ -144,22 +144,22 @@ const Store: React.FC = () => {
                 "Secure ordering through a trusted local provider"
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  {/* CHANGE: Icon text to #008000 */}
+                  
                   <span className="text-[#008000] font-bold mr-3">🐾</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
               ))}
             </ul>
-            {/* CHANGE: Box background to #008000/5 and border to #008000/10 */}
+            
             <div className="mt-10 p-6 bg-[#008000]/5 rounded-2xl border border-[#008000]/10 text-center">
-               {/* CHANGE: Text color to #008000 */}
+               
                <p className="font-bold text-[#008000] text-lg italic">"Unlikely Companions, Unbreakable Bond"</p>
             </div>
           </div>
         </div>
 
         {/* Contact/Action Section */}
-        {/* CHANGE: Background to #008000 */}
+        
         <div className="bg-[#008000] text-white p-12 rounded-3xl shadow-2xl text-center">
           <h2 className="text-3xl font-bold mb-6">Order Online or Contact Us for Assistance</h2>
           <p className="text-white/90 text-xl mb-10 max-w-2xl mx-auto">

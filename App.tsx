@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HelmetProvider } from 'react-helmet-async'; // 👈 1. IMPORT THIS
+import { HelmetProvider } from 'react-helmet-async'; 
 import BottomBubbleMenu from './components/BottomBubbleMenu';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout';
@@ -19,7 +19,7 @@ import Careers from './pages/Careers';
 import FAQs from './pages/FAQs';
 import Blog from './pages/Blog';
 
-// ScrollToTop stays because it's useful!
+// ScrollToTop 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -34,11 +34,11 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    /* 👇 2. WRAP EVERYTHING IN HELMETPROVIDER 👇 */
+    
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        {/* FloatingMenu WAS HERE - IT IS NOW GONE */}
+        
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

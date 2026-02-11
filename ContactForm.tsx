@@ -15,10 +15,15 @@ const ContactForm = () => {
 
     setStatus('sending');
 
-    // --- YOUR CONTACT FORM KEYS ---
-    const SERVICE_ID = 'service_2oxre08';
-    const TEMPLATE_ID = 'template_cionnhi'; 
-    const PUBLIC_KEY = 'wlh8iAtcVqHPFFMf1';
+    // ---CONTACT FORM KEYS---
+    // @ts-ignore
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    
+    // @ts-ignore
+    const TEMPLATE_ID = import.meta.env.VITE_CONTACT_TEMPLATE_ID; 
+    
+    // @ts-ignore
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {
@@ -65,11 +70,11 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Split Contact Section */}
+      {/*  Contact Section */}
       <div className="max-w-6xl mx-auto px-4 py-24">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
           
-          {/* Left Side: Contact Form */}
+          {/*  Contact Form */}
           <div className="lg:w-3/5 p-8 md:p-12">
             <h2 className="text-3xl font-black text-gray-800 mb-2 uppercase">Get in touch</h2>
             <p className="text-gray-500 mb-8 font-medium">We'll get back to you as soon as possible.</p>
@@ -124,7 +129,7 @@ const ContactForm = () => {
             </form>
           </div>
 
-          {/* Right Side: Contact Info (Green Sidebar) */}
+         
           <div className="lg:w-2/5 bg-[#008000] p-8 md:p-12 text-white flex flex-col justify-between">
             <div className="space-y-10">
               <h2 className="text-3xl font-black uppercase mb-4">Contact us</h2>
@@ -171,7 +176,7 @@ const ContactForm = () => {
 
             <div className="mt-12 pt-8 border-t border-white/20">
               <p className="text-sm font-bold uppercase tracking-widest text-white/70 mb-2">Emergency</p>
-              {/*  Updated text and increased font size to text-lg */}
+              
               <p className="text-lg leading-relaxed italic">
                 24/7 emergency veterinary care for existing clients.<br />
                 New clients are welcome to our Urgent Care during regular business.
@@ -181,7 +186,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Map Section - Full Width & Taller */}
+      {/* Map Section  */}
       <div className="w-full h-[650px] pb-0">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2919.263529369932!2d-80.73059002343242!3d42.97274097114251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c35a666e85717%3A0xc3f8e5b6164f815!2s527%20Broadway%20St%2C%20Tillsonburg%2C%20ON%20N4G%203S8!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" 

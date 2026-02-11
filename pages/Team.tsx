@@ -12,7 +12,7 @@ const Team: React.FC = () => {
   
   const loopedTeam = [...CARE_TEAM, ...CARE_TEAM, ...CARE_TEAM];
 
-  // --- THE UNSTOPPABLE ENGINE ---
+  
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -21,11 +21,11 @@ const Team: React.FC = () => {
     const speed = 1; // Pixels per frame
 
     const animate = () => {
-      // MASTER RULE: Move ONLY if NO mouse hover AND NO finger touch
+      
       if (!isHovered && !isTouched) {
         const setWidth = container.scrollWidth / 3;
 
-        // If we move into the 3rd set (C), teleport back to 2nd set (B)
+        // If move into the 3rd set (C), teleport back to 2nd set (B)
         if (container.scrollLeft >= setWidth * 2) {
           container.scrollLeft -= setWidth;
         } 
@@ -40,7 +40,7 @@ const Team: React.FC = () => {
     };
 
     // START POSITION: Jump to the middle set 
-    // DOM is fully sized before jumping
+    
     setTimeout(() => {
         if (container.scrollLeft === 0) {
             container.scrollLeft = container.scrollWidth / 3;
@@ -119,7 +119,7 @@ const Team: React.FC = () => {
               onMouseLeave={() => setIsHovered(false)}
               onTouchStart={() => setIsTouched(true)}
               onTouchEnd={() => setIsTouched(false)}
-              // UPDATED: Removed 'scroll-smooth' from here to fix mobile glitch
+              
               className="flex overflow-x-auto no-scrollbar gap-6 md:gap-10 pb-12 px-10 md:px-4 touch-pan-x"
             >
               {loopedTeam.map((member, idx) => (

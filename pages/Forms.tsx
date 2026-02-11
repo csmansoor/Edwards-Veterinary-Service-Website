@@ -17,7 +17,7 @@ const Forms: React.FC = () => {
         <meta name="description" content="Access our online veterinary forms for new clients, prescription refills, and surgical consent." />
       </Helmet>
 
-      {/* BANNER: Size kept the same, text size increased */}
+      {/* BANNER Size size and  text size */}
       <section className="bg-[#008000] py-20 text-white text-center px-4">
         <h1 className="text-5xl md:text-7xl font-black mb-4 uppercase tracking-tighter italic drop-shadow-xl">
           Online Forms
@@ -31,12 +31,12 @@ const Forms: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {formLinks.map((f) => (
             <div key={f.slug} className="bg-white p-10 rounded-[2.5rem] shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-              {/* INCREASED: Title size */}
+              {/* Title size */}
               <h3 className="text-2xl md:text-3xl font-black text-[#008000] mb-4 uppercase tracking-tight">
                 {f.title}
               </h3>
               
-              {/* INCREASED: Description size */}
+              {/*  Description size */}
               <p className="text-lg md:text-xl text-gray-600 mb-8 font-medium leading-relaxed">
                 {f.description}
               </p>

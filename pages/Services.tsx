@@ -82,7 +82,7 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      {/* Emergency Red Banner */}
+      {/* Emergency  Banner */}
       <section className="py-20 bg-red-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">

@@ -542,7 +542,7 @@ export const SERVICES: Service[] = [
       { title: 'On-Site Pharmacy', description: 'Get the medications your pet needs before you leave.' },
       { title: 'Flexible Care', description: 'Addressing new concerns as they arise.' }
     ],
-    // Assuming the following structure based on previous data provided
+    
     section3Heading: 'Common Urgent Care Needs',
     section3Subheading: 'We address various non-emergency concerns:',
     section3List: ['Ear and skin infections', 'Minor lacerations', 'Sudden vomiting or diarrhea', 'Urinary tract issues', 'Eye discharge or redness'],
@@ -574,11 +574,11 @@ export const DOCTORS: TeamMember[] = [
   },
   { 
     id: 'd3', 
-    name: 'Dr. Shalu sheria', //name is changed 
+    name: 'Dr. Shalu sheria',  
     role: 'Veterinarian',         
     bio: 'Bio coming soon.',
-    image: shalu     //insert correct image 
-    // (add photo to images name it then define it here)
+    image: shalu     //----have to insert correct image---
+    // ------add photo to images name it then define it here----
   },
 ];
 

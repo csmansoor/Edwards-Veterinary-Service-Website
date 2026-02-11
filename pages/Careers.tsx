@@ -56,7 +56,7 @@ const Careers: React.FC = () => {
 
         {/* HOW TO APPLY BOX */}
         <div className="mt-20 md:mt-32 bg-[#008000] text-white p-8 md:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl relative overflow-hidden">
-          {/* Decorative background circle */}
+          {/*  background circle */}
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full" />
           
           <div className="relative z-10">

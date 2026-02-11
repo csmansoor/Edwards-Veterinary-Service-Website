@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // 👈 Added Helmet Import
+import { Helmet } from 'react-helmet-async'; 
 import emailjs from '@emailjs/browser';
 
 const Appointment: React.FC = () => {
@@ -36,7 +36,7 @@ const Appointment: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Detect which form button was clicked on the Forms page
+  // Detection which formee button was clicked on the form page
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const type = params.get('type');
@@ -55,13 +55,13 @@ const Appointment: React.FC = () => {
     
     setStatus('sending');
 
-    // 1. Convert Medications Array to a single string for the email
+    // 1. Medications Array to a single string for the email
     const medsString = medications
       .filter(m => m.name) // Only include rows with a name
       .map(m => `- ${m.name} (Dose: ${m.dosage}, Freq: ${m.freq}, Dur: ${m.dur})`)
       .join('\n');
 
-    // 2. Create hidden inputs to force this data into the email
+    // 2.  hidden inputs to force data into the email
     
     // Medications
     const existingMedsInput = form.current.querySelector('input[name="medications_list"]');
@@ -80,11 +80,15 @@ const Appointment: React.FC = () => {
     typeInput.name = 'form_type';
     typeInput.value = formType;
     form.current.appendChild(typeInput);
-
-    // --- KEYS ---
-    const SERVICE_ID = 'service_2oxre08';
-    const TEMPLATE_ID = 'template_0q6sdeh'; // Your Master Template ID
-    const PUBLIC_KEY = 'wlh8iAtcVqHPFFMf1';
+    
+     // KEYS
+     //@ts-ignore
+     const SERVICE_ID = import.meta.env as any.VITE_EMAIL_JS_SERVICE_ID;
+     //@ts-ignore
+     const TEMPLATE_ID = import.meta.env as any.VITE_EMAIL_JS_TEMPLATE_ID;
+     //@ts-ignore
+     const PUBLIC_KEY = import.meta.env as any.VITE_EMAIL_JS_PUBLIC_KEY;
+    
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then(() => {
@@ -100,28 +104,28 @@ const Appointment: React.FC = () => {
   if (submitted) {
     return (
       <div className="min-h-[600px] flex items-center justify-center container mx-auto px-4 py-20">
-        {/* CHANGE: Border color to #008000 */}
+        {/*  Border color to #008000 */}
         <div className="bg-white p-12 rounded-3xl shadow-2xl text-center max-w-lg border border-[#008000]/10">
-          {/* CHANGE: Icon bg to #008000 */}
+          {/*  Icon bg to #008000 */}
           <div className="w-20 h-20 bg-[#008000]/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <span className="text-4xl">✅</span>
           </div>
-          {/* CHANGE: Text color to #008000 */}
+          {/*  Text color to #008000 */}
           <h2 className="text-3xl font-bold text-[#008000] mb-4">Request Sent!</h2>
           <p className="text-gray-600 mb-8">Thank you. We have received your {formType}. Our team will review it and contact you shortly.</p>
-          {/* CHANGE: Text color to #008000 */}
+          {/*  Text color to #008000 */}
           <button onClick={() => {setSubmitted(false); navigate('/');}} className="text-[#008000] font-bold underline">Back to Home</button>
         </div>
       </div>
     );
   }
 
-  // --- FIXED: This is now a simple render function, NOT a component ---
+  //  simple render function
   const renderMedicationTable = () => (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <label className="block text-sm font-bold text-gray-700 uppercase">Current Medications</label>
-        {/* CHANGE: Button bg to #008000 */}
+        {/*  Button bg */}
         <button type="button" onClick={addMedication} className="bg-[#008000] text-white px-3 py-1 rounded-full text-xs font-bold hover:bg-black transition-all">+ Add</button>
       </div>
       <div className="overflow-x-auto bg-gray-50 p-4 rounded-2xl border border-gray-100">
@@ -151,7 +155,7 @@ const Appointment: React.FC = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           
-          {/* CHANGE: Header bg to #008000 */}
+          {/*  Header bg */}
           <div className="bg-[#008000] p-8 text-white relative">
             <button onClick={() => navigate(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 px-3 py-2 rounded-xl text-xs font-bold md:left-8">
               ← BACK
@@ -273,7 +277,7 @@ const Appointment: React.FC = () => {
                 <div className="bg-gray-50 p-6 rounded-2xl border space-y-6">
                     {petSpecies === 'Dog' && (
                         <div className="space-y-4">
-                            {/* CHANGE: Text color to #008000 */}
+                            {/* Text color  */}
                             <h3 className="font-bold text-[#008000]">For Dogs</h3>
                             <label className="flex items-center gap-3"><input type="checkbox" name="rabies" value="Yes" /> <span>Rabies - $15.95</span></label>
                             <label className="flex items-center gap-3"><input type="checkbox" name="dapp" value="Yes" /> <span>DAPP - $33.75</span></label>
@@ -294,7 +298,7 @@ const Appointment: React.FC = () => {
                     
                     {petSpecies === 'Cat' && (
                         <div className="space-y-4">
-                            {/* CHANGE: Text color to #008000 */}
+                            {/*  Text color  */}
                             <h3 className="font-bold text-[#008000]">For Cats</h3>
                             <label className="block text-sm font-bold">Feline Leukemia/FIV test?</label>
                             <div className="flex gap-4">
@@ -355,7 +359,7 @@ const Appointment: React.FC = () => {
               </section>
             )}
 
-            {/* CHANGE: Button bg to #008000 */}
+            {/*  Button bg*/}
             <button disabled={status === 'sending'} type="submit" className="w-full bg-[#008000] text-white py-5 rounded-2xl font-black text-xl hover:bg-black transition-all shadow-xl disabled:opacity-50">
                 {status === 'sending' ? 'Sending Form...' : 'Submit Secure Form'}
             </button>

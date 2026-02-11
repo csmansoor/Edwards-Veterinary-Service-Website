@@ -82,13 +82,13 @@ const Home: React.FC = () => {
   }, [isServicesHovered, isServicesTouched]);
 
 
-  // --- 2. TESTIMONIALS SCROLL LOGIC (FIXED) ---
+  // --- 2. TESTIMONIALS SCROLL LOGIC 
   useEffect(() => {
     const container = testimonialsScrollRef.current;
     if (!container) return;
 
     let animationId: number;
-    const speed = 0.8; // Slightly slower for reading
+    const speed = 0.8; // Speed controel
 
     const animate = () => {
       if (!isTestimonialsHovered && !isTestimonialsTouched) {
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
         <link rel="canonical" href="https://gotec.ca/" />
       </Helmet>
 
-      {/* --- INJECTED MOBILE SCROLL CSS --- */}
+      {/* ---  MOBILE SCROLL CSS --- */}
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { 
@@ -202,7 +202,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       
-      {/* Services Scroller - TOUCH ENABLED */}
+      {/* Services Scroller */}
       <section className="py-24 bg-white overflow-hidden relative group">
         <div className="container mx-auto px-4 mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-black text-[#008000] uppercase tracking-tight mb-4">Our Services</h2>
@@ -255,7 +255,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials - TOUCH ENABLED */}
+      {/* Testimonials */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -263,7 +263,7 @@ const Home: React.FC = () => {
           </div>
           <div 
             ref={testimonialsScrollRef}
-            // IMPORTANT: Removed 'scroll-smooth', Added Touch Handlers
+            //  Touch Handlers
             className="flex overflow-x-auto no-scrollbar gap-8 py-4 px-4 touch-pan-x"
             onMouseEnter={() => setIsTestimonialsHovered(true)}
             onMouseLeave={() => setIsTestimonialsHovered(false)}
