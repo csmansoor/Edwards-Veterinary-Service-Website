@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //@ts-ignore
-import hummLogo from '../images/humm-can.png';
+import hummLogo from '../images/humm-logo.webp';
 
 const Payments: React.FC = () => {
  const paymentMethods = [
