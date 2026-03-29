@@ -1,0 +1,29 @@
+{
+  "name": "edwards-vet-clinic",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://csmansoor.github.io/Edwards-Veterinary-Service-Website",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "gh-pages": "^6.3.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  }
+}
