@@ -1,0 +1,142 @@
+﻿commit 8329d38eb5f071a018acaf09c3a74912ba04994f
+Author: csmansoor <157922526+csmansoor@users.noreply.github.com>
+Date:   Mon Mar 30 05:09:58 2026 +0500
+
+    image fixed
+
+diff --git a/pages/Payments.tsx b/pages/Payments.tsx
+index 7ce0d1a..45c4081 100644
+--- a/pages/Payments.tsx
++++ b/pages/Payments.tsx
+@@ -1,11 +1,9 @@
+ import React from 'react';
+ import { Link } from 'react-router-dom';
+ 
+-//@ts-ignore
+-import hummLogo from '../images/humm-logo.webp';
+ 
+ const Payments: React.FC = () => {
+- const paymentMethods = [
++  const paymentMethods = [
+     { 
+       name: 'Cash', 
+       detail: 'Standard cash payments are accepted at the front desk.', 
+@@ -30,9 +28,9 @@ const Payments: React.FC = () => {
+       detail: "Buy now and pay later with Humm. Spread the cost of your pet's care over easy installments.", 
+       icon: (
+         <img
+-          src={hummLogo} 
++          src="/humm-logo.webp"
+           alt="Humm Logo"
+-          className="h-20 w-auto object-contain scale-125 origin-left" 
++          className="h-21 w-auto object-contain" // Height matches the SVG feel, width scales naturally
+         />
+       ),
+       link: "https://www.shophumm.com/"
+@@ -41,18 +39,15 @@ const Payments: React.FC = () => {
+ 
+   return (
+     <div className="bg-white pb-20">
+-      {/*  Background color*/}
+       <section className="bg-[#008000] py-20 text-white text-center">
+         <div className="container mx-auto px-4">
+           <h1 className="text-4xl font-bold mb-4">Payment Options</h1>
+-          {/* text color */}
+           <p className="text-xl text-green-50">Flexible ways to pay for your pet's health and wellness.</p>
+         </div>
+       </section>
+ 
+       <div className="container mx-auto px-4 mt-16 max-w-5xl">
+         <div className="text-center mb-16">
+-          {/* txt color */}
+           <h2 className="text-3xl font-bold text-[#008000] mb-6">Accepted Methods</h2>
+           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+             To ensure we can provide the best medical attention to all patients, 
+@@ -60,14 +55,13 @@ const Payments: React.FC = () => {
+           </p>
+         </div>
+ 
+-        {/* Payment Methods */}
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+           {paymentMethods.map((method) => (
+             <div 
+               key={method.name} 
+               className="bg-gray-50 p-10 rounded-3xl border border-gray-100 flex flex-col items-center text-center hover:shadow-xl hover:bg-white transition-all duration-300 group"
+             >
+-              <div className="mb-8 transform group-hover:scale-110 transition duration-300 h-16 flex items-center">
++              <div className="mb-8 transform group-hover:scale-110 transition duration-300 h-16 flex items-center justify-center">
+                 {method.icon}
+               </div>
+              
+@@ -78,7 +72,6 @@ const Payments: React.FC = () => {
+                   href={method.link} 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+-                  
+                   className="mt-auto text-[#008000] font-bold flex items-center hover:underline"
+                 >
+                   Learn about Humm
+@@ -89,51 +82,20 @@ const Payments: React.FC = () => {
+           ))}
+         </div>
+ 
+-        {/* Info Card */}
+-        
++        {/* Info Cards... */}
+         <div className="bg-[#002626] rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
+-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+-            <div className="max-w-xl">
+-              <h3 className="text-2xl font-bold mb-4">Pet Insuarance</h3>
+-              
+-              <p className="text-green-50 text-lg">
+-                Pet Insurance. We partner with TRUPANION the largest insurance providieer in canada.
+-              </p>
+-            </div>
+-            
+-            <a 
+-             href="https://www.trupanion.com/" 
+-             target="_blank" 
+-             rel="noopener noreferrer"
+-             className="bg-white text-[#008000] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap"
+-            >
+-             Trupanion
+-            </a>
+-          </div>
+-          
+-          <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
++           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
++             <div className="max-w-xl">
++               <h3 className="text-2xl font-bold mb-4">Pet Insurance</h3>
++               <p className="text-green-50 text-lg">
++                 Pet Insurance. We partner with TRUPANION the largest insurance provider in Canada.
++               </p>
++             </div>
++             <a href="https://www.trupanion.com/" target="_blank" rel="noopener noreferrer" className="bg-white text-[#008000] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap">
++               Trupanion
++             </a>
++           </div>
+         </div>
+-       <div className="h-8" /> {/* Just a height block */}
+-        <div className="bg-[#008000] rounded-3xl p-12 text-white shadow-2xl relative gap-y-8 overflow-hidden">
+-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+-            <div className="max-w-xl">
+-              <h3 className="text-2xl font-bold mb-4">Transparent Pricing</h3>
+-              
+-              <p className="text-green-50 text-lg">
+-                We provide detailed estimates for all surgeries and hospitalized treatments. 
+-                If you have any questions regarding costs, please don't hesitate to ask 
+-                our team before your appointment begin.
+-              </p>
+-            </div>
+-            
+-            <Link to="/contact" className="bg-white text-[#008000] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap">
+-              Talk to Our Team
+-            </Link>
+-          </div>
+-          
+-          <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+-        </div>
+-
+       </div>
+     </div>
+   );

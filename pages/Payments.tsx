@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
+//@ts-ignore
+import hummLogo from '../images/humm-logo.webp';
 const Payments: React.FC = () => {
   const paymentMethods = [
     { 
@@ -28,7 +28,7 @@ const Payments: React.FC = () => {
       detail: "Buy now and pay later with Humm. Spread the cost of your pet's care over easy installments.", 
       icon: (
         <img
-          src="/humm-logo.webp"
+          src={hummLogo}
           alt="Humm Logo"
           className="h-21 w-auto object-contain" // Height matches the SVG feel, width scales naturally
         />
@@ -95,6 +95,23 @@ const Payments: React.FC = () => {
                Trupanion
              </a>
            </div>
+        </div>
+        <div className="h-8" />
+        <div className="bg-[#008000] rounded-3xl p-12 text-white shadow-2xl relative gap-y-8 overflow-hidden">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="max-w-xl">
+              <h3 className="text-2xl font-bold mb-4">Transparent Pricing</h3>
+              <p className="text-green-50 text-lg">
+                We provide detailed estimates for all surgeries and hospitalized treatments. 
+                If you have any questions regarding costs, please don't hesitate to ask 
+                our team before your appointment begins.
+              </p>
+            </div>
+            <Link to="/contact" className="bg-white text-[#008000] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg whitespace-nowrap">
+              Talk to Our Team
+            </Link>
+          </div>
+          <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         </div>
       </div>
     </div>
