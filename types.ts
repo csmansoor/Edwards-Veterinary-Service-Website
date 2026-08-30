@@ -45,6 +45,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   image: string;
+  imagePosition?: string; // e.g. 'top', 'center', '50% 20%'
 }
 
 export interface Testimonial {

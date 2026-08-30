@@ -141,10 +141,10 @@ const Team: React.FC = () => {
                   >
                     {/* Front of Card */}
                     <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[2.5rem] overflow-hidden bg-white border border-gray-100 group">
-                      <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style={{ objectPosition: member.imagePosition ?? 'center' }} />
                       <div className="absolute bottom-0 left-0 right-0 bg-white/95 p-6 text-center border-t border-gray-100">
                         <h3 className="text-xl font-black text-[#008000] uppercase tracking-tight mb-1">{member.name}</h3>
-                        <p className="text-gray-600 font-medium text-sm">Bio</p>
+                        <p className="text-gray-600 font-medium text-sm">{member.role}</p>
                       </div>
                     </div>
 

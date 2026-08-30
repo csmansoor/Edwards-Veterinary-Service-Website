@@ -6,7 +6,6 @@ import Testimonial from './pages/Testimonials';
 // @ts-ignore
 import drpaul from './images/paul.webp';
 // @ts-ignore
-import kella from './images/kella.webp';
 // @ts-ignore
 import zaman from './images/Dr-Zaman.webp';
 // @ts-ignore
@@ -18,7 +17,13 @@ import aziz from './images/aziz.webp';
 // @ts-ignore
 import wendy from './images/wendy.webp';
 // @ts-ignore
-import keyla from './images/keyla.webp';
+import melissaGalpin from './images/Melissa Galpin.webp';
+// @ts-ignore
+import lilianCampbell from './images/Lilian Campbell.webp';
+// @ts-ignore
+import jordonConners from './images/Jordon Conners.webp';
+// @ts-ignore
+import nataliaGutierrez from './images/Natalia Gutierrez Alvarez.webp';
 // @ts-ignore
 import wellnessExamImg from './images/wellness-exam.webp';
 // @ts-ignore
@@ -98,7 +103,7 @@ import pet1Img from './images/pet1.webp';
 // @ts-ignore
 import pet2Img from './images/pet2.webp';
 // @ts-ignore
-import hummlogo from './images/humm-log.webp';
+import hummlogo from './images/humm-logo.webp';
 
 
 
@@ -594,24 +599,39 @@ export const CARE_TEAM: TeamMember[] = [
   },
   {
     id: 'c2',
-    name: 'Kayla McClure (RVT)',
-    role: 'Registered Veterinary Technician',
-    bio: 'Kayla knew she wanted to go into vet med, growing up on her family’s farms and volunteering at her local wildlife rehabilitation center.\n\nShe graduated from the Northern College veterinary technician program in 2022. That same year, she passed her board exam and became a Registered Veterinary Technician. She went back to school and received her bachelor’s, became a certified wildlife rehabilitator, and registered as a veterinary technologist in 2023.\n\nKayla worked up north in Dryden for a year after graduating to see a variety of animals, from polar bears to snakes and falcons. She decided to move back home to Ingersoll and started at Edwards in 2024. She has been there ever since.',
-    image: keyla
-  },
-  {
-    id: 'c3',
-    name: 'Kelly Britton (Reception)',
-    role: 'Client Care Representative',
-    bio: 'Since joining, Kelly has loved working at Edwards Veterinary Services. Her focus is on providing care and compassion to pets and their owners. She takes pride in greeting our clients and ensuring a friendly, respectful environment that helps everyone feel welcome. Outside of her work at Edwards, you can often find Kelly gardening, biking, or attending a yoga class. She’s passionate about creating positive experiences for both animals and their families.',
-    image: kella
-  },
-  {
-    id: 'c4',
     name: 'Wendy V. (Technician)',
     role: 'Veterinary Technician',
     bio: 'Wendy grew up in Tillsonburg and had a love for animals at an early age. Her many pets included cats, dogs, rabbits, birds, hamsters, and horses.\n\nShe graduated from Ridgetown College’s Veterinary Technician program in 1995 and was hired by Edwards Veterinary Services shortly after. She worked for a brief period before taking a break to start a family.\n\nShe was hired back in 2008 and has enjoyed working with the team ever since. She is dedicated to the comfort and well-being of patients and enjoys the laboratory diagnostics and surgical aspects of the profession.\n\nIn her spare time, she enjoys gardening, cuddling with her cat, and spending time with family and friends.',
     image: wendy
+  },
+  {
+    id: 'c3',
+    name: 'Melissa Galpin',
+    role: 'Hospital Incharge Supervisor',
+    bio: 'Bio coming soon.',
+    image: melissaGalpin
+  },
+  {
+    id: 'c4',
+    name: 'Lilian Campbell',
+    role: 'Veterinary Technician',
+    bio: 'Bio coming soon.',
+    image: lilianCampbell
+  },
+  {
+    id: 'c5',
+    name: 'Jordon Conners',
+    role: 'Veterinary Assistant / Housekeeping',
+    bio: 'Bio coming soon.',
+    image: jordonConners
+  },
+  {
+    id: 'c6',
+    name: 'Natalia Gutierrez Alvarez',
+    role: 'Veterinary Technician',
+    bio: 'Natalia was born in Colombia and has been helping animals for 10 years. She has her DVM title from the University of Antioquia in Medellin, Colombia. She moved to Canada seven years ago and has continued doing what she loves most: caring for animals. Her dream is to get her DVM license in North America.\n\nShe especially loves anesthesia because she enjoys helping dogs and cats stay comfortable and pain-free during illness and medical procedures. She has experience in general medicine and community medicine, including working at a clinic that helped clients with limited financial resources. Helping people and their pets is very important to her.\n\nShe lives in Ingersoll with the love of her life, Scott, and their pets: Bossa Nova, a Staffie, Mijo, an American Hairless, and Tigre, their cat.\n\nShe loves sea turtles, birdwatching, country life, seafood, tropical travel, and snorkeling. She also loves romantic literature and is currently reading The House of the Spirits by Isabel Allende.',
+    image: nataliaGutierrez,
+    imagePosition: 'right top'
   }
 ];
 export interface Testimonial {
