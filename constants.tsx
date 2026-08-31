@@ -1,6 +1,5 @@
 import React from 'react';
-import { Service, TeamMember, BlogPost } from './types';
-import Testimonial from './pages/Testimonials';
+import { Service, TeamMember, BlogPost, Testimonial } from './types';
 
 // Importing local images (Updated to .webp)
 // @ts-ignore
@@ -634,11 +633,6 @@ export const CARE_TEAM: TeamMember[] = [
     imagePosition: 'right top'
   }
 ];
-export interface Testimonial {
-  id: string;
-  name: string;
-  text: string;
-}
 
 export const TESTIMONIALS: Testimonial[] = [
   {

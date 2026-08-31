@@ -82,12 +82,9 @@ const Appointment: React.FC = () => {
     form.current.appendChild(typeInput);
     
      // KEYS
-     //@ts-ignore
-     const SERVICE_ID = import.meta.env as any.VITE_EMAIL_JS_SERVICE_ID;
-     //@ts-ignore
-     const TEMPLATE_ID = import.meta.env as any.VITE_EMAIL_JS_TEMPLATE_ID;
-     //@ts-ignore
-     const PUBLIC_KEY = import.meta.env as any.VITE_EMAIL_JS_PUBLIC_KEY;
+     const SERVICE_ID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID || import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+     const TEMPLATE_ID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID || import.meta.env.VITE_CONTACT_TEMPLATE_ID || '';
+     const PUBLIC_KEY = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
     
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)

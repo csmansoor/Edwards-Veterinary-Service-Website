@@ -160,9 +160,14 @@ const Home: React.FC = () => {
             <img src={bannerlogoImg} alt="Logo" className="w-24 h-24 md:w-32 md:h-32 object-contain mb-2 opacity-20" />
             <h1 className="text-5xl md:text-9xl font-black tracking-tighter leading-none uppercase opacity-20">EDWARDS</h1>
             <p className="text-xl md:text-5xl font-serif italic mb-6 md:mb-10 tracking-wide opacity-20">Veterinary Services</p>
-            <Link to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8" className="bg-[#008000] text-white px-6 py-3 md:px-10 md:py-4 md:text-xl font-bold uppercase tracking-widest hover:bg-green-700 transition shadow-lg transform hover:scale-105 rounded-md">
+            <a
+              href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#008000] text-white px-6 py-3 md:px-10 md:py-4 md:text-xl font-bold uppercase tracking-widest hover:bg-green-700 transition shadow-lg transform hover:scale-105 rounded-md"
+            >
               Book Appointment
-            </Link>
+            </a>
           </div>
         </div>
       </section>

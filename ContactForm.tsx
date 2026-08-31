@@ -16,14 +16,9 @@ const ContactForm = () => {
     setStatus('sending');
 
     // ---CONTACT FORM KEYS---
-    // @ts-ignore
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-
-    // @ts-ignore
-    const TEMPLATE_ID = import.meta.env.VITE_CONTACT_TEMPLATE_ID;
-
-    // @ts-ignore
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || import.meta.env.VITE_EMAIL_JS_SERVICE_ID || '';
+    const TEMPLATE_ID = import.meta.env.VITE_CONTACT_TEMPLATE_ID || import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID || '';
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY || '';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {
@@ -61,12 +56,14 @@ const ContactForm = () => {
           <p className="italic mb-10 opacity-90 text-lg">
             Experience the Edwards Veterinary Services difference.
           </p>
-          <Link
-            to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+          <a
+            href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-[#008000] hover:bg-[#006400] text-white font-black py-4 px-12 rounded-md uppercase transition-all shadow-xl text-lg"
           >
             Book an Appointment
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -124,12 +121,12 @@ const ContactForm = () => {
 
               {status === 'success' && (
                 <div className="mt-4 p-4 bg-green-50 text-green-700 rounded-lg font-bold border border-green-200">
-                  Γ£à Message sent successfully!
+                  ✅ Message sent successfully!
                 </div>
               )}
               {status === 'error' && (
                 <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-lg font-bold border border-red-200">
-                  Γ¥î Failed to send. Please call us directly.
+                  ❌ Failed to send. Please call us directly.
                 </div>
               )}
             </form>

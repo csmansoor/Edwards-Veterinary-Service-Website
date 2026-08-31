@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../ContactForm';
 import BottomBubbleMenu from './BottomBubbleMenu';
@@ -201,7 +201,7 @@ const Footer = () => (
 
     </div>
     <div className="container mx-auto px-4 mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-      <p>┬⌐ {new Date().getFullYear()} Edwards Veterinary Services.</p>
+      <p>© {new Date().getFullYear()} Edwards Veterinary Services.</p>
     </div>
   </footer>
 );

@@ -33,15 +33,17 @@ const BottomBubbleMenu = () => {
       <div className="flex flex-row items-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 shadow-2xl">
         
         {/* --- Book Appointment --- */}
-        <Link
-          to="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+        <a
+          href="https://app.petdesk.com/request-appointment/edwards-veterinary-services?placeGUID=bc716089-33b5-43a3-a9be-0aee8a4721b8"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 bg-[#008000] hover:bg-[#16a085] text-white px-3 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg transition-all active:scale-95 hover:-translate-y-1"
         >
           <span className="text-xs md:text-base">📅</span>
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
             Appointment
           </span>
-        </Link>
+        </a>
 
         {/* --- New Clients --- */}
         <Link

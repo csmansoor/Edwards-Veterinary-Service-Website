@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 declare module '*.png' {
   const src: string;
   export default src;
@@ -27,4 +29,18 @@ declare module '*.mp4' {
   const src: string;
   export default src;
 }
+
+interface ImportMetaEnv {
+  readonly VITE_EMAILJS_SERVICE_ID?: string;
+  readonly VITE_CONTACT_TEMPLATE_ID?: string;
+  readonly VITE_EMAILJS_PUBLIC_KEY?: string;
+  readonly VITE_EMAIL_JS_SERVICE_ID?: string;
+  readonly VITE_EMAIL_JS_TEMPLATE_ID?: string;
+  readonly VITE_EMAIL_JS_PUBLIC_KEY?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
 
