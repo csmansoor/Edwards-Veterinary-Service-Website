@@ -598,7 +598,7 @@ export const CARE_TEAM: TeamMember[] = [
   },
   {
     id: 'c2',
-    name: 'Wendy V. (Technician)',
+    name: 'Wendy V.',
     role: 'Veterinary Technician',
     bio: 'Wendy grew up in Tillsonburg and had a love for animals at an early age. Her many pets included cats, dogs, rabbits, birds, hamsters, and horses.\n\nShe graduated from Ridgetown College’s Veterinary Technician program in 1995 and was hired by Edwards Veterinary Services shortly after. She worked for a brief period before taking a break to start a family.\n\nShe was hired back in 2008 and has enjoyed working with the team ever since. She is dedicated to the comfort and well-being of patients and enjoys the laboratory diagnostics and surgical aspects of the profession.\n\nIn her spare time, she enjoys gardening, cuddling with her cat, and spending time with family and friends.',
     image: wendy
